@@ -1,0 +1,11 @@
+name: Python CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build and test
+        run: ./spawn_api.sh --rebuild --non_interactive --test

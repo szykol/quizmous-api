@@ -1,6 +1,6 @@
 CONTAINER="quizmous_api"
 ENTRYPOINT="--entrypoint bash"
-
+INTERACTIVE="-it"
 hash docker 2>/dev/null && echo "Docker is installed" || (echo "Docker is not installed. Please try again after installing Docker" && exit 1)
 
 echo "Stopping running container if exists"
@@ -18,6 +18,17 @@ do
             echo "Using ${CONTAINER} as a deamon"
             ENTRYPOINT=""
             ;;
+        --non_interactive)
+            echo "Using ${CONTAINER} with non-interactive mode"
+            INTERACTIVE=""
+            ;;
+        --test)
+            echo "Using ${CONTAINER} for tests only"
+            ENTRYPOINT=""
+            docker run ${INTERACTIVE} -v ${PWD}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} quizmous_api:dev python -m pytest test/*
+            RETVAL=$?
+            exit ${RETVAL}
+            ;;
         --*) echo "bad option $1"
             ;;
         *) echo "argument $1"
@@ -26,7 +37,7 @@ do
     shift
 done
 
-docker run -it -v ${PWD}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} quizmous_api:dev
+docker run ${INTERACTIVE} -v ${PWD}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} quizmous_api:dev
 if [ $? -ne 0 ]; then
     echo "Using cached version failed. Trying to build the image"
     docker build . -t quizmous_api:dev
