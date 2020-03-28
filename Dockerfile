@@ -13,4 +13,9 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ `grep -oP 'VERSION_CODENA
 RUN apt-get update
 RUN apt-get install -y vim nano tmux postgresql-client-12
 
+ENV PGUSER=api
+ENV PGDATABASE=quiz
+ENV PGPASSWORD=foobar
+ENV PGHOST=postgres_api
+
 CMD ["python", "./src/main.py"]

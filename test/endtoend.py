@@ -14,13 +14,18 @@ from datetime import datetime
 
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
+DSN = 'postgres://api:foobar@postgres_api:5432/_test'
 
 class EndpointBase(unittest.TestCase):
     def setUp(self):
+        self._restart_test_db()
         self.sb = subprocess.Popen('/usr/local/api/src/main.py')
         self._wait_for_port()
+        self.conn = psycopg2.connect(DSN)
+        self.cur = self.conn.cursor()
 
     def tearDown(self):
+        self.conn.close()
         self.sb.kill()
 
     def _wait_for_port(self, timeout=5, port=API_PORT):
@@ -34,6 +39,14 @@ class EndpointBase(unittest.TestCase):
             else:
                 return
         pytest.fail()
+
+    def _restart_test_db(self):
+        os.environ["SANIC_DBNAME"] = "_test"
+        queries = ["DROP DATABASE IF EXISTS _test", "CREATE DATABASE _test" ]
+        for q in queries:
+            subprocess.call(['psql', '-c {}'.format(q)], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        
+        subprocess.call(['psql', '-d_test', '-a', '-f/usr/local/api/dummy.sql'], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
     def _wrap_payload(self, payload):
         return jwt.encode(payload, 'serial', algorithm='HS256')
@@ -53,3 +66,11 @@ class EndpointTest(EndpointBase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(payload["name"], "quizmous_api")
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
+
+    def test_db_endpoint(self):
+        r = requests.get('http://localhost:8000/db_test')
+        self.assertEqual(r.status_code, 200)
+        payload = r.json()
+        
+        self.cur.execute(""" SELECT count(*) FROM dummy_tbl WHERE name='quizmous_api' """)
+        self.assertEqual(self.cur.fetchone()[0], 1)
