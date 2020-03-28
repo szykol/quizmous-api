@@ -1,0 +1,9 @@
+asyncpg==0.20.0
+PyJWT==1.7.1
+sanic==19.9.0
+pytest==5.3.1
+multidict==4.6.1
+psycopg2-binary
+toml==0.10.0
+passlib==1.7.2
+Sanic-Cors==0.10.0.post3
