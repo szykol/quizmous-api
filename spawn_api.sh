@@ -37,7 +37,7 @@ do
         --test)
             echo "Using ${CONTAINER} for tests only"
             ENTRYPOINT=""
-            docker run ${DETACHED} ${INTERACTIVE} -v ${THIS_DIR}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} --network ${NETWORK} quizmous_api:dev python -m pytest test/*
+            docker run ${DETACHED} ${INTERACTIVE} -v ${THIS_DIR}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} --network ${NETWORK} quizmous_api:dev python -m pytest test/* --disable-pytest-warnings
             RETVAL=$?
             exit ${RETVAL}
             ;;
