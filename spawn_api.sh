@@ -41,6 +41,12 @@ do
             RETVAL=$?
             exit ${RETVAL}
             ;;
+        --coverage)
+            echo "Using ${CONTAINER} with for coverage"
+            ENTRYPOINT=""
+            docker run ${DETACHED} ${INTERACTIVE} -v ${THIS_DIR}:/usr/local/api -p 8000:8000 --rm --name ${CONTAINER} ${ENTRYPOINT} --network ${NETWORK} quizmous_api:dev /bin/bash run_coverage.sh
+            exit 0
+            ;;
         --*) echo "bad option $1"
             ;;
         *) echo "argument $1"

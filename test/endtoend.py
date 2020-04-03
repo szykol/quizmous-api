@@ -19,14 +19,20 @@ DSN = 'postgres://api:foobar@postgres_api:5432/_test'
 class EndpointBase(unittest.TestCase):
     def setUp(self):
         self._restart_test_db()
-        self.sb = subprocess.Popen('/usr/local/api/src/main.py')
+        
+        self.coverage = os.getenv('API_TEST') == "coverage"
+        if not self.coverage:
+            self.sb = subprocess.Popen('/usr/local/api/src/main.py')
+        
         self._wait_for_port()
         self.conn = psycopg2.connect(DSN)
         self.cur = self.conn.cursor()
 
     def tearDown(self):
         self.conn.close()
-        self.sb.kill()
+
+        if not self.coverage:
+            self.sb.kill()
 
     def _wait_for_port(self, timeout=5, port=API_PORT):
         tout = time.monotonic() + timeout
