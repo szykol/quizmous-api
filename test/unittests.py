@@ -5,9 +5,11 @@ import asyncpg
 from ddt import ddt, data, unpack
 import os, sys
 import pytest
+import json
 
 from src.response import Responses, create_response
 from src.db import DB
+from src.server import app, test, db_test
 
 class UnitTestsBase(TestCase):
     def setUp(self):
@@ -51,7 +53,32 @@ class AsyncDBUnitTest(asynctest.TestCase):
         pool = DB.get_pool()
         self.assertIsNone(pool)
 
+class AsyncMainTest(asynctest.TestCase):
+    async def test_root_endpoint(self):
+        mock_request = mock.Mock(request.Request)
 
+        resp = await test(mock_request)
+        self.assertIsNotNone(resp) 
+        self.assertIsInstance(resp, response.HTTPResponse)
+        payload = json.loads(resp.body)
+        self.assertIsNotNone(payload)
+        self.assertEqual(payload['name'], 'quizmous_api')
+        self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
+    
+    @mock.patch('src.db.db.asyncpg.pool.Pool.execute', new_callable=mock.AsyncMock)
+    async def test_test_db_endpoint(self, mock_execute):
+        mock_request = mock.Mock(request.Request)
+        resp = await db_test(mock_request)
+
+        self.assertIsNotNone(resp) 
+        self.assertIsInstance(resp, response.HTTPResponse)
+
+        payload = json.loads(resp.body)
+        self.assertIsNotNone(payload)
+        self.assertEqual(payload['status'], 'ok')
+        self.assertEqual(resp.status, 200)
+
+        mock_execute.assert_called_with(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
 
 if __name__ == "__main__":
     unittest.main()
