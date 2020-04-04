@@ -1,13 +1,13 @@
 from unittest import TestCase, mock
 import asynctest
 from sanic import response, request
+import asyncpg
 from ddt import ddt, data, unpack
 import os, sys
 import pytest
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.response import Responses, create_response
-from src.db import DB, asyncpg
+from src.db import DB
 
 class UnitTestsBase(TestCase):
     def setUp(self):
@@ -29,13 +29,13 @@ class ResponseUnitTest(UnitTestsBase):
         self.assertEqual(resp.status, input_response.value["status"])
 
 class AsyncDBUnitTest(asynctest.TestCase):
-    @mock.patch('src.db.asyncpg.create_pool', new_callable=mock.AsyncMock)
+    @mock.patch('src.db.db.asyncpg.create_pool', new_callable=mock.AsyncMock)
     async def test_create_pool(self, mockpg):
         DSN = 'unit://unit:unit@unit:5432/_unit'
         await DB.init(dsn=DSN)
         mockpg.assert_called_with(dsn=DSN)
 
-    @mock.patch('src.db.asyncpg.create_pool', new_callable=mock.AsyncMock)
+    @mock.patch('src.db.db.asyncpg.create_pool', new_callable=mock.AsyncMock)
     async def test_get_pool(self, mockpg):
         DSN = 'unit://unit:unit@unit:5432/_unit'
         mocked_pool = mock.Mock(asyncpg.pool.Pool)
