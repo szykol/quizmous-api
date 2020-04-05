@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: update build number
         run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
       - name: commit updated version
@@ -17,7 +21,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "${GITHUB_REF##*/}"
+          branch: ${{ steps.extract_branch.outputs.branch }}
       - name: Create Release
         uses: actions/create-release@latest
         env:
