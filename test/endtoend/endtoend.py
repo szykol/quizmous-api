@@ -22,7 +22,7 @@ class EndpointBase(unittest.TestCase):
         
         self.coverage = os.getenv('API_TEST') == "coverage"
         if not self.coverage:
-            self.sb = subprocess.Popen('/usr/local/api/src/main.py')
+            self.sb = subprocess.Popen('/usr/local/api/api.py')
         
         self._wait_for_port()
         self.conn = psycopg2.connect(DSN)

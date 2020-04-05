@@ -1,0 +1,3 @@
+[run]
+source = quizmous_api,.
+omit = test/*

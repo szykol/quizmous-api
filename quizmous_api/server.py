@@ -1,7 +1,7 @@
 from sanic import Sanic
 from sanic.response import json
 from sanic_cors import CORS, cross_origin
-from ..db import DB
+from .db import DB
 import jwt
 
 app = Sanic()
