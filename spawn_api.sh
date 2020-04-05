@@ -13,7 +13,7 @@ docker rm ${CONTAINER} postgres_api 2>/dev/null
 docker network create ${NETWORK}
 
 echo "Creating postgres container"
-docker run -d --name postgres_api --rm --network ${NETWORK} -v ${THIS_DIR}/dummy.sql:/docker-entrypoint-initdb.d/schema.sql -e POSTGRES_USER=api -e POSTGRES_DB=quiz -e POSTGRES_PASSWORD=foobar postgres:12 || (echo "Running postgres container failed. Aborting" && exit 1)
+docker run -d --name postgres_api --rm --network ${NETWORK} -v ${THIS_DIR}/schema.sql:/docker-entrypoint-initdb.d/schema.sql -e POSTGRES_USER=api -e POSTGRES_DB=quiz -e POSTGRES_PASSWORD=foobar postgres:12 || (echo "Running postgres container failed. Aborting" && exit 1)
 
 while test $# -gt 0
 do
