@@ -12,6 +12,8 @@ jobs:
         id: extract_branch
       - name: update build number
         run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
+      - name: Tag
+        run: git tag -a "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )"
       - name: commit updated version
         run: |
           git config --global user.name 'szykol'
@@ -22,11 +24,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.extract_branch.outputs.branch }}
-      - name: Create Release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        with:
-          tag_name: "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )"
-          draft: false
-          prerelease: false
