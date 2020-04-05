@@ -2,16 +2,20 @@ from sanic import Sanic
 from sanic.response import json
 from sanic_cors import CORS, cross_origin
 from .db import DB
+from .version import get_api_version
 import jwt
 
 app = Sanic()
 CORS(app)
 DBNAME = app.config['DBNAME'] if "DBNAME" in app.config else 'quiz' 
 DSN = 'postgres://api:foobar@postgres_api:5432/{}'.format(DBNAME)
+VERSION = get_api_version()
 
 @app.route("/", methods=['GET', 'OPTIONS'])
 async def test(request):
-    return json(body={"name": "quizmous_api", "version": "0.0.1"}, status=200)
+    body = {"name": "quizmous_api"}
+    body.update(VERSION)
+    return json(body=body, status=200)
 
 @app.route("/db_test", methods=['GET', 'OPTIONS'])
 async def db_test(request):

@@ -11,6 +11,7 @@ import json
 from quizmous_api.response import Responses, create_response
 from quizmous_api.db import DB
 from quizmous_api.server import app, test, db_test
+from quizmous_api.version import get_api_version
 
 class UnitTestsBase(TestCase):
     def setUp(self):
@@ -65,7 +66,8 @@ class AsyncMainTest(asynctest.TestCase):
         self.assertIsNotNone(payload)
         self.assertEqual(payload['name'], 'quizmous_api')
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
-    
+        self.assertIsInstance(payload["build"], int)
+
     @mock.patch('quizmous_api.db.asyncpg.pool.Pool.execute', new_callable=mock.AsyncMock)
     async def test_test_db_endpoint(self, mock_execute):
         mock_request = mock.Mock(request.Request)
@@ -80,6 +82,21 @@ class AsyncMainTest(asynctest.TestCase):
         self.assertEqual(resp.status, 200)
 
         mock_execute.assert_called_with(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
+
+class AsyncVersionTest(UnitTestsBase):
+    @mock.patch('quizmous_api.version.open') 
+    @mock.patch('quizmous_api.version.load', new_callable=mock.MagicMock)
+    def test_get_version(self, mockload, mockopen):
+        # mock_dict = mock.Mock({"version": "0.0.10", "build": 25})
+        mockload.return_value = {"version": "0.0.10", "build": 25}
+        # mockload.return_value(mock_dict)
+        version = get_api_version()
+        mockopen.assert_called_with("/usr/local/api/version.json", "r")
+        self.assertIsInstance(version, dict)
+        self.assertRegex(version["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
+        self.assertIsInstance(version["build"], int)
+        
+        
 
 if __name__ == "__main__":
     unittest.main()
