@@ -17,7 +17,7 @@ jobs:
           git config --global user.name 'szykol'
           git config --global user.email 'szymonkolton@gmail.com'
       - name: Tag
-        run: git tag -a "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )"
+        run: git tag -a "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )" -m "BUILD $( jq '.build' < version.json )"
       - name: commit updated version
         run: 
           git commit -am "BUILD $( jq '.build' < version.json )"
