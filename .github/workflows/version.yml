@@ -1,0 +1,28 @@
+name: Version
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: update build number
+        run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
+      - name: git config
+        run: |
+          git config --global user.name 'szykol'
+          git config --global user.email 'szymonkolton@gmail.com'
+      - name: Tag
+        run: git tag -a "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )" -m "BUILD $( jq '.build' < version.json )"
+      - name: commit updated version
+        run: 
+          git commit -am "BUILD $( jq '.build' < version.json )"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.extract_branch.outputs.branch }}
