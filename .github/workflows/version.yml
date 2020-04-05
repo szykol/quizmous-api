@@ -1,8 +1,5 @@
 name: Version
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   build:
@@ -15,12 +12,15 @@ jobs:
         id: extract_branch
       - name: update build number
         run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
-      - name: git config
+      - name: git config szykol
         run: |
           git config --global user.name 'szykol'
           git config --global user.email 'szymonkolton@gmail.com'
       - name: Tag
         run: git tag -a "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )" -m "BUILD $( jq '.build' < version.json )"
+      - name: git config builder
+        run: |
+          git config --global user.name 'Build Bot'
       - name: commit updated version
         run: 
           git commit -am "BUILD $( jq '.build' < version.json )"
