@@ -1,5 +1,4 @@
-name: Python CI
-
+name: Version
 on: [push]
 
 jobs:
@@ -11,14 +10,14 @@ jobs:
         run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
       - name: commit updated version
         run: |
-          git add version.json
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
+          git config --global user.name 'szykol'
+          git config --global user.email 'szymonkolton@gmail.com'
           git commit -am "BUILD $( jq '.build' < version.json )"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${GITHUB_REF##*/}
       - name: Create Release
         uses: actions/create-release@latest
         env:
