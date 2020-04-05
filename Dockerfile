@@ -1,7 +1,7 @@
 FROM python:3
 
 WORKDIR /usr/local/api
-COPY src ./
+COPY quizmous_api ./
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -18,4 +18,4 @@ ENV PGDATABASE=quiz
 ENV PGPASSWORD=foobar
 ENV PGHOST=postgres_api
 
-CMD ["python", "./src/main.py"]
+CMD ["python", "./api.py"]
