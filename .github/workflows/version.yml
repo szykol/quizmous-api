@@ -1,0 +1,29 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: update build number
+        run:  cat <<< "$(jq '.build=(.build+1)' < version.json )" > version.json
+      - name: commit updated version
+        run: |
+          git add version.json
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-username@users.noreply.github.com'
+          git commit -am "BUILD $( jq '.build' < version.json )"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: "v$( jq -r '.version' < version.json )-$( jq '.build' < version.json )"
+          draft: false
+          prerelease: false
