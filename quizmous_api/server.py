@@ -21,5 +21,6 @@ async def test(request):
 async def db_test(request):
     await DB.init(dsn=DSN)
     await DB.get_pool().execute(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
-
-    return json(body={"status": "ok"}, status=200)
+    questions = await DB.get_pool().fetch(""" SELECT * FROM quiz_question WHERE quiz_id=$1""", 1)
+    questions = [dict(q) for q in questions]
+    return json(body={"questions": questions}, status=200)

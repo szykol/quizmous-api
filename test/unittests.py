@@ -78,7 +78,8 @@ class AsyncMainTest(asynctest.TestCase):
 
         payload = json.loads(resp.body)
         self.assertIsNotNone(payload)
-        self.assertEqual(payload['status'], 'ok')
+        self.assertIsNotNone(payload["questions"])
+        self.assertIsInstance(payload['questions'], list)
         self.assertEqual(resp.status, 200)
 
         mock_execute.assert_called_with(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")

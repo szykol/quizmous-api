@@ -11,6 +11,7 @@ import re
 from urllib3.exceptions import NewConnectionError
 from copy import deepcopy
 from datetime import datetime
+from psycopg2.extras import RealDictCursor
 
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
@@ -52,7 +53,7 @@ class EndpointBase(unittest.TestCase):
         for q in queries:
             subprocess.call(['psql', '-c {}'.format(q)], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         
-        subprocess.call(['psql', '-d_test', '-a', '-f/usr/local/api/dummy.sql'], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+        subprocess.call(['psql', '-d_test', '-a', '-f/usr/local/api/schema.sql'], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
     def _wrap_payload(self, payload):
         return jwt.encode(payload, 'serial', algorithm='HS256')
@@ -78,5 +79,8 @@ class EndpointTest(EndpointBase):
         self.assertEqual(r.status_code, 200)
         payload = r.json()
         
-        self.cur.execute(""" SELECT count(*) FROM dummy_tbl WHERE name='quizmous_api' """)
-        self.assertEqual(self.cur.fetchone()[0], 1)
+        cur = self.conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute(""" SELECT * FROM quiz_question WHERE quiz_id=1 """)
+        questions = cur.fetchall()
+        questions = [dict(q) for q in questions]
+        self.assertEqual(payload['questions'], questions)
