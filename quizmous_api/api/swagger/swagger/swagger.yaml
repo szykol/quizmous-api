@@ -1,3 +1,4 @@
+---
 swagger: "2.0"
 info:
   description: "This is a documentation for Quizmous API"
@@ -20,76 +21,80 @@ schemes:
 - "http"
 paths:
   /quiz:
-    post:
-      tags:
-      - "quiz"
-      summary: "Add a new quiz to backend"
-      description: ""
-      operationId: "addQuiz"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Quiz object that gets added to backend"
-        required: true
-        schema:
-          $ref: "#/definitions/Quiz"
-      responses:
-        405:
-          description: "Invalid input"
-        409:
-          description: "Quiz already exists"
-    put:
-      tags:
-      - "quiz"
-      summary: "Update an existing Quiz"
-      description: ""
-      operationId: "updateQuiz"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Quiz object that gets added to backend"
-        required: true
-        schema:
-          $ref: "#/definitions/Quiz"
-      responses:
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Quiz not found"
-        405:
-          description: "Validation exception"
     get:
       tags:
       - "quiz"
       summary: "Return all existing Quizes"
       description: ""
-      operationId: "getQuiz"
+      operationId: "get_quiz"
       consumes:
       - "application/json"
       produces:
       - "application/json"
+      parameters: []
       responses:
-        200:
+        "200":
           description: "Successful operation"
           schema:
             type: "array"
             items:
               $ref: "#/definitions/Question"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
+    post:
+      tags:
+      - "quiz"
+      summary: "Add a new quiz to backend"
+      description: ""
+      operationId: "add_quiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Quiz object that gets added to backend"
+        required: true
+        schema:
+          $ref: "#/definitions/Quiz"
+      responses:
+        "405":
+          description: "Invalid input"
+        "409":
+          description: "Quiz already exists"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
+    put:
+      tags:
+      - "quiz"
+      summary: "Update an existing Quiz"
+      description: ""
+      operationId: "update_quiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Quiz object that gets added to backend"
+        required: true
+        schema:
+          $ref: "#/definitions/Quiz"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Quiz not found"
+        "405":
+          description: "Validation exception"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
   /quiz/{id}:
     get:
       tags:
       - "quiz"
       summary: "Find Quiz by ID"
       description: "Returns a single quiz"
-      operationId: "getQuizById"
+      operationId: "get_quiz_by_id"
       produces:
       - "application/json"
       parameters:
@@ -100,20 +105,21 @@ paths:
         type: "integer"
         format: "int64"
       responses:
-        200:
+        "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Quiz"
-        400:
+        "400":
           description: "Invalid ID supplied"
-        404:
+        "404":
           description: "Quiz not found"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
     delete:
       tags:
       - "quiz"
       summary: "Deletes a Quiz"
       description: ""
-      operationId: "deleteQuiz"
+      operationId: "delete_quiz"
       produces:
       - "application/json"
       parameters:
@@ -124,19 +130,20 @@ paths:
         type: "integer"
         format: "int64"
       responses:
-        200:
+        "200":
           description: "Successful deletion"
-        400:
+        "400":
           description: "Invalid ID supplied"
-        404:
+        "404":
           description: "Quiz not found"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
   /user/register:
     post:
       tags:
       - "user"
       summary: "Create user"
       description: "Register new user."
-      operationId: "createUser"
+      operationId: "create_user"
       produces:
       - "application/json"
       parameters:
@@ -147,20 +154,21 @@ paths:
         schema:
           $ref: "#/definitions/PostUser"
       responses:
-        201:
+        "201":
           description: "Successful register"
           schema:
             $ref: "#/definitions/GetUser"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
   /user/login:
     post:
       tags:
       - "user"
       summary: "Logs user into the system"
       description: ""
-      operationId: "loginUser"
-      produces:
-      - "application/json"
+      operationId: "login_user"
       consumes:
+      - "application/json"
+      produces:
       - "application/json"
       parameters:
       - in: "body"
@@ -170,17 +178,18 @@ paths:
         schema:
           $ref: "#/definitions/PostUser"
       responses:
-        200:
+        "200":
           description: "successful operation"
-        400:
+        "400":
           description: "Invalid username/password supplied"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
   /user/logout:
     post:
       tags:
       - "user"
       summary: "Logs out current logged in user session"
       description: ""
-      operationId: "logoutUser"
+      operationId: "logout_user"
       produces:
       - "application/json"
       parameters:
@@ -191,16 +200,17 @@ paths:
         schema:
           $ref: "#/definitions/PostUser"
       responses:
-        200:
+        "200":
           description: "successful operation"
-        400:
+        "400":
           description: "Invalid username/password supplied"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
     delete:
       tags:
       - "user"
       summary: "Delete user"
       description: "This can only be done by the logged in user."
-      operationId: "deleteUser"
+      operationId: "delete_user"
       produces:
       - "application/json"
       parameters:
@@ -211,10 +221,11 @@ paths:
         schema:
           $ref: "#/definitions/PostUser"
       responses:
-        200:
+        "200":
           description: "successful operation"
-        400:
+        "400":
           description: "Invalid username/password supplied"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
 definitions:
   Quiz:
     type: "object"
@@ -234,6 +245,32 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Question"
+    example:
+      author:
+        nick: "nick"
+        id: 6
+      name: "Best Quiz Ever"
+      questions:
+      - question: "question"
+        answers:
+        - answer: "answer"
+          id: 6
+        - answer: "answer"
+          id: 6
+        id: 0
+        type: {}
+        required: true
+      - question: "question"
+        answers:
+        - answer: "answer"
+          id: 6
+        - answer: "answer"
+          id: 6
+        id: 0
+        type: {}
+        required: true
+      description: "This is a description of best quiz ever"
+      id: 0
   Question:
     type: "object"
     properties:
@@ -250,10 +287,23 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Answer"
+    example:
+      question: "question"
+      answers:
+      - answer: "answer"
+        id: 6
+      - answer: "answer"
+        id: 6
+      id: 0
+      type: {}
+      required: true
   QuestionType:
     type: "string"
-    enum: [yes_no, radio, choice, open]
-      
+    enum:
+    - "yes_no"
+    - "radio"
+    - "choice"
+    - "open"
   Answer:
     type: "object"
     properties:
@@ -262,7 +312,9 @@ definitions:
         format: "int64"
       answer:
         type: "string"
-  
+    example:
+      answer: "answer"
+      id: 6
   GetUser:
     type: "object"
     properties:
@@ -271,7 +323,9 @@ definitions:
         format: "int64"
       nick:
         type: "string"
-  
+    example:
+      nick: "nick"
+      id: 6
   PostUser:
     type: "object"
     properties:
@@ -280,7 +334,9 @@ definitions:
       password:
         type: "string"
         description: "This has to be hashed"
-        
+    example:
+      nick: "nick"
+      password: "password"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
