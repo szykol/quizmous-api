@@ -1,0 +1,286 @@
+swagger: "2.0"
+info:
+  description: "This is a documentation for Quizmous API"
+  version: "0.0.1"
+  title: "Quizmous API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "MIT"
+    url: "https://github.com/szykol/quizmous-api/blob/master/LICENSE"
+host: "localhost"
+tags:
+- name: "quiz"
+  description: "Cool Anonymous Quizes"
+  externalDocs:
+    description: "GitHub"
+    url: "https://github.com/szykol/quizmous-api"
+schemes:
+- "http"
+paths:
+  /quiz:
+    post:
+      tags:
+      - "quiz"
+      summary: "Add a new quiz to backend"
+      description: ""
+      operationId: "addQuiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Quiz object that gets added to backend"
+        required: true
+        schema:
+          $ref: "#/definitions/Quiz"
+      responses:
+        405:
+          description: "Invalid input"
+        409:
+          description: "Quiz already exists"
+    put:
+      tags:
+      - "quiz"
+      summary: "Update an existing Quiz"
+      description: ""
+      operationId: "updateQuiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Quiz object that gets added to backend"
+        required: true
+        schema:
+          $ref: "#/definitions/Quiz"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Quiz not found"
+        405:
+          description: "Validation exception"
+    get:
+      tags:
+      - "quiz"
+      summary: "Return all existing Quizes"
+      description: ""
+      operationId: "getQuiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Question"
+  /quiz/{id}:
+    get:
+      tags:
+      - "quiz"
+      summary: "Find Quiz by ID"
+      description: "Returns a single quiz"
+      operationId: "getQuizById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of quiz to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Quiz"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Quiz not found"
+    delete:
+      tags:
+      - "quiz"
+      summary: "Deletes a Quiz"
+      description: ""
+      operationId: "deleteQuiz"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Quiz id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "Successful deletion"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Quiz not found"
+  /user/register:
+    post:
+      tags:
+      - "user"
+      summary: "Create user"
+      description: "Register new user."
+      operationId: "createUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/PostUser"
+      responses:
+        201:
+          description: "Successful register"
+          schema:
+            $ref: "#/definitions/GetUser"
+  /user/login:
+    post:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Registered user"
+        required: true
+        schema:
+          $ref: "#/definitions/PostUser"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid username/password supplied"
+  /user/logout:
+    post:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Registered user"
+        required: true
+        schema:
+          $ref: "#/definitions/PostUser"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid username/password supplied"
+    delete:
+      tags:
+      - "user"
+      summary: "Delete user"
+      description: "This can only be done by the logged in user."
+      operationId: "deleteUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Registered user"
+        required: true
+        schema:
+          $ref: "#/definitions/PostUser"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid username/password supplied"
+definitions:
+  Quiz:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      author:
+        $ref: "#/definitions/GetUser"
+      name:
+        type: "string"
+        example: "Best Quiz Ever"
+      description:
+        type: "string"
+        example: "This is a description of best quiz ever"
+      questions:
+        type: "array"
+        items:
+          $ref: "#/definitions/Question"
+  Question:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      question:
+        type: "string"
+      type:
+        $ref: "#/definitions/QuestionType"
+      required:
+        type: "boolean"
+      answers:
+        type: "array"
+        items:
+          $ref: "#/definitions/Answer"
+  QuestionType:
+    type: "string"
+    enum: [yes_no, radio, choice, open]
+      
+  Answer:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      answer:
+        type: "string"
+  
+  GetUser:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      nick:
+        type: "string"
+  
+  PostUser:
+    type: "object"
+    properties:
+      nick:
+        type: "string"
+      password:
+        type: "string"
+        description: "This has to be hashed"
+        
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
