@@ -18,4 +18,4 @@ ENV PGDATABASE=quiz
 ENV PGPASSWORD=foobar
 ENV PGHOST=postgres_api
 
-CMD ["python", "./api.py"]
+CMD ["python", "./run.py"]
