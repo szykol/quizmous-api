@@ -10,7 +10,7 @@ import json
 
 from quizmous_api.response import Responses, create_response
 from quizmous_api.db import DB
-from quizmous_api.server import app, test, db_test
+from quizmous_api.server import app, test, get_quiz
 from quizmous_api.version import get_api_version
 
 class UnitTestsBase(TestCase):
@@ -68,21 +68,13 @@ class AsyncMainTest(asynctest.TestCase):
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
         self.assertIsInstance(payload["build"], int)
 
+    @pytest.mark.skip("Write tests for quiz endpoint with mocked db")
     @mock.patch('quizmous_api.db.asyncpg.pool.Pool.execute', new_callable=mock.AsyncMock)
-    async def test_test_db_endpoint(self, mock_execute):
+    async def test_test_get_quiz_endpoint(self, mock_execute):
         mock_request = mock.Mock(request.Request)
-        resp = await db_test(mock_request)
+        await get_quiz(mock_request)
 
-        self.assertIsNotNone(resp) 
-        self.assertIsInstance(resp, response.HTTPResponse)
-
-        payload = json.loads(resp.body)
-        self.assertIsNotNone(payload)
-        self.assertIsNotNone(payload["questions"])
-        self.assertIsInstance(payload['questions'], list)
-        self.assertEqual(resp.status, 200)
-
-        mock_execute.assert_called_with(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
+        pytest.fail("Not done yet")
 
 class AsyncVersionTest(UnitTestsBase):
     @mock.patch('quizmous_api.version.open') 

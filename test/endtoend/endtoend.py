@@ -13,6 +13,8 @@ from copy import deepcopy
 from datetime import datetime
 from psycopg2.extras import RealDictCursor
 
+from quizmous_api.api.swagger.models.quiz import Quiz
+
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
 DSN = 'postgres://api:foobar@postgres_api:5432/_test'
@@ -23,7 +25,7 @@ class EndpointBase(unittest.TestCase):
         
         self.coverage = os.getenv('API_TEST') == "coverage"
         if not self.coverage:
-            self.sb = subprocess.Popen('/usr/local/api/api.py')
+            self.sb = subprocess.Popen('/usr/local/api/run.py')
         
         self._wait_for_port()
         self.conn = psycopg2.connect(DSN)
@@ -74,13 +76,33 @@ class EndpointTest(EndpointBase):
         self.assertEqual(payload["name"], "quizmous_api")
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
 
-    def test_db_endpoint(self):
-        r = requests.get('http://localhost:8000/db_test')
+    def test_get_quiz_endpoint(self):
+        r = requests.get('http://localhost:8000/quiz')
         self.assertEqual(r.status_code, 200)
         payload = r.json()
         
+        # Check if fits the model
+        quiz_model = Quiz.from_dict(payload)
+
         cur = self.conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-        cur.execute(""" SELECT * FROM quiz_question WHERE quiz_id=1 """)
-        questions = cur.fetchall()
-        questions = [dict(q) for q in questions]
-        self.assertEqual(payload['questions'], questions)
+        cur.execute(""" SELECT * FROM quiz """)
+        quizes = cur.fetchall()
+        quizes = [dict(q) for q in quizes]
+        for quiz in quizes:
+            cur.execute(""" SELECT * FROM quiz_question WHERE quiz_id={}""".format(quiz["quiz_id"]))
+            questions = cur.fetchall()
+            questions = [dict(q) for q in questions]
+            for question in questions:
+                answers = cur.execute(""" SELECT * FROM quiz_answer WHERE question_id={}""".format(question["question_id"]))
+                answers = cur.fetchall()
+                answers = [dict(a) for a in answers]
+                for answer in answers:
+                    del answer["question_id"]
+                question["answers"] = answers
+                del question["quiz_id"]
+            quiz["questions"] = questions
+            author = cur.execute(""" SELECT user_id, nick from users WHERE user_id={} """.format(quiz["author"]))
+            author = cur.fetchall()
+            quiz["author"] = dict(author[0])
+        
+        self.assertEqual(payload, quizes)

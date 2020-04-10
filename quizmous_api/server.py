@@ -3,6 +3,10 @@ from sanic.response import json
 from sanic_cors import CORS, cross_origin
 from .db import DB
 from .version import get_api_version
+from .api.swagger.models.question import Question
+from .api.swagger.models.quiz import Quiz
+from .api.swagger.models.question_type import QuestionType
+
 import jwt
 
 app = Sanic()
@@ -17,10 +21,24 @@ async def test(request):
     body.update(VERSION)
     return json(body=body, status=200)
 
-@app.route("/db_test", methods=['GET', 'OPTIONS'])
-async def db_test(request):
+@app.route("/quiz", methods=['GET', 'OPTIONS'])
+async def get_quiz(request):
     await DB.init(dsn=DSN)
-    await DB.get_pool().execute(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
-    questions = await DB.get_pool().fetch(""" SELECT * FROM quiz_question WHERE quiz_id=$1""", 1)
-    questions = [dict(q) for q in questions]
-    return json(body={"questions": questions}, status=200)
+    
+    quizes = await DB.get_pool().fetch(""" SELECT * FROM quiz """)
+    quizes = [dict(q) for q in quizes]
+    for quiz in quizes:
+        questions = await DB.get_pool().fetch(""" SELECT * FROM quiz_question WHERE quiz_id=$1""", quiz["quiz_id"])
+        questions = [dict(q) for q in questions]
+        for question in questions:
+            answers = await DB.get_pool().fetch(""" SELECT * FROM quiz_answer WHERE question_id=$1""", question["question_id"])
+            answers = [dict(a) for a in answers]
+            question["answers"] = answers
+            question["type"] = QuestionType.from_dict(question["type"])
+        quiz["questions"] = questions
+        author = await DB.get_pool().fetch(""" SELECT user_id, nick from users WHERE user_id=$1 """, quiz["author"])
+        quiz["author"] = dict(author[0])
+
+    # Validate returned object is correct
+    quizes = [Quiz.from_dict(quiz) for quiz in quizes]
+    return json(body=[quiz.to_dict() for quiz in quizes], status=200)
