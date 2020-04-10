@@ -17,11 +17,11 @@ class Quiz(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, author: GetUser=None, name: str=None, description: str=None, questions: List[Question]=None):  # noqa: E501
+    def __init__(self, quiz_id: int=None, author: GetUser=None, name: str=None, description: str=None, questions: List[Question]=None):  # noqa: E501
         """Quiz - a model defined in Swagger
 
-        :param id: The id of this Quiz.  # noqa: E501
-        :type id: int
+        :param quiz_id: The quiz_id of this Quiz.  # noqa: E501
+        :type quiz_id: int
         :param author: The author of this Quiz.  # noqa: E501
         :type author: GetUser
         :param name: The name of this Quiz.  # noqa: E501
@@ -32,7 +32,7 @@ class Quiz(Model):
         :type questions: List[Question]
         """
         self.swagger_types = {
-            'id': int,
+            'quiz_id': int,
             'author': GetUser,
             'name': str,
             'description': str,
@@ -40,14 +40,14 @@ class Quiz(Model):
         }
 
         self.attribute_map = {
-            'id': 'id',
+            'quiz_id': 'quiz_id',
             'author': 'author',
             'name': 'name',
             'description': 'description',
             'questions': 'questions'
         }
 
-        self._id = id
+        self._quiz_id = quiz_id
         self._author = author
         self._name = name
         self._description = description
@@ -65,25 +65,25 @@ class Quiz(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> int:
-        """Gets the id of this Quiz.
+    def quiz_id(self) -> int:
+        """Gets the quiz_id of this Quiz.
 
 
-        :return: The id of this Quiz.
+        :return: The quiz_id of this Quiz.
         :rtype: int
         """
-        return self._id
+        return self._quiz_id
 
-    @id.setter
-    def id(self, id: int):
-        """Sets the id of this Quiz.
+    @quiz_id.setter
+    def quiz_id(self, quiz_id: int):
+        """Sets the quiz_id of this Quiz.
 
 
-        :param id: The id of this Quiz.
-        :type id: int
+        :param quiz_id: The quiz_id of this Quiz.
+        :type quiz_id: int
         """
 
-        self._id = id
+        self._quiz_id = quiz_id
 
     @property
     def author(self) -> GetUser:

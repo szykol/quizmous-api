@@ -15,25 +15,25 @@ class Answer(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, answer: str=None):  # noqa: E501
+    def __init__(self, answer_id: int=None, answer: str=None):  # noqa: E501
         """Answer - a model defined in Swagger
 
-        :param id: The id of this Answer.  # noqa: E501
-        :type id: int
+        :param answer_id: The answer_id of this Answer.  # noqa: E501
+        :type answer_id: int
         :param answer: The answer of this Answer.  # noqa: E501
         :type answer: str
         """
         self.swagger_types = {
-            'id': int,
+            'answer_id': int,
             'answer': str
         }
 
         self.attribute_map = {
-            'id': 'id',
+            'answer_id': 'answer_id',
             'answer': 'answer'
         }
 
-        self._id = id
+        self._answer_id = answer_id
         self._answer = answer
 
     @classmethod
@@ -48,25 +48,25 @@ class Answer(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> int:
-        """Gets the id of this Answer.
+    def answer_id(self) -> int:
+        """Gets the answer_id of this Answer.
 
 
-        :return: The id of this Answer.
+        :return: The answer_id of this Answer.
         :rtype: int
         """
-        return self._id
+        return self._answer_id
 
-    @id.setter
-    def id(self, id: int):
-        """Sets the id of this Answer.
+    @answer_id.setter
+    def answer_id(self, answer_id: int):
+        """Sets the answer_id of this Answer.
 
 
-        :param id: The id of this Answer.
-        :type id: int
+        :param answer_id: The answer_id of this Answer.
+        :type answer_id: int
         """
 
-        self._id = id
+        self._answer_id = answer_id
 
     @property
     def answer(self) -> str:

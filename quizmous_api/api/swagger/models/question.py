@@ -17,11 +17,11 @@ class Question(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, question: str=None, type: QuestionType=None, required: bool=None, answers: List[Answer]=None):  # noqa: E501
+    def __init__(self, question_id: int=None, question: str=None, type: QuestionType=None, required: bool=None, answers: List[Answer]=None):  # noqa: E501
         """Question - a model defined in Swagger
 
-        :param id: The id of this Question.  # noqa: E501
-        :type id: int
+        :param question_id: The question_id of this Question.  # noqa: E501
+        :type question_id: int
         :param question: The question of this Question.  # noqa: E501
         :type question: str
         :param type: The type of this Question.  # noqa: E501
@@ -32,7 +32,7 @@ class Question(Model):
         :type answers: List[Answer]
         """
         self.swagger_types = {
-            'id': int,
+            'question_id': int,
             'question': str,
             'type': QuestionType,
             'required': bool,
@@ -40,14 +40,14 @@ class Question(Model):
         }
 
         self.attribute_map = {
-            'id': 'id',
+            'question_id': 'question_id',
             'question': 'question',
             'type': 'type',
             'required': 'required',
             'answers': 'answers'
         }
 
-        self._id = id
+        self._question_id = question_id
         self._question = question
         self._type = type
         self._required = required
@@ -65,25 +65,25 @@ class Question(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> int:
-        """Gets the id of this Question.
+    def question_id(self) -> int:
+        """Gets the question_id of this Question.
 
 
-        :return: The id of this Question.
+        :return: The question_id of this Question.
         :rtype: int
         """
-        return self._id
+        return self._question_id
 
-    @id.setter
-    def id(self, id: int):
-        """Sets the id of this Question.
+    @question_id.setter
+    def question_id(self, question_id: int):
+        """Sets the question_id of this Question.
 
 
-        :param id: The id of this Question.
-        :type id: int
+        :param question_id: The question_id of this Question.
+        :type question_id: int
         """
 
-        self._id = id
+        self._question_id = question_id
 
     @property
     def question(self) -> str:

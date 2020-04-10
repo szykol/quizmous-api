@@ -15,25 +15,25 @@ class GetUser(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, nick: str=None):  # noqa: E501
+    def __init__(self, user_id: int=None, nick: str=None):  # noqa: E501
         """GetUser - a model defined in Swagger
 
-        :param id: The id of this GetUser.  # noqa: E501
-        :type id: int
+        :param user_id: The user_id of this GetUser.  # noqa: E501
+        :type user_id: int
         :param nick: The nick of this GetUser.  # noqa: E501
         :type nick: str
         """
         self.swagger_types = {
-            'id': int,
+            'user_id': int,
             'nick': str
         }
 
         self.attribute_map = {
-            'id': 'id',
+            'user_id': 'user_id',
             'nick': 'nick'
         }
 
-        self._id = id
+        self._user_id = user_id
         self._nick = nick
 
     @classmethod
@@ -48,25 +48,25 @@ class GetUser(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> int:
-        """Gets the id of this GetUser.
+    def user_id(self) -> int:
+        """Gets the user_id of this GetUser.
 
 
-        :return: The id of this GetUser.
+        :return: The user_id of this GetUser.
         :rtype: int
         """
-        return self._id
+        return self._user_id
 
-    @id.setter
-    def id(self, id: int):
-        """Sets the id of this GetUser.
+    @user_id.setter
+    def user_id(self, user_id: int):
+        """Sets the user_id of this GetUser.
 
 
-        :param id: The id of this GetUser.
-        :type id: int
+        :param user_id: The user_id of this GetUser.
+        :type user_id: int
         """
 
-        self._id = id
+        self._user_id = user_id
 
     @property
     def nick(self) -> str:
