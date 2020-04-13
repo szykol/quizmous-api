@@ -13,7 +13,7 @@ from copy import deepcopy
 from datetime import datetime
 from psycopg2.extras import RealDictCursor
 
-from quizmous_api.api.swagger.models.quiz import Quiz
+from quizmous_api import Quiz, Question, Answer, QuestionType, GetUser
 
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
@@ -68,6 +68,21 @@ class EndpointBase(unittest.TestCase):
 
         return r
 
+    def _create_test_quiz(self):
+        answers = [
+            [Answer(answer="Yes"), Answer(answer="No"), Answer(answer="Maybe")],
+            [Answer(answer="Winter"), Answer(answer="Summer"), Answer(answer="Autumn"), Answer(answer="Spring")]
+        ]
+
+        questions = [
+            Question(question="Do you like quizes?", type=QuestionType.RADIO, answers=answers[0]),
+            Question(question="Which season do you like?", type=QuestionType.CHOICE, answers=answers[1])
+        ]
+
+        user = GetUser(user_id=1, nick='admin')
+        quiz = Quiz(author=user, name='Test Quiz', description="Quiz for testing purposes", questions=questions)
+
+        return quiz
 class EndpointTest(EndpointBase):
     def test_root(self):
         r = requests.get('http://localhost:8000/')
@@ -75,6 +90,10 @@ class EndpointTest(EndpointBase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(payload["name"], "quizmous_api")
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
+
+    def test_add_quiz_endpoint(self):
+        quiz = self._create_test_quiz()
+        self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict())
 
     def test_get_quiz_endpoint(self):
         r = requests.get('http://localhost:8000/quiz')
