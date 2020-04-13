@@ -80,7 +80,7 @@ class EndpointTest(EndpointBase):
         r = requests.get('http://localhost:8000/quiz')
         self.assertEqual(r.status_code, 200)
         payload = r.json()
-        
+        self.maxDiff = None
         # Check if fits the model
         quiz_model = Quiz.from_dict(payload)
 
@@ -88,7 +88,7 @@ class EndpointTest(EndpointBase):
         cur.execute(""" SELECT * FROM quiz """)
         quizes = cur.fetchall()
         quizes = [dict(q) for q in quizes]
-        for quiz in quizes:
+        for idx, quiz in enumerate(quizes):
             cur.execute(""" SELECT * FROM quiz_question WHERE quiz_id={}""".format(quiz["quiz_id"]))
             questions = cur.fetchall()
             questions = [dict(q) for q in questions]

@@ -13,6 +13,14 @@ from quizmous_api.db import DB
 from quizmous_api.server import app, test, get_quiz
 from quizmous_api.version import get_api_version
 
+from quizmous_api.api.swagger.models.quiz import Quiz
+from quizmous_api.api.swagger.models.answer import Answer
+from quizmous_api.api.swagger.models.question import Question
+from quizmous_api.api.swagger.models.question_type import QuestionType
+from quizmous_api.api.swagger.models.get_user import GetUser
+
+from quizmous_api.db import insert_model_to_db
+
 class UnitTestsBase(TestCase):
     def setUp(self):
         return super().setUp()
@@ -75,6 +83,16 @@ class AsyncMainTest(asynctest.TestCase):
         await get_quiz(mock_request)
 
         pytest.fail("Not done yet")
+
+    @pytest.mark.skip("Write tests for quiz insertion mocked db")
+    async def test_quiz_model_addition(self):
+        answers = [Answer(0, 'I do'), Answer(1, 'I dont')]
+        answers2 = [Answer(0, 'Not yet'), Answer(1, 'Already done'), Answer(2, 'I do not know')]
+        questions = [Question(question="Hello", type=QuestionType.RADIO, required=True, answers=answers),
+        Question(question="Hello2", type=QuestionType.CHOICE, required=False, answers=answers2)]
+        quiz_model = Quiz(quiz_id=1, author=GetUser(1, 'admin'), name="Quiz", description="Quiz", questions=questions)
+        await insert_model_to_db(quiz_model)
+        
 
 class AsyncVersionTest(UnitTestsBase):
     @mock.patch('quizmous_api.version.open') 

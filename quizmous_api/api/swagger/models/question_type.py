@@ -18,10 +18,10 @@ class QuestionType(Model):
     """
     allowed enum values
     """
-    YES_NO = "yes_no"
-    RADIO = "radio"
-    CHOICE = "choice"
-    OPEN = "open"
+    YES_NO = "YES_NO"
+    RADIO = "RADIO"
+    CHOICE = "CHOICE"
+    OPEN = "OPEN"
 
     def __init__(self):  # noqa: E501
         """QuestionType - a model defined in Swagger
