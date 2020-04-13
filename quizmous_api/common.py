@@ -1,6 +1,11 @@
 import jwt
 from jwt.exceptions import InvalidSignatureError, DecodeError
 from typing import Union, Tuple
+from .response import Responses, create_response
+import traceback
+from quizmous_api import SERIAL
+from sanic.request import Request
+from sanic.response import json, HTTPResponse
 
 def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bool, dict]:
     try:
@@ -9,3 +14,14 @@ def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bo
     except (InvalidSignatureError, DecodeError):
         return (False, None)
 
+def parse_jwt(f):
+    async def wrapper(request: Request, *args, **kwargs) -> HTTPResponse:
+        ok, payload = extract_jwt(request.body, SERIAL)
+        if ok:
+            try:
+                return await f(payload, *args, **kwargs)
+            except Exception as e:
+                return create_response(Responses.INTERNAL, {"traceback": traceback.format_exc()})
+        else:
+            return create_response(Responses.UNAUTHORIZED)
+    return 

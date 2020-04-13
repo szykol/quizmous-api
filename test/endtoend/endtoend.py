@@ -75,8 +75,8 @@ class EndpointBase(unittest.TestCase):
         ]
 
         questions = [
-            Question(question="Do you like quizes?", type=QuestionType.RADIO, answers=answers[0]),
-            Question(question="Which season do you like?", type=QuestionType.CHOICE, answers=answers[1])
+            Question(question="Do you like quizes?", type=QuestionType.RADIO, answers=answers[0], required=True),
+            Question(question="Which season do you like?", type=QuestionType.CHOICE, answers=answers[1], required=True)
         ]
 
         user = GetUser(user_id=1, nick='admin')
@@ -93,7 +93,11 @@ class EndpointTest(EndpointBase):
 
     def test_add_quiz_endpoint(self):
         quiz = self._create_test_quiz()
-        self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict())
+        self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict(), response_code=201)
+
+        self.cur.execute("SELECT COUNT(*) FROM quiz")
+        count = self.cur.fetchall()[0][0]
+        self.assertGreater(count, 1)
 
     def test_get_quiz_endpoint(self):
         r = requests.get('http://localhost:8000/quiz')

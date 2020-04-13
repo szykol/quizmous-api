@@ -3,12 +3,10 @@ from sanic.response import json
 from sanic_cors import CORS, cross_origin
 from .db import DB, select_model_from_db, insert_model_to_db
 from .version import get_api_version
-import jwt
+from .common import jwt, extract_jwt
 
 from quizmous_api import app, DSN, VERSION, SERIAL, Quiz
 import asyncio
-
-
 
 @app.route("/", methods=['GET', 'OPTIONS'])
 async def test(request):
@@ -24,8 +22,11 @@ async def get_quiz(request):
 
 @app.route("/quiz", methods=['POST'])
 async def add_quiz(request):
-    quiz = Quiz.from_dict(request.body)
+    ok, payload = extract_jwt(request.body, SERIAL)
+    quiz = Quiz.from_dict(payload)
     await insert_model_to_db(quiz)
+
+    return json(body={"message": "success"}, status=201)
 
 async def main():
     await DB.init(dsn=DSN)
