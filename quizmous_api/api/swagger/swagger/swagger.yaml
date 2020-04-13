@@ -230,7 +230,7 @@ definitions:
   Quiz:
     type: "object"
     properties:
-      id:
+      quiz_id:
         type: "integer"
         format: "int64"
       author:
@@ -246,35 +246,35 @@ definitions:
         items:
           $ref: "#/definitions/Question"
     example:
+      quiz_id: 0
       author:
         nick: "nick"
-        id: 6
+        user_id: 6
       name: "Best Quiz Ever"
       questions:
       - question: "question"
         answers:
         - answer: "answer"
-          id: 6
+          answer_id: 6
         - answer: "answer"
-          id: 6
-        id: 0
+          answer_id: 6
         type: {}
+        question_id: 0
         required: true
       - question: "question"
         answers:
         - answer: "answer"
-          id: 6
+          answer_id: 6
         - answer: "answer"
-          id: 6
-        id: 0
+          answer_id: 6
         type: {}
+        question_id: 0
         required: true
       description: "This is a description of best quiz ever"
-      id: 0
   Question:
     type: "object"
     properties:
-      id:
+      question_id:
         type: "integer"
         format: "int64"
       question:
@@ -291,41 +291,41 @@ definitions:
       question: "question"
       answers:
       - answer: "answer"
-        id: 6
+        answer_id: 6
       - answer: "answer"
-        id: 6
-      id: 0
+        answer_id: 6
       type: {}
+      question_id: 0
       required: true
   QuestionType:
     type: "string"
     enum:
-    - "yes_no"
-    - "radio"
-    - "choice"
-    - "open"
+    - "YES_NO"
+    - "RADIO"
+    - "CHOICE"
+    - "OPEN"
   Answer:
     type: "object"
     properties:
-      id:
+      answer_id:
         type: "integer"
         format: "int64"
       answer:
         type: "string"
     example:
       answer: "answer"
-      id: 6
+      answer_id: 6
   GetUser:
     type: "object"
     properties:
-      id:
+      user_id:
         type: "integer"
         format: "int64"
       nick:
         type: "string"
     example:
       nick: "nick"
-      id: 6
+      user_id: 6
   PostUser:
     type: "object"
     properties:
