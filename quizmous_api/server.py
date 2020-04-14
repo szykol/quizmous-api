@@ -1,21 +1,24 @@
-from sanic import Sanic
-from sanic.response import json
+
 from sanic_cors import CORS, cross_origin
-from .db import DB
-import jwt
+from .db import DB, select_model_from_db, insert_model_to_db
+from .version import get_api_version
+from .common import jwt, extract_jwt
 
-app = Sanic()
-CORS(app)
-DBNAME = app.config['DBNAME'] if "DBNAME" in app.config else 'quiz' 
-DSN = 'postgres://api:foobar@postgres_api:5432/{}'.format(DBNAME)
+from quizmous_api import app, DSN, VERSION, SERIAL, Quiz
+from quizmous_api.api.endpoints import init_endpoints
+import asyncio
 
-@app.route("/", methods=['GET', 'OPTIONS'])
-async def test(request):
-    return json(body={"name": "quizmous_api", "version": "0.0.1"}, status=200)
-
-@app.route("/db_test", methods=['GET', 'OPTIONS'])
-async def db_test(request):
+async def main():
     await DB.init(dsn=DSN)
-    await DB.get_pool().execute(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
+    server = app.create_server(host="0.0.0.0", port=8000, return_asyncio_server=True)
+    loop = asyncio.get_event_loop()
+    task = asyncio.ensure_future(server, loop=loop)
 
-    return json(body={"status": "ok"}, status=200)
+    return task        
+
+def run():
+    server = asyncio.ensure_future(main())
+    try:
+        asyncio.get_event_loop().run_forever()
+    except KeyboardInterrupt as e:
+        asyncio.get_event_loop().stop()

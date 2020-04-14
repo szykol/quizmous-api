@@ -9,8 +9,11 @@ import pytest
 import json
 
 from quizmous_api.response import Responses, create_response
-from quizmous_api.db import DB
-from quizmous_api.server import app, test, db_test
+from quizmous_api.db import DB, insert_model_to_db
+from quizmous_api.server import app
+from quizmous_api.api.endpoints import test, get_quiz
+from quizmous_api.version import get_api_version
+from quizmous_api import Quiz, Answer, Question, QuestionType, GetUser
 
 class UnitTestsBase(TestCase):
     def setUp(self):
@@ -65,21 +68,40 @@ class AsyncMainTest(asynctest.TestCase):
         self.assertIsNotNone(payload)
         self.assertEqual(payload['name'], 'quizmous_api')
         self.assertRegex(payload["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
-    
+        self.assertIsInstance(payload["build"], int)
+
+    @pytest.mark.skip("Write tests for quiz endpoint with mocked db")
     @mock.patch('quizmous_api.db.asyncpg.pool.Pool.execute', new_callable=mock.AsyncMock)
-    async def test_test_db_endpoint(self, mock_execute):
+    async def test_test_get_quiz_endpoint(self, mock_execute):
         mock_request = mock.Mock(request.Request)
-        resp = await db_test(mock_request)
+        await get_quiz(mock_request)
 
-        self.assertIsNotNone(resp) 
-        self.assertIsInstance(resp, response.HTTPResponse)
+        pytest.fail("Not done yet")
 
-        payload = json.loads(resp.body)
-        self.assertIsNotNone(payload)
-        self.assertEqual(payload['status'], 'ok')
-        self.assertEqual(resp.status, 200)
+    @pytest.mark.skip("Write tests for quiz insertion mocked db")
+    async def test_quiz_model_addition(self):
+        answers = [Answer(0, 'I do'), Answer(1, 'I dont')]
+        answers2 = [Answer(0, 'Not yet'), Answer(1, 'Already done'), Answer(2, 'I do not know')]
+        questions = [Question(question="Hello", type=QuestionType.RADIO, required=True, answers=answers),
+        Question(question="Hello2", type=QuestionType.CHOICE, required=False, answers=answers2)]
+        quiz_model = Quiz(quiz_id=1, author=GetUser(1, 'admin'), name="Quiz", description="Quiz", questions=questions)
+        await insert_model_to_db(quiz_model)
+        
 
-        mock_execute.assert_called_with(""" INSERT INTO dummy_tbl (name) VALUES ($1) """, "quizmous_api")
+class AsyncVersionTest(UnitTestsBase):
+    @mock.patch('quizmous_api.version.open') 
+    @mock.patch('quizmous_api.version.load', new_callable=mock.MagicMock)
+    def test_get_version(self, mockload, mockopen):
+        # mock_dict = mock.Mock({"version": "0.0.10", "build": 25})
+        mockload.return_value = {"version": "0.0.10", "build": 25}
+        # mockload.return_value(mock_dict)
+        version = get_api_version()
+        mockopen.assert_called_with("/usr/local/api/version.json", "r")
+        self.assertIsInstance(version, dict)
+        self.assertRegex(version["version"], r"^(\d+\.)?(\d+\.)?(\*|\d+)$")
+        self.assertIsInstance(version["build"], int)
+        
+        
 
 if __name__ == "__main__":
     unittest.main()
