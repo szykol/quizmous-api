@@ -68,6 +68,18 @@ class EndpointBase(unittest.TestCase):
 
         return r
 
+    def _send_get_request(self, URL, params=None, headers=None, use_token=True, response_code=200):
+        token = self._wrap_payload({})
+        header = {'Authorization': 'Bearer {}'.format(token.decode('utf-8'))} if use_token else {}
+        if headers:
+            header.update(headers)
+
+        r = requests.get(URL, headers=header, params=params)
+        self.assertIsNotNone(r.json())
+        self.assertEqual(r.status_code, response_code)
+
+        return r
+
     def _create_test_quiz(self):
         answers = [
             [Answer(answer="Yes"), Answer(answer="No"), Answer(answer="Maybe")],
@@ -100,8 +112,7 @@ class EndpointTest(EndpointBase):
         self.assertGreater(count, 1)
 
     def test_get_quiz_endpoint(self):
-        r = requests.get('http://localhost:8000/quiz')
-        self.assertEqual(r.status_code, 200)
+        r = self._send_get_request('http://localhost:8000/quiz')
         payload = r.json()
         self.maxDiff = None
         # Check if fits the model

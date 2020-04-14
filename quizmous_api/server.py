@@ -1,32 +1,12 @@
-from sanic import Sanic
-from sanic.response import json
+
 from sanic_cors import CORS, cross_origin
 from .db import DB, select_model_from_db, insert_model_to_db
 from .version import get_api_version
 from .common import jwt, extract_jwt
 
 from quizmous_api import app, DSN, VERSION, SERIAL, Quiz
+from quizmous_api.api.endpoints import init_endpoints
 import asyncio
-
-@app.route("/", methods=['GET', 'OPTIONS'])
-async def test(request):
-    body = {"name": "quizmous_api"}
-    body.update(VERSION)
-    return json(body=body, status=200)
-
-@app.route("/quiz", methods=['GET', 'OPTIONS'])
-async def get_quiz(request):
-    quizes = await select_model_from_db(Quiz)
-
-    return json(body=[q.to_dict() for q in quizes], status=200)
-
-@app.route("/quiz", methods=['POST'])
-async def add_quiz(request):
-    ok, payload = extract_jwt(request.body, SERIAL)
-    quiz = Quiz.from_dict(payload)
-    await insert_model_to_db(quiz)
-
-    return json(body={"message": "success"}, status=201)
 
 async def main():
     await DB.init(dsn=DSN)

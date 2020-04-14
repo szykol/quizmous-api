@@ -9,17 +9,11 @@ import pytest
 import json
 
 from quizmous_api.response import Responses, create_response
-from quizmous_api.db import DB
-from quizmous_api.server import app, test, get_quiz
+from quizmous_api.db import DB, insert_model_to_db
+from quizmous_api.server import app
+from quizmous_api.api.endpoints import test, get_quiz
 from quizmous_api.version import get_api_version
-
-from quizmous_api.api.swagger.models.quiz import Quiz
-from quizmous_api.api.swagger.models.answer import Answer
-from quizmous_api.api.swagger.models.question import Question
-from quizmous_api.api.swagger.models.question_type import QuestionType
-from quizmous_api.api.swagger.models.get_user import GetUser
-
-from quizmous_api.db import insert_model_to_db
+from quizmous_api import Quiz, Answer, Question, QuestionType, GetUser
 
 class UnitTestsBase(TestCase):
     def setUp(self):

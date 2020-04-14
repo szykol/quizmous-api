@@ -16,7 +16,8 @@ def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bo
 
 def parse_jwt(f):
     async def wrapper(request: Request, *args, **kwargs) -> HTTPResponse:
-        ok, payload = extract_jwt(request.body, SERIAL)
+        token = extract_token(request)
+        ok, payload = extract_jwt(token, SERIAL)
         if ok:
             try:
                 return await f(payload, *args, **kwargs)
@@ -24,4 +25,15 @@ def parse_jwt(f):
                 return create_response(Responses.INTERNAL, {"traceback": traceback.format_exc()})
         else:
             return create_response(Responses.UNAUTHORIZED)
-    return 
+    return wrapper
+
+def extract_token(request: Request) -> Union[bytes, str]:
+    token = None
+    if request.method == 'POST':
+        token = request.body
+    else:
+        header = request.headers.get('Authorization')
+        if header:
+            token = header.split(' ')[1]
+
+    return token
