@@ -8,6 +8,9 @@ import os, sys
 import pytest
 import json
 
+# force the app to not use secrets.toml file
+os.environ["SANIC_DBNAME"] = "_test"
+
 from quizmous_api.response import Responses, create_response
 from quizmous_api.db import DB, insert_model_to_db
 from quizmous_api.server import app
