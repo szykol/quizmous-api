@@ -29,7 +29,7 @@ def parse_jwt(f):
 
 def extract_token(request: Request) -> Union[bytes, str]:
     token = None
-    if request.method == 'POST':
+    if request.method in ['POST', 'PUT']:
         token = request.body
     else:
         header = request.headers.get('Authorization')

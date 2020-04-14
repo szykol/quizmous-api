@@ -22,9 +22,34 @@ async def get_quiz(payload):
 @parse_jwt
 async def add_quiz(payload):
     quiz = Quiz.from_dict(payload)
-    await insert_model_to_db(quiz)
+    quiz_id = await insert_model_to_db(quiz)
 
-    return json(body={"message": "success"}, status=201)
+    return json(body={"message": "success", "quiz_id": quiz_id}, status=201)
+
+@app.route("/quiz/<id:int>", methods=['GET'])
+@parse_jwt
+async def get_quiz_by_id(payload, id: int):
+    quizes = await select_model_from_db(Quiz, id)
+    quiz = quizes[0]
+
+    return json(body=quiz.to_dict(), status=200)
+
+@app.route("/quiz/<id:int>", methods=['DELETE'])
+@parse_jwt
+async def delete_quiz(payload, id: int):
+    await DB.get_pool().execute(""" DELETE FROM quiz WHERE quiz_id = $1 """, id)
+
+    return json(body={"message": "successful deletion"})
+
+@app.route("/quiz", methods=['PUT'])
+@parse_jwt
+async def update_quiz(payload):
+    quiz = Quiz.from_dict(payload)
+
+    await DB.get_pool().execute(""" DELETE FROM quiz WHERE quiz_id = $1 """, quiz.quiz_id)
+    quiz_id = await insert_model_to_db(quiz)
+
+    return json(body={"message": "successful operation", "quiz_id": quiz_id})
 
 def init_endpoints(app):
     app.add_route(test, '/', methods=['GET'])

@@ -140,6 +140,8 @@ async def insert_quiz_to_db(quiz):
     for question in quiz.questions:
         await insert_question_to_db(question, quiz_id)
 
+    return quiz_id
+
 async def insert_question_to_db(question, quiz_id: int):
     insert_query, keys = prepare_insert_sql(question)
 
@@ -152,6 +154,8 @@ async def insert_question_to_db(question, quiz_id: int):
     for answer in question.answers:
         await insert_answer_to_db(answer, question_id)
 
+    return question_id
+
 async def insert_answer_to_db(answer, question_id: int):
     insert_query, keys = prepare_insert_sql(answer)
 
@@ -159,4 +163,6 @@ async def insert_answer_to_db(answer, question_id: int):
     answer_dict["question_id"] = question_id
     values = (answer_dict[key] for key in sorted(keys))
 
-    await DB.get_pool().execute(insert_query, *values)
+    record = await DB.get_pool().fetch(insert_query, *values)
+
+    return record[0]["answer_id"]
