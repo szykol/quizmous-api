@@ -400,7 +400,7 @@ ALTER TABLE ONLY public.users
 --
 
 ALTER TABLE ONLY public.quiz_answer
-    ADD CONSTRAINT quiz_answer_question_id_fkey FOREIGN KEY (question_id) REFERENCES public.quiz_question(question_id);
+    ADD CONSTRAINT quiz_answer_question_id_fkey FOREIGN KEY (question_id) REFERENCES public.quiz_question(question_id) ON DELETE CASCADE;
 
 
 --
@@ -416,7 +416,7 @@ ALTER TABLE ONLY public.quiz
 --
 
 ALTER TABLE ONLY public.quiz_question
-    ADD CONSTRAINT quiz_question_quiz_id_fkey FOREIGN KEY (quiz_id) REFERENCES public.quiz(quiz_id);
+    ADD CONSTRAINT quiz_question_quiz_id_fkey FOREIGN KEY (quiz_id) REFERENCES public.quiz(quiz_id) ON DELETE CASCADE;
 
 
 --
