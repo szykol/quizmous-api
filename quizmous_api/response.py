@@ -28,5 +28,7 @@ class Responses(Enum):
     }
 
 def create_response(resp: Responses, add: dict={}) -> response.HTTPResponse:
-    body = {"msg": resp.value["msg"]}.update(add)
+    body = {"msg": resp.value["msg"]}
+    body.update(add)
+    print(body)
     return response.json(body=body, status=resp.value["status"])
