@@ -254,7 +254,7 @@ class EndpointTest(EndpointBase):
 
         payload = r.json()
         self.assertEqual(payload["message"], "user registered successfuly")
-        self.assertEqual(payload["user_id"], 2)
+        user = GetUser.from_dict(payload["user"])
 
     def test_login_user(self):
         user = PostUser('NewUser', 'S3Cr3T')
