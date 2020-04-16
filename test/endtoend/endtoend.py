@@ -131,6 +131,32 @@ class EndpointTest(EndpointBase):
         count = self.cur.fetchall()[0][0]
         self.assertGreater(count, 1)
 
+    def test_add_quiz_twice(self):
+        quiz = self._create_test_quiz()
+        self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict(), response_code=201)
+        r = self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict(), response_code=409)
+
+        payload = r.json()
+        self.assertEqual(payload["message"], "Quiz '{}' already exists".format(quiz.name))
+        
+    def test_add_quiz_with_same_question(self):
+        quiz = self._create_test_quiz()
+
+        quiz.questions[1].question = quiz.questions[0].question
+        r = self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict(), response_code=409)
+
+        payload = r.json()
+        self.assertEqual(payload["message"], "Question '{}' already exists for that quiz".format(quiz.questions[0].question))
+
+    def test_add_quiz_with_same_answers_for_question(self):
+        quiz = self._create_test_quiz()
+
+        quiz.questions[1].answers[0].answer = quiz.questions[1].answers[1].answer
+        r = self._send_post_request('http://localhost:8000/quiz', payload=quiz.to_dict(), response_code=409)
+
+        payload = r.json()
+        self.assertEqual(payload["message"], "Answer '{}' already exists for that question".format(quiz.questions[1].answers[1].answer))
+
     def test_get_quiz_endpoint(self):
         r = self._send_get_request('http://localhost:8000/quiz')
         payload = r.json()
@@ -236,10 +262,13 @@ class EndpointTest(EndpointBase):
         r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
 
         r = self._send_post_request('http://localhost:8000/user/login', payload=user.to_dict(), response_code=200)
-        print(r.json())
+
+        payload = r.json()
+        user = GetUser.from_dict(payload["user"])
 
         not_existent_user = PostUser('IDontExist', 'Meneither')
         r = self._send_post_request('http://localhost:8000/user/login', payload=not_existent_user.to_dict(), response_code=400)
+        
 
     def test_logout_user(self):
         user = PostUser('NewUser', 'S3Cr3T')
@@ -247,7 +276,16 @@ class EndpointTest(EndpointBase):
         r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
 
         r = self._send_post_request('http://localhost:8000/user/logout', payload=user.to_dict(), response_code=200)
-        print(r.json())
 
         not_existent_user = PostUser('IDontExist', 'Meneither')
         r = self._send_post_request('http://localhost:8000/user/logout', payload=not_existent_user.to_dict(), response_code=400)
+
+    def test_register_twice(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=409)
+        payload = r.json()
+
+        self.assertEqual(payload["message"], "User '{}' already exists".format(user.nick))
+

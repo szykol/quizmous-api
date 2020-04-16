@@ -5,6 +5,15 @@ from quizmous_api import Question, QuestionType, Answer, GetUser, PostUser, Quiz
 
 from itertools import chain
 
+from asyncpg.exceptions import UniqueViolationError
+
+class UniqueModelConstraint(Exception):
+    def __init__(self, msg: str):
+        self.msg = msg
+
+    def __str__(self):
+        return self.msg
+
 class DB:
     _pool: asyncpg.pool.Pool = None
 
@@ -145,7 +154,11 @@ async def insert_quiz_to_db(quiz):
 
     values = (quiz_dict[key] for key in sorted(keys))
     # print('values: {} query: {}'.format(, insert_query))
-    record = await DB.get_pool().fetch(insert_query, *values)
+    try:
+        record = await DB.get_pool().fetch(insert_query, *values)
+    except UniqueViolationError:
+        raise UniqueModelConstraint(msg="Quiz '{}' already exists".format(quiz.name))
+
     quiz_id = record[0]["quiz_id"]
     for question in quiz.questions:
         await insert_question_to_db(question, quiz_id)
@@ -159,7 +172,11 @@ async def insert_question_to_db(question, quiz_id: int):
     question_dict["quiz_id"] = quiz_id
     values = (question_dict[key] for key in sorted(keys))
     
-    record = await DB.get_pool().fetch(insert_query, *values)
+    try:
+        record = await DB.get_pool().fetch(insert_query, *values)
+    except UniqueViolationError:
+        raise UniqueModelConstraint(msg="Question '{}' already exists for that quiz".format(question.question))
+
     question_id = record[0]["question_id"]
     for answer in question.answers:
         await insert_answer_to_db(answer, question_id)
@@ -172,9 +189,10 @@ async def insert_answer_to_db(answer, question_id: int):
     answer_dict = answer.to_dict()
     answer_dict["question_id"] = question_id
     values = (answer_dict[key] for key in sorted(keys))
-
-    record = await DB.get_pool().fetch(insert_query, *values)
-
+    try:
+        record = await DB.get_pool().fetch(insert_query, *values)
+    except UniqueViolationError:
+        raise UniqueModelConstraint(msg="Answer '{}' already exists for that question".format(answer.answer))
     return record[0]["answer_id"]
 
 async def insert_user_to_db(user):
@@ -183,15 +201,13 @@ async def insert_user_to_db(user):
     user_dict = user.to_dict()
 
     values = (user_dict[key] for key in sorted(keys))
-    record = await DB.get_pool().fetch(insert_query, *values)
-
+    try:
+        record = await DB.get_pool().fetch(insert_query, *values)
+    except UniqueViolationError:
+        raise UniqueModelConstraint(msg="User '{}' already exists".format(user.nick))
     return record[0]["user_id"]
 
 async def select_user_from_db(id: int):
-    records = await perform_select_sql(GetUser, id)
-    for record in records:
-        del record['password']
-        
-    users = [GetUser.from_dict(dict(r)) for r in records]
+    user = dict(await perform_select_sql(GetUser, id))
 
-    return users[0]
+    return GetUser.from_dict(user)

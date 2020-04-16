@@ -6,6 +6,7 @@ import traceback
 from quizmous_api import SERIAL
 from sanic.request import Request
 from sanic.response import json, HTTPResponse
+from .db import UniqueModelConstraint
 
 def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bool, dict]:
     try:
@@ -21,7 +22,10 @@ def parse_jwt(f):
         if ok:
             try:
                 return await f(payload, *args, **kwargs)
+            except UniqueModelConstraint as e:
+                return create_response(Responses.UNIQUE_VIOLATED, {"message": str(e)})
             except Exception as e:
+                print(traceback.format_exc())
                 return create_response(Responses.INTERNAL, {"traceback": traceback.format_exc()})
         else:
             return create_response(Responses.UNAUTHORIZED)

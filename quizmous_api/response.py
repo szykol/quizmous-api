@@ -4,30 +4,35 @@ from sanic import response
 class Responses(Enum):
     OK = {
         "status": 200,
-        "msg": "success"
+        "message": "success"
     }
 
     BAD_REQUEST = {
         "status": 400,
-        "msg": "bad request"
+        "message": "bad request"
     }
 
     UNAUTHORIZED = {
         "status": 401,
-        "msg": "user not authorized"
+        "message": "user not authorized"
     }
 
     CREATED = {
         "status": 201,
-        "msg": "created"
+        "message": "created"
     }
 
     INTERNAL = {
         "status": 500,
-        "msg": "internal server error"
+        "message": "internal server error"
+    }
+
+    UNIQUE_VIOLATED = {
+        "status": 409,
+        "message": "the data provided to endpoint already exists in the system"
     }
 
 def create_response(resp: Responses, add: dict={}) -> response.HTTPResponse:
-    body = {"msg": resp.value["msg"]}
+    body = {"message": resp.value["message"]}
     body.update(add)
     return response.json(body=body, status=resp.value["status"])

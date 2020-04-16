@@ -356,6 +356,14 @@ ALTER TABLE ONLY public.quiz_answer
 
 
 --
+-- Name: quiz_answer quiz_answer_answer_question_id_unique; Type: CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_answer
+    ADD CONSTRAINT quiz_answer_answer_question_id_unique UNIQUE (question_id, answer);
+
+
+--
 -- Name: quiz_answer quiz_answer_question_id_answer_key; Type: CONSTRAINT; Schema: public; Owner: api
 --
 
@@ -364,11 +372,27 @@ ALTER TABLE ONLY public.quiz_answer
 
 
 --
+-- Name: quiz quiz_name_unique; Type: CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz
+    ADD CONSTRAINT quiz_name_unique UNIQUE (name);
+
+
+--
 -- Name: quiz_question quiz_question_question_id_key; Type: CONSTRAINT; Schema: public; Owner: api
 --
 
 ALTER TABLE ONLY public.quiz_question
     ADD CONSTRAINT quiz_question_question_id_key UNIQUE (question_id);
+
+
+--
+-- Name: quiz_question quiz_question_question_quiz_id_unique; Type: CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_question
+    ADD CONSTRAINT quiz_question_question_quiz_id_unique UNIQUE (quiz_id, question);
 
 
 --
@@ -385,6 +409,14 @@ ALTER TABLE ONLY public.quiz_question
 
 ALTER TABLE ONLY public.quiz
     ADD CONSTRAINT quiz_quiz_id_key UNIQUE (quiz_id);
+
+
+--
+-- Name: users users_nick_unique; Type: CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_nick_unique UNIQUE (nick);
 
 
 --

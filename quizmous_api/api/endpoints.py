@@ -57,16 +57,18 @@ async def create_user(payload):
     user = PostUser.from_dict(payload)
     user_id = await insert_model_to_db(user)
 
-    return json(body={"message": "user registered successfuly", "user_id": user_id}, status=201)
+    created_user = await select_model_from_db(GetUser, user_id)
+    return json(body={"message": "user registered successfuly", "user": created_user.to_dict()}, status=201)
 
 @app.route("/user/login", methods=['POST'])
 @parse_jwt
 async def login_user(payload):
     user = PostUser.from_dict(payload)
-    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
+    result = await DB.get_pool().fetchrow(""" SELECT user_id FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
     if result:
-        return json(body={"message": "successful operation"}, status=200)
+        created_user = await select_model_from_db(GetUser, result["user_id"])
+        return json(body={"message": "successful operation", "user": created_user.to_dict()}, status=200)
     return json(body={"message": "Invalid username/password supplied"}, status=400)
 
 @app.route("/user/logout", methods=['POST'])
