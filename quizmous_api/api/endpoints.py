@@ -30,9 +30,10 @@ async def add_quiz(payload):
 @parse_jwt
 async def get_quiz_by_id(payload, id: int):
     quizes = await select_model_from_db(Quiz, id)
-    quiz = quizes[0]
-
-    return json(body=quiz.to_dict(), status=200)
+    if quizes:
+        return json(body=quizes[0].to_dict(), status=200)
+    else:
+        return json(body={"message": "Quiz with id: {} not found".format(id)}, status=400)
 
 @app.route("/quiz/<id:int>", methods=['DELETE'])
 @parse_jwt

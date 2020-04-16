@@ -217,6 +217,21 @@ class EndpointTest(EndpointBase):
         
         self.assertEqual(payload, quizes[0])
 
+    def test_get_quiz_by_id_endpoint(self):
+        r = self._send_get_request('http://localhost:8000/quiz/1337', response_code=400)
+        payload = r.json()
+
+        self.assertEqual(payload["message"], "Quiz with id: {} not found".format(1337))
+        
+    def test_get_quiz_if_there_is_none(self):
+        self.cur.execute(""" DELETE FROM quiz """)
+        self.conn.commit()
+
+        r = self._send_get_request('http://localhost:8000/quiz', response_code=200)
+        payload = r.json()
+
+        self.assertEqual(payload, [])        
+
     def test_delete_quiz(self):
         r = self._send_delete_request("http://localhost:8000/quiz/1")
         payload = r.json()
