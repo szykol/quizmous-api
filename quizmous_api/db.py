@@ -1,10 +1,7 @@
 import asyncio
 import asyncpg
 
-from .api.swagger.models.quiz import Quiz
-from .api.swagger.models.question import Question
-from .api.swagger.models.answer import Answer
-from .api.swagger.models.get_user import GetUser
+from quizmous_api import Question, QuestionType, Answer, GetUser, PostUser, Quiz
 
 from itertools import chain
 
@@ -26,6 +23,8 @@ async def select_model_from_db(model_cls, id: int = None):
         return await select_question_from_db(id)
     if model_cls == Answer:
         return await select_answer_from_db(id)
+    if model_cls == GetUser:
+        return await select_user_from_db(id)
     else:
         raise ValueError("Fetching {} model from db not supported!".format(str(model_cls)))
 
@@ -36,6 +35,8 @@ async def insert_model_to_db(model, id: int = None):
         return await insert_question_to_db(model, id)
     if type(model) == Answer:
         return await insert_answer_to_db(model, id)
+    if type(model) == PostUser:
+        return await insert_user_to_db(model)
     else:
         raise ValueError("Fetching {} model from db not supported!".format(str(type(model))))
 
@@ -59,6 +60,15 @@ def get_data_for_query(model_cls):
             "id_column_name": 'question_id',
             "table_name": 'quiz_answer'
         }
+    if model_cls == GetUser or model_cls == PostUser:
+        return {
+            "table_name": "users",
+            "id_column_name": 'user_id',
+            "remove_keys": [],
+            "no_parent": True
+        }
+
+    return {}
 
 def prepare_select_sql(model_cls, id: int = None):
     q = """ SELECT {} FROM {}""" 
@@ -166,3 +176,22 @@ async def insert_answer_to_db(answer, question_id: int):
     record = await DB.get_pool().fetch(insert_query, *values)
 
     return record[0]["answer_id"]
+
+async def insert_user_to_db(user):
+    insert_query, keys = prepare_insert_sql(user)
+
+    user_dict = user.to_dict()
+
+    values = (user_dict[key] for key in sorted(keys))
+    record = await DB.get_pool().fetch(insert_query, *values)
+
+    return record[0]["user_id"]
+
+async def select_user_from_db(id: int):
+    records = await perform_select_sql(GetUser, id)
+    for record in records:
+        del record['password']
+        
+    users = [GetUser.from_dict(dict(r)) for r in records]
+
+    return users[0]

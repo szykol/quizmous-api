@@ -1,7 +1,7 @@
 from sanic import Sanic
 from sanic.response import json
 
-from quizmous_api import app, DSN, VERSION, SERIAL, Quiz
+from quizmous_api import app, DSN, VERSION, SERIAL, Quiz, GetUser, PostUser
 from quizmous_api.db import DB, select_model_from_db, insert_model_to_db
 from quizmous_api.common import extract_jwt, parse_jwt
 
@@ -50,6 +50,35 @@ async def update_quiz(payload):
     quiz_id = await insert_model_to_db(quiz)
 
     return json(body={"message": "successful operation", "quiz_id": quiz_id})
+
+@app.route("/user/register", methods=['POST'])
+@parse_jwt
+async def create_user(payload):
+    user = PostUser.from_dict(payload)
+    user_id = await insert_model_to_db(user)
+
+    return json(body={"message": "user registered successfuly", "user_id": user_id}, status=201)
+
+@app.route("/user/login", methods=['POST'])
+@parse_jwt
+async def login_user(payload):
+    user = PostUser.from_dict(payload)
+    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
+
+    if result:
+        return json(body={"message": "successful operation"}, status=200)
+    return json(body={"message": "Invalid username/password supplied"}, status=400)
+
+@app.route("/user/logout", methods=['POST'])
+@parse_jwt
+async def logout_user(payload):
+    user = PostUser.from_dict(payload)
+    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
+
+    if result:
+        return json(body={"message": "successful operation"}, status=200)
+    return json(body={"message": "Invalid username/password supplied"}, status=400)
+
 
 def init_endpoints(app):
     app.add_route(test, '/', methods=['GET'])

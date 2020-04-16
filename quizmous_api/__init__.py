@@ -11,6 +11,7 @@ from quizmous_api.api.swagger.models.answer import Answer
 from quizmous_api.api.swagger.models.question import Question
 from quizmous_api.api.swagger.models.question_type import QuestionType
 from quizmous_api.api.swagger.models.get_user import GetUser
+from quizmous_api.api.swagger.models.post_user import PostUser
 
 app = Sanic()
 # CORS(app)

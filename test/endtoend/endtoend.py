@@ -13,7 +13,7 @@ from copy import deepcopy
 from datetime import datetime
 from psycopg2.extras import RealDictCursor
 
-from quizmous_api import Quiz, Question, Answer, QuestionType, GetUser
+from quizmous_api import Quiz, Question, Answer, QuestionType, GetUser, PostUser
 
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
@@ -216,3 +216,38 @@ class EndpointTest(EndpointBase):
         self.cur.execute("SELECT COUNT(*) FROM quiz WHERE name='Test Quiz'")
         count = self.cur.fetchall()[0][0]
         self.assertEqual(count, 0)
+
+    def test_create_user(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+
+        self.cur.execute(""" SELECT COUNT(*) FROM users WHERE nick='NewUser' AND password='S3Cr3T' """)
+        count = self.cur.fetchall()[0][0]
+        self.assertEqual(count, 1)
+
+        payload = r.json()
+        self.assertEqual(payload["message"], "user registered successfuly")
+        self.assertEqual(payload["user_id"], 2)
+
+    def test_login_user(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+
+        r = self._send_post_request('http://localhost:8000/user/login', payload=user.to_dict(), response_code=200)
+        print(r.json())
+
+        not_existent_user = PostUser('IDontExist', 'Meneither')
+        r = self._send_post_request('http://localhost:8000/user/login', payload=not_existent_user.to_dict(), response_code=400)
+
+    def test_logout_user(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+
+        r = self._send_post_request('http://localhost:8000/user/logout', payload=user.to_dict(), response_code=200)
+        print(r.json())
+
+        not_existent_user = PostUser('IDontExist', 'Meneither')
+        r = self._send_post_request('http://localhost:8000/user/logout', payload=not_existent_user.to_dict(), response_code=400)
