@@ -6,6 +6,7 @@ from quizmous_api.db import DB, select_model_from_db, insert_model_to_db
 from quizmous_api.common import extract_jwt, parse_jwt
 
 @app.route("/", methods=['GET', 'OPTIONS'])
+@app.route("/version", methods=['GET', 'OPTIONS'])
 async def test(request):
     body = {"name": "quizmous_api"}
     body.update(VERSION)
