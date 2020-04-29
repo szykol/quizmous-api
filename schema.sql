@@ -177,6 +177,77 @@ ALTER SEQUENCE public.quiz_quiz_id_seq OWNED BY public.quiz.quiz_id;
 
 
 --
+-- Name: quiz_user_answers; Type: TABLE; Schema: public; Owner: api
+--
+
+CREATE TABLE public.quiz_user_answers (
+    user_answer_id integer NOT NULL,
+    question_id integer,
+    answer_id integer,
+    value character varying
+);
+
+
+ALTER TABLE public.quiz_user_answers OWNER TO api;
+
+--
+-- Name: quiz_user_answers_user_answer_id_seq; Type: SEQUENCE; Schema: public; Owner: api
+--
+
+CREATE SEQUENCE public.quiz_user_answers_user_answer_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.quiz_user_answers_user_answer_id_seq OWNER TO api;
+
+--
+-- Name: quiz_user_answers_user_answer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: api
+--
+
+ALTER SEQUENCE public.quiz_user_answers_user_answer_id_seq OWNED BY public.quiz_user_answers.user_answer_id;
+
+
+--
+-- Name: user_quiz_taken; Type: TABLE; Schema: public; Owner: api
+--
+
+CREATE TABLE public.user_quiz_taken (
+    id integer NOT NULL,
+    user_id integer,
+    quiz_id integer
+);
+
+
+ALTER TABLE public.user_quiz_taken OWNER TO api;
+
+--
+-- Name: user_quiz_taken_id_seq; Type: SEQUENCE; Schema: public; Owner: api
+--
+
+CREATE SEQUENCE public.user_quiz_taken_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_quiz_taken_id_seq OWNER TO api;
+
+--
+-- Name: user_quiz_taken_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: api
+--
+
+ALTER SEQUENCE public.user_quiz_taken_id_seq OWNED BY public.user_quiz_taken.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: api
 --
 
@@ -237,6 +308,20 @@ ALTER TABLE ONLY public.quiz_answer ALTER COLUMN answer_id SET DEFAULT nextval('
 --
 
 ALTER TABLE ONLY public.quiz_question ALTER COLUMN question_id SET DEFAULT nextval('public.quiz_question_question_id_seq'::regclass);
+
+
+--
+-- Name: quiz_user_answers user_answer_id; Type: DEFAULT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_user_answers ALTER COLUMN user_answer_id SET DEFAULT nextval('public.quiz_user_answers_user_answer_id_seq'::regclass);
+
+
+--
+-- Name: user_quiz_taken id; Type: DEFAULT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.user_quiz_taken ALTER COLUMN id SET DEFAULT nextval('public.user_quiz_taken_id_seq'::regclass);
 
 
 --
@@ -304,6 +389,22 @@ COPY public.quiz_question (question_id, quiz_id, question, type, required) FROM 
 
 
 --
+-- Data for Name: quiz_user_answers; Type: TABLE DATA; Schema: public; Owner: api
+--
+
+COPY public.quiz_user_answers (user_answer_id, question_id, answer_id, value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: user_quiz_taken; Type: TABLE DATA; Schema: public; Owner: api
+--
+
+COPY public.user_quiz_taken (id, user_id, quiz_id) FROM stdin;
+\.
+
+
+--
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: api
 --
 
@@ -338,6 +439,20 @@ SELECT pg_catalog.setval('public.quiz_question_question_id_seq', 8, true);
 --
 
 SELECT pg_catalog.setval('public.quiz_quiz_id_seq', 2, true);
+
+
+--
+-- Name: quiz_user_answers_user_answer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: api
+--
+
+SELECT pg_catalog.setval('public.quiz_user_answers_user_answer_id_seq', 1, false);
+
+
+--
+-- Name: user_quiz_taken_id_seq; Type: SEQUENCE SET; Schema: public; Owner: api
+--
+
+SELECT pg_catalog.setval('public.user_quiz_taken_id_seq', 1, false);
 
 
 --
@@ -449,6 +564,38 @@ ALTER TABLE ONLY public.quiz
 
 ALTER TABLE ONLY public.quiz_question
     ADD CONSTRAINT quiz_question_quiz_id_fkey FOREIGN KEY (quiz_id) REFERENCES public.quiz(quiz_id) ON DELETE CASCADE;
+
+
+--
+-- Name: quiz_user_answers quiz_user_answers_answer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_user_answers
+    ADD CONSTRAINT quiz_user_answers_answer_id_fkey FOREIGN KEY (answer_id) REFERENCES public.quiz_answer(answer_id);
+
+
+--
+-- Name: quiz_user_answers quiz_user_answers_question_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_user_answers
+    ADD CONSTRAINT quiz_user_answers_question_id_fkey FOREIGN KEY (question_id) REFERENCES public.quiz_question(question_id);
+
+
+--
+-- Name: user_quiz_taken user_quiz_taken_quiz_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.user_quiz_taken
+    ADD CONSTRAINT user_quiz_taken_quiz_id_fkey FOREIGN KEY (quiz_id) REFERENCES public.quiz(quiz_id);
+
+
+--
+-- Name: user_quiz_taken user_quiz_taken_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.user_quiz_taken
+    ADD CONSTRAINT user_quiz_taken_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(user_id);
 
 
 --
