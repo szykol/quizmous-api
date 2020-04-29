@@ -158,7 +158,7 @@ paths:
         description: "Created user object"
         required: true
         schema:
-          $ref: "#/definitions/UserAnswers"
+          $ref: "#/definitions/body"
       responses:
         "200":
           description: "successful operation"
@@ -458,6 +458,13 @@ definitions:
     properties:
       question_id:
         $ref: "#/definitions/UserAnswers_inner_question_id"
+  body:
+    type: "object"
+    properties:
+      user:
+        $ref: "#/definitions/PostUser"
+      answers:
+        $ref: "#/definitions/UserAnswers"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
