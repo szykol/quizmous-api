@@ -137,6 +137,38 @@ paths:
         "404":
           description: "Quiz not found"
       x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
+  /quiz/{id}/answers:
+    post:
+      tags:
+      - "quiz"
+      summary: "Insert questions for quiz"
+      description: "Returns a single quiz"
+      operationId: "insert_answers_for_quiz"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of quiz to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/UserAnswers"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Quiz"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Quiz not found"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
   /user/register:
     post:
       tags:
@@ -226,6 +258,70 @@ paths:
         "400":
           description: "Invalid username/password supplied"
       x-swagger-router-controller: "swagger_server.controllers.user_controller"
+  /user/quiz_taken/{id}:
+    post:
+      tags:
+      - "quiz"
+      summary: "Let backend know user has taken the quiz"
+      description: ""
+      operationId: "insert_quiz_taken"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of quiz to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/PostUser"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Quiz"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Quiz not found"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
+  /user/{user_nick}/quiz_taken/{id}:
+    get:
+      tags:
+      - "quiz"
+      summary: "Find Quiz by ID"
+      description: "Returns a single quiz"
+      operationId: "get_quiz_taken"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of quiz to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "user_nick"
+        in: "path"
+        description: "ID of user"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Quiz not found"
+      x-swagger-router-controller: "swagger_server.controllers.quiz_controller"
 definitions:
   Quiz:
     type: "object"
@@ -315,6 +411,10 @@ definitions:
     example:
       answer: "answer"
       answer_id: 6
+  UserAnswers:
+    type: "array"
+    items:
+      $ref: "#/definitions/UserAnswers_inner"
   GetUser:
     type: "object"
     properties:
@@ -337,6 +437,27 @@ definitions:
     example:
       nick: "nick"
       password: "password"
+  inline_response_200:
+    type: "object"
+    properties:
+      taken:
+        type: "boolean"
+    example:
+      taken: true
+  UserAnswers_inner_question_id:
+    type: "object"
+    properties:
+      answer_id:
+        type: "array"
+        items:
+          type: "integer"
+      value:
+        type: "string"
+  UserAnswers_inner:
+    type: "object"
+    properties:
+      question_id:
+        $ref: "#/definitions/UserAnswers_inner_question_id"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
