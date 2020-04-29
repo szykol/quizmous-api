@@ -13,7 +13,7 @@ from copy import deepcopy
 from datetime import datetime
 from psycopg2.extras import RealDictCursor
 
-from quizmous_api import Quiz, Question, Answer, QuestionType, GetUser, PostUser
+from quizmous_api import Quiz, Question, Answer, QuestionType, GetUser, PostUser, UserAnswers
 
 API_PORT=8000
 API_URL = 'http://localhost:8000/'
@@ -304,3 +304,37 @@ class EndpointTest(EndpointBase):
 
         self.assertEqual(payload["message"], "User '{}' already exists".format(user.nick))
 
+    def test_insert_answers_for_quiz(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+
+        # user_answers = UserAnswers({
+            
+        # })
+        user_answers = {
+            1: {
+                "answer_id": None, 
+                "value": "yes"
+            },
+            2: {
+                "answer_id": 2,
+                "value": None
+            }
+        } 
+        r = self._send_post_request('http://localhost:8000/quiz/1/answers', payload=user_answers, response_code=201)
+    
+    def test_quiz_taken(self):
+        user = PostUser('NewUser', 'S3Cr3T')
+        r = self._send_post_request('http://localhost:8000/user/register', payload=user.to_dict(), response_code=201)
+
+        r = self._send_get_request('http://localhost:8000/user/{}/quiz_taken/1'.format(user.nick))
+
+        payload = r.json()
+        self.assertFalse(payload["taken"])
+
+        r = self._send_post_request('http://localhost:8000/user/quiz_taken/1', payload=user.to_dict(), response_code=201)
+        
+        r = self._send_get_request('http://localhost:8000/user/{}/quiz_taken/1'.format(user.nick))
+
+        payload = r.json()
+        self.assertTrue(payload["taken"])

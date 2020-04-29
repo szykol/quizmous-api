@@ -412,9 +412,7 @@ definitions:
       answer: "answer"
       answer_id: 6
   UserAnswers:
-    type: "array"
-    items:
-      $ref: "#/definitions/UserAnswers_inner"
+    $ref: "#/definitions/UserAnswers_inner"
   GetUser:
     type: "object"
     properties:

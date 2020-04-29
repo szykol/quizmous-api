@@ -1,8 +1,8 @@
 from sanic import Sanic
 from sanic.response import json
 
-from quizmous_api import app, DSN, VERSION, SERIAL, Quiz, GetUser, PostUser
-from quizmous_api.db import DB, select_model_from_db, insert_model_to_db
+from quizmous_api import app, DSN, VERSION, SERIAL, Quiz, GetUser, PostUser, UserAnswers
+from quizmous_api.db import DB, select_model_from_db, insert_model_to_db, insert_user_answers_to_db, insert_user_quiz_taken, select_user_quiz_taken
 from quizmous_api.common import extract_jwt, parse_jwt
 
 @app.route("/", methods=['GET', 'OPTIONS'])
@@ -82,6 +82,45 @@ async def logout_user(payload):
     if result:
         return json(body={"message": "successful operation"}, status=200)
     return json(body={"message": "Invalid username/password supplied"}, status=400)
+
+@app.route("/quiz/<id:int>/answers", methods=['POST'])
+@parse_jwt
+async def insert_answers_for_quiz(payload, id: int):
+    quiz_answers = payload
+    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM quiz WHERE quiz_id=$1""", id)
+
+    if not result:
+        return json(body={"message": "Invalid quiz id supplied"}, status=400)
+
+    await insert_user_answers_to_db(quiz_answers)
+    return json(body={"message": "answers inserted sucessfuly"}, status=201)
+
+
+@app.route("/user/quiz_taken/<id:int>", methods=['POST'])
+@parse_jwt
+async def insert_quiz_taken(payload, id: int):
+    user = PostUser.from_dict(payload)
+    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
+
+    if not result:
+        return json(body={"message": "Invalid username/password supplied"}, status=400)
+
+    await insert_user_quiz_taken(user, id)
+    return json(body={"message": "quiz taken sucessfuly"}, status=201)
+
+@app.route("/user/<user_nick:string>/quiz_taken/<id:int>", methods=['GET'])
+@parse_jwt
+async def get_quiz_taken(payload, user_nick: str, id: int):
+    # user = PostUser.from_dict(payload)
+    result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1""", user_nick)
+
+    if not result:
+        return json(body={"message": "Invalid username supplied"}, status=400)
+
+    ret = await select_user_quiz_taken(user_nick, id)
+    if ret:
+        return json(body={"message": "quiz has been taken by user", "taken": True}, status=200)
+    return json(body={"message": "quiz has not been taken by user", "taken": False}, status=200)
 
 
 def init_endpoints(app):

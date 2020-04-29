@@ -207,6 +207,28 @@ async def insert_user_to_db(user):
         raise UniqueModelConstraint(msg="User '{}' already exists".format(user.nick))
     return record[0]["user_id"]
 
+async def insert_user_answers_to_db(answers):
+    query = "INSERT INTO quiz_user_answers (question_id, answer_id, value) VALUES ($1, $2, $3)"
+    for question_id, answer in answers.items():
+        await DB.get_pool().execute(query, int(question_id), answer["answer_id"], answer["value"])
+
+
+async def insert_user_quiz_taken(user, id):
+    q = "SELECT user_id FROM users WHERE nick=$1"
+    user_id = await DB.get_pool().fetchrow(q, user.nick)
+    user_id = user_id["user_id"]
+
+    query = "INSERT INTO user_quiz_taken (quiz_id, user_id) VALUES ($1, $2)"
+    await DB.get_pool().execute(query, id, user_id)
+
+async def select_user_quiz_taken(user_nick, id):
+    q = "SELECT user_id FROM users WHERE nick=$1"
+    user_id = await DB.get_pool().fetchrow(q, user_nick)
+    user_id = user_id["user_id"]
+
+    query = "SELECT 1 FROM user_quiz_taken WHERE quiz_id=$1 AND user_id=$2"
+    return await DB.get_pool().fetchrow(query, id, user_id)
+
 async def select_user_from_db(id: int):
     user = dict(await perform_select_sql(GetUser, id))
 
