@@ -184,7 +184,8 @@ CREATE TABLE public.quiz_user_answers (
     user_answer_id integer NOT NULL,
     question_id integer,
     answer_id integer,
-    value character varying
+    value character varying,
+    key character varying NOT NULL
 );
 
 
@@ -392,7 +393,7 @@ COPY public.quiz_question (question_id, quiz_id, question, type, required) FROM 
 -- Data for Name: quiz_user_answers; Type: TABLE DATA; Schema: public; Owner: api
 --
 
-COPY public.quiz_user_answers (user_answer_id, question_id, answer_id, value) FROM stdin;
+COPY public.quiz_user_answers (user_answer_id, question_id, answer_id, value, key) FROM stdin;
 \.
 
 

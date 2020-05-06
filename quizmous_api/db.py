@@ -208,15 +208,16 @@ async def insert_user_to_db(user):
     return record[0]["user_id"]
 
 async def insert_user_answers_to_db(answers):
+    answer_key = answers["key"]
+    print(answer_key)
     answers = filter(lambda item: item[0].isdigit(), answers.items())
-    query = "INSERT INTO quiz_user_answers (question_id, answer_id, value) VALUES ($1, $2, $3)"
+    query = "INSERT INTO quiz_user_answers (key, question_id, answer_id, value) VALUES ($1, $2, $3, $4)"
     for question_id, answer in answers:
-        print("? {}".format(answer))
         if isinstance(answer["answer_id"], list):
             for ans in answer["answer_id"]:
-                await DB.get_pool().execute(query, int(question_id), ans, answer["value"])
+                await DB.get_pool().execute(query, answer_key, int(question_id), ans, answer["value"])
         else:
-            await DB.get_pool().execute(query, int(question_id), answer["answer_id"], answer["value"])
+            await DB.get_pool().execute(query, answer_key, int(question_id), answer["answer_id"], answer["value"])
 
 
 async def insert_user_quiz_taken(user, id):
