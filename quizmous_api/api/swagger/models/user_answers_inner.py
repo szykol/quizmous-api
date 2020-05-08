@@ -6,6 +6,7 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from .base_model_ import Model
+from .user_answers_inner_question_id import UserAnswersInnerQuestionId
 from .. import util
 
 
