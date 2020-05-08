@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  postgres:
+    container_name: postgres_api
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_USER=api"
+      - "POSTGRES_PASSWORD=foobar"
+      - "POSTGRES_DB=quiz"
+    volumes:
+      - ./api/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+  api:
+    build: .
+    container_name: quizmous_api
+    hostname: quizmous_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/usr/local/api
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    environment:
+      - "PGHOST=postgres_api"
+      - "PGDATABASE=quiz"
+      - "PGUSER=api"
+      - "PGPASSWORD=foobar"
+    stdin_open: true
+    tty: ${API_TTY:-false}
+    entrypoint: ${API_ENTRYPOINT:-/usr/local/api/run.py}
+    command: ${API_COMMAND}
