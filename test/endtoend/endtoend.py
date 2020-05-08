@@ -312,6 +312,7 @@ class EndpointTest(EndpointBase):
             
         # })
         user_answers = {
+            "key": "ultra-secret",
             1: {
                 "answer_id": None, 
                 "value": "yes"
