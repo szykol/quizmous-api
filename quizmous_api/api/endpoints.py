@@ -69,8 +69,8 @@ async def login_user(payload):
     result = await DB.get_pool().fetchrow(""" SELECT user_id FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
     if result:
-        created_user = await select_model_from_db(GetUser, result["user_id"])
-        return json(body={"message": "successful operation", "user": created_user.to_dict()}, status=200)
+        # created_user = await select_model_from_db(GetUser, result["user_id"])
+        return json(body={"message": "successful operation", "user": {"nick": user.nick, "user_id": result["user_id"]}}, status=200)
     return json(body={"message": "Invalid username/password supplied"}, status=400)
 
 @app.route("/user/logout", methods=['POST'])
