@@ -122,6 +122,33 @@ async def get_quiz_taken(payload, user_nick: str, id: int):
         return json(body={"message": "quiz has been taken by user", "taken": True}, status=200)
     return json(body={"message": "quiz has not been taken by user", "taken": False}, status=200)
 
+@app.route("/check_token", methods=['POST'])
+@parse_jwt
+async def get_answers_via_token(payload):
+    token = payload["token"]
+    print(token)
+    row = await DB.get_pool().fetchrow(""" SELECT quiz_id, key_id FROM quiz_key WHERE key=$1""", token)
+
+    if not row:
+        return json(body={"message": "token not found"}, status=404)
+
+    quiz_id  = row["quiz_id"]
+
+    answers = await DB.get_pool().fetch(""" SELECT a.value, a.question_id,  qa.answer, qu.question FROM quiz_user_answers a left outer join quiz_answer qa on a.answer_id=qa.answer_id JOIN quiz_question qu on a.question_id=qu.question_id WHERE key_id=$1""", row["key_id"])
+    
+    questions = {}
+    for answer in answers:
+        question_id = answer["question_id"]
+        if question_id not in questions:
+            questions[question_id] = {
+                "question": answer["question"],
+                "answers": [answer["answer"] or answer["value"]]
+            }
+        else:
+            questions[question_id]["answers"].append(answer["answer"] or answer["value"])
+    
+    return json(body={"message": "success", "answers": {"quiz_id": quiz_id, "questions": questions}}, status=200)
+
 
 def init_endpoints(app):
     app.add_route(test, '/', methods=['GET'])
