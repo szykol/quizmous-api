@@ -207,17 +207,19 @@ async def insert_user_to_db(user):
         raise UniqueModelConstraint(msg="User '{}' already exists".format(user.nick))
     return record[0]["user_id"]
 
-async def insert_user_answers_to_db(answers):
+async def insert_user_answers_to_db(answers, quiz_id):
     answer_key = answers["key"]
-    print(answer_key)
     answers = filter(lambda item: item[0].isdigit(), answers.items())
-    query = "INSERT INTO quiz_user_answers (key, question_id, answer_id, value) VALUES ($1, $2, $3, $4)"
+    query = "INSERT INTO quiz_key (quiz_id, key) VALUES ($1, $2) RETURNING key_id";
+    key_id = await DB.get_pool().fetchrow(query, quiz_id, answer_key)
+    key_id = key_id["key_id"]
+    query = "INSERT INTO quiz_user_answers (key_id, question_id, answer_id, value) VALUES ($1, $2, $3, $4)"
     for question_id, answer in answers:
         if isinstance(answer["answer_id"], list):
             for ans in answer["answer_id"]:
-                await DB.get_pool().execute(query, answer_key, int(question_id), ans, answer["value"])
+                await DB.get_pool().execute(query, key_id, int(question_id), ans, answer["value"])
         else:
-            await DB.get_pool().execute(query, answer_key, int(question_id), answer["answer_id"], answer["value"])
+            await DB.get_pool().execute(query, key_id, int(question_id), answer["answer_id"], answer["value"])
 
 
 async def insert_user_quiz_taken(user, id):

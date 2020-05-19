@@ -92,7 +92,7 @@ async def insert_answers_for_quiz(payload, id: int):
     if not result:
         return json(body={"message": "Invalid quiz id supplied"}, status=400)
 
-    await insert_user_answers_to_db(quiz_answers)
+    await insert_user_answers_to_db(quiz_answers, id)
     return json(body={"message": "answers inserted sucessfuly"}, status=201)
 
 

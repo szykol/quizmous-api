@@ -118,6 +118,41 @@ ALTER SEQUENCE public.quiz_answer_answer_seq OWNED BY public.quiz_answer.answer_
 
 
 --
+-- Name: quiz_key; Type: TABLE; Schema: public; Owner: api
+--
+
+CREATE TABLE public.quiz_key (
+    key_id integer NOT NULL,
+    key character varying NOT NULL,
+    quiz_id integer NOT NULL
+);
+
+
+ALTER TABLE public.quiz_key OWNER TO api;
+
+--
+-- Name: quiz_key_key_id_seq; Type: SEQUENCE; Schema: public; Owner: api
+--
+
+CREATE SEQUENCE public.quiz_key_key_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.quiz_key_key_id_seq OWNER TO api;
+
+--
+-- Name: quiz_key_key_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: api
+--
+
+ALTER SEQUENCE public.quiz_key_key_id_seq OWNED BY public.quiz_key.key_id;
+
+
+--
 -- Name: quiz_question; Type: TABLE; Schema: public; Owner: api
 --
 
@@ -185,7 +220,7 @@ CREATE TABLE public.quiz_user_answers (
     question_id integer,
     answer_id integer,
     value character varying,
-    key character varying NOT NULL
+    key_id integer NOT NULL
 );
 
 
@@ -305,6 +340,13 @@ ALTER TABLE ONLY public.quiz_answer ALTER COLUMN answer_id SET DEFAULT nextval('
 
 
 --
+-- Name: quiz_key key_id; Type: DEFAULT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_key ALTER COLUMN key_id SET DEFAULT nextval('public.quiz_key_key_id_seq'::regclass);
+
+
+--
 -- Name: quiz_question question_id; Type: DEFAULT; Schema: public; Owner: api
 --
 
@@ -393,7 +435,7 @@ COPY public.quiz_question (question_id, quiz_id, question, type, required) FROM 
 -- Data for Name: quiz_user_answers; Type: TABLE DATA; Schema: public; Owner: api
 --
 
-COPY public.quiz_user_answers (user_answer_id, question_id, answer_id, value, key) FROM stdin;
+COPY public.quiz_user_answers (user_answer_id, question_id, answer_id, value, key_id) FROM stdin;
 \.
 
 
@@ -560,6 +602,14 @@ ALTER TABLE ONLY public.quiz
 
 
 --
+-- Name: quiz_key quiz_key_quiz_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_key
+    ADD CONSTRAINT quiz_key_quiz_id_fkey FOREIGN KEY (quiz_id) REFERENCES public.quiz(quiz_id);
+
+
+--
 -- Name: quiz_question quiz_question_quiz_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
 --
 
@@ -573,6 +623,14 @@ ALTER TABLE ONLY public.quiz_question
 
 ALTER TABLE ONLY public.quiz_user_answers
     ADD CONSTRAINT quiz_user_answers_answer_id_fkey FOREIGN KEY (answer_id) REFERENCES public.quiz_answer(answer_id);
+
+
+--
+-- Name: quiz_user_answers quiz_user_answers_key_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_user_answers
+    ADD CONSTRAINT quiz_user_answers_key_id_fkey FOREIGN KEY (key_id) REFERENCES public.quiz_key(key_id);
 
 
 --
