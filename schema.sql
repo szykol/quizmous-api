@@ -290,7 +290,8 @@ ALTER SEQUENCE public.user_quiz_taken_id_seq OWNED BY public.user_quiz_taken.id;
 CREATE TABLE public.users (
     user_id integer NOT NULL,
     nick character varying NOT NULL,
-    password character varying NOT NULL
+    password character varying NOT NULL,
+    is_admin boolean DEFAULT false NOT NULL
 );
 
 
@@ -451,8 +452,8 @@ COPY public.user_quiz_taken (id, user_id, quiz_id) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: api
 --
 
-COPY public.users (user_id, nick, password) FROM stdin;
-1	admin	ultr4SECRET
+COPY public.users (user_id, nick, password, is_admin) FROM stdin;
+1	admin	ultr4SECRET	f
 \.
 
 
@@ -567,6 +568,14 @@ ALTER TABLE ONLY public.quiz_question
 
 ALTER TABLE ONLY public.quiz
     ADD CONSTRAINT quiz_quiz_id_key UNIQUE (quiz_id);
+
+
+--
+-- Name: quiz_key uniquekey; Type: CONSTRAINT; Schema: public; Owner: api
+--
+
+ALTER TABLE ONLY public.quiz_key
+    ADD CONSTRAINT uniquekey UNIQUE (key);
 
 
 --
