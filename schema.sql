@@ -453,7 +453,7 @@ COPY public.user_quiz_taken (id, user_id, quiz_id) FROM stdin;
 --
 
 COPY public.users (user_id, nick, password, is_admin) FROM stdin;
-1	admin	ultr4SECRET	f
+1	admin	ultr4SECRET	t
 \.
 
 
