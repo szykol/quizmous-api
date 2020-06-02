@@ -1,0 +1,30 @@
+quizmous\_api.api.swagger package
+=================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   quizmous_api.api.swagger.models
+
+Submodules
+----------
+
+quizmous\_api.api.swagger.util module
+-------------------------------------
+
+.. automodule:: quizmous_api.api.swagger.util
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: quizmous_api.api.swagger
+   :members:
+   :undoc-members:
+   :show-inheritance:
