@@ -1,12 +1,19 @@
 # quizmous-api
+
 Api for quizmous web app
 
 ## Prerequisties
+
 You need to have docker to build the app
+
+General code documentation can be found [here](https://szykol.github.io/quizmous-api/).
+
+API docs generated using swagger can be found [here](https://szykol.github.io/quizmous-api/api.html).
 
 ## Quick start
 
 For unix users:
+
 ```
 ./setup_api.sh --rebuild --deamon
 
@@ -21,7 +28,9 @@ curl localhost:8000 # to see if it works
 ```
 / [GET]
 ```
+
 returns
+
 ```
 {"name": "quizmous", "version": "0.0.1"}
 ```
