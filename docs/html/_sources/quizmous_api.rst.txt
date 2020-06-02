@@ -1,6 +1,14 @@
 quizmous\_api package
 =====================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   quizmous_api.api
+
 Submodules
 ----------
 

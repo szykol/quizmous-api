@@ -33,6 +33,15 @@ class Responses(Enum):
     }
 
 def create_response(resp: Responses, add: dict={}) -> response.HTTPResponse:
+    """Generates response
+
+    :param resp: Response enum
+    :type resp: Responses
+    :param add: additional response data, defaults to {}
+    :type add: dict, optional
+    :return: Sanic HTTPResponse
+    :rtype: response.HTTPResponse
+    """
     body = {"message": resp.value["message"]}
     body.update(add)
     return response.json(body=body, status=resp.value["status"])

@@ -8,24 +8,55 @@ from itertools import chain
 from asyncpg.exceptions import UniqueViolationError
 
 class UniqueModelConstraint(Exception):
+    """Exception that gets raised when model that is inserted and should be unique to the DB is already there"""
     def __init__(self, msg: str):
+        """Creates new UniqueModelConstraint exception
+        :param msg: error message 
+        :type msg: str
+        """
+
         self.msg = msg
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """Returns string representation of the exception
+        :return: string representation.  
+        :rtype: str
+        """
         return self.msg
 
 class DB:
+    """DB - PostgreSQL database wrapper"""
     _pool: asyncpg.pool.Pool = None
 
     @staticmethod
     async def init(dsn, *args, **kwargs):
+        """Initializes the database connection pool
+
+        :param dsn: dsn connection string 
+        :type dsn: str
+        """
         DB._pool = await asyncpg.create_pool(dsn=dsn, *args, **kwargs)
 
     @staticmethod
     def get_pool() -> asyncpg.pool.Pool:
+        """Returns the database connection pool
+
+        :return: database connection pool
+        :rtype: asyncpg.pool.Pool
+        """
         return DB._pool
 
 async def select_model_from_db(model_cls, id: int = None):
+    """Selects model from the database
+
+    :param model_cls: class literal of model
+    :type model_cls: class literal
+    :param id: optional id of selected model, defaults to None
+    :type id: int 
+    :raises ValueError: Gets raised when model is not supported by that function
+    :return: model object created using model_cls class literal
+    :rtype: Model
+    """
     if model_cls == Quiz:
         return await select_quiz_from_db(id)
     if model_cls == Question:
@@ -38,6 +69,16 @@ async def select_model_from_db(model_cls, id: int = None):
         raise ValueError("Fetching {} model from db not supported!".format(str(model_cls)))
 
 async def insert_model_to_db(model, id: int = None):
+    """Inserts model to database
+
+    :param model: Model object to insert
+    :type Model: Model object
+    :param id: optional id of inserted model, defaults to None
+    :type id: int 
+    :raises ValueError: Gets raised when model is not supported by that function
+    :return: id of inserted model
+    :rtype: int
+    """
     if type(model) == Quiz:
         return await insert_quiz_to_db(model)
     if type(model) == Question:
@@ -50,6 +91,13 @@ async def insert_model_to_db(model, id: int = None):
         raise ValueError("Fetching {} model from db not supported!".format(str(type(model))))
 
 def get_data_for_query(model_cls):
+    """Returns data needed to build db query
+
+    :param model_cls: Model used in query
+    :type model_cls: model class literal
+    :return: data needed to build db query
+    :rtype: dict
+    """
     if model_cls == Quiz:
         return {
             "remove_keys": ['questions'],
@@ -80,6 +128,16 @@ def get_data_for_query(model_cls):
     return {}
 
 def prepare_select_sql(model_cls, id: int = None):
+    """Returns select sql query for specific model
+
+    :param model_cls: Model used in query
+    :type model_cls: model class literal
+    :param id: optional id of inserted model, defaults to None
+    :type id: int 
+    :return: select sql query
+    :rtype: str
+    """
+
     q = """ SELECT {} FROM {}""" 
     query_data = get_data_for_query(model_cls)
 
@@ -93,6 +151,14 @@ def prepare_select_sql(model_cls, id: int = None):
     return q
 
 def prepare_insert_sql(model):
+    """Returns insert sql query for specific model
+
+    :param model: Model used in query
+    :type model_cls: model object
+    :return: insert sql query
+    :rtype: str
+    """
+
     q = """ INSERT INTO {} ({}) VALUES ({}) RETURNING *"""
     
     model_dict = model.to_dict()
@@ -112,6 +178,15 @@ def prepare_insert_sql(model):
     return q.format(query_data["table_name"], ','.join(keys), ','.join(val_indices)), keys
 
 async def perform_select_sql(model_cls, id: int = None):
+    """Performs select query
+
+    :param model_cls: model to select
+    :type model_cls: model class literal
+    :param id: id of selected model, defaults to None
+    :type id: int, optional
+    :return: rows of data
+    :rtype: Row
+    """
     query = prepare_select_sql(model_cls, id)
     if id:
         return await DB.get_pool().fetch(query, id)
@@ -119,6 +194,14 @@ async def perform_select_sql(model_cls, id: int = None):
         return await DB.get_pool().fetch(query)
 
 async def select_quiz_from_db(id: int = None):
+    """Performs select quiz from db
+
+    :param id: id of selected model, defaults to None
+    :type id: int, optional
+    :return: rows of data
+    :rtype: Row
+    """
+
     records = await perform_select_sql(Quiz, id)
     quiz_dict = [dict(r) for r in records]
     for q in quiz_dict:
@@ -131,6 +214,13 @@ async def select_quiz_from_db(id: int = None):
     return quizes
 
 async def select_question_from_db(quiz_id: int = None):
+    """Performs select question from db
+
+    :param id: id of selected model, defaults to None
+    :type id: int, optional
+    :return: rows of data
+    :rtype: Row
+    """
     records = await perform_select_sql(Question, quiz_id)
 
     questions = [Question.from_dict(dict(r)) for r in records]
@@ -140,6 +230,13 @@ async def select_question_from_db(quiz_id: int = None):
     return questions
 
 async def select_answer_from_db(question_id: int = None):
+    """Performs select answer from db
+
+    :param id: id of selected model, defaults to None
+    :type id: int, optional
+    :return: rows of data
+    :rtype: Row
+    """
     records = await perform_select_sql(Answer, question_id)
 
     answers = [Answer.from_dict(dict(r)) for r in records]
@@ -147,6 +244,8 @@ async def select_answer_from_db(question_id: int = None):
     return answers
 
 async def insert_quiz_to_db(quiz):
+    """Inserts quiz to db
+    """
     insert_query, keys = prepare_insert_sql(quiz)
 
     quiz_dict = quiz.to_dict()
@@ -166,6 +265,11 @@ async def insert_quiz_to_db(quiz):
     return quiz_id
 
 async def insert_question_to_db(question, quiz_id: int):
+    """Inserts question to db
+
+    :param quiz_id: id of parent quiz model
+    :type quiz_id: int
+    """
     insert_query, keys = prepare_insert_sql(question)
 
     question_dict = question.to_dict()
@@ -184,6 +288,11 @@ async def insert_question_to_db(question, quiz_id: int):
     return question_id
 
 async def insert_answer_to_db(answer, question_id: int):
+    """Inserts answer to db
+    
+    :param question_id: id of parent question model
+    :type question_id: int
+    """
     insert_query, keys = prepare_insert_sql(answer)
 
     answer_dict = answer.to_dict()
@@ -196,6 +305,14 @@ async def insert_answer_to_db(answer, question_id: int):
     return record[0]["answer_id"]
 
 async def insert_user_to_db(user):
+    """Inserts user to db
+
+    :param user: user to insert
+    :type user: User model
+    :raises UniqueModelConstraint: Gets raised when user already exists
+    :return: id of user
+    :rtype: int
+    """
     insert_query, keys = prepare_insert_sql(user)
 
     user_dict = user.to_dict()
@@ -208,6 +325,13 @@ async def insert_user_to_db(user):
     return record[0]["user_id"]
 
 async def insert_user_answers_to_db(answers, quiz_id):
+    """Inserts user answers to db
+
+    :param answers: List of answers from user
+    :type answers: List[Answer]
+    :param quiz_id: Id of quiz
+    :type quiz_id: int
+    """
     answer_key = answers["key"]
     answers = filter(lambda item: item[0].isdigit(), answers.items())
     query = "INSERT INTO quiz_key (quiz_id, key) VALUES ($1, $2) RETURNING key_id";
@@ -223,6 +347,13 @@ async def insert_user_answers_to_db(answers, quiz_id):
 
 
 async def insert_user_quiz_taken(user, id):
+    """Sets the flag that user has taken the quiz
+
+    :param user: which user taken the quiz
+    :type user: User model
+    :param id: Id of user
+    :type id: int
+    """
     q = "SELECT user_id FROM users WHERE nick=$1"
     user_id = await DB.get_pool().fetchrow(q, user.nick)
     user_id = user_id["user_id"]
@@ -231,6 +362,15 @@ async def insert_user_quiz_taken(user, id):
     await DB.get_pool().execute(query, id, user_id)
 
 async def select_user_quiz_taken(user_nick, id):
+    """Selects data is user has taken a quiz
+
+    :param user_nick: Nick of user
+    :type user_nick: str
+    :param id: Id of quiz
+    :type id: int
+    :return: None if quiz has not been taken
+    :rtype: None or Row
+    """
     q = "SELECT user_id FROM users WHERE nick=$1"
     user_id = await DB.get_pool().fetchrow(q, user_nick)
     user_id = user_id["user_id"]
@@ -239,6 +379,13 @@ async def select_user_quiz_taken(user_nick, id):
     return await DB.get_pool().fetchrow(query, id, user_id)
 
 async def select_user_from_db(id: int):
+    """Selects user from db
+
+    :param id: Id of user
+    :type id: int
+    :return: User model
+    :rtype: User object
+    """
     user = dict(await perform_select_sql(GetUser, id))
 
     return GetUser.from_dict(user)

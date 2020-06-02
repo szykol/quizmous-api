@@ -9,6 +9,11 @@ from quizmous_api.common import extract_jwt, parse_jwt
 @app.route("/", methods=['GET', 'OPTIONS'])
 @app.route("/version", methods=['GET', 'OPTIONS'])
 async def test(request):
+    """Returns api version
+
+    :param request: request from user
+    :type request: Request
+    """
     body = {"name": "quizmous_api"}
     body.update(VERSION)
     return json(body=body, status=200)
@@ -16,6 +21,11 @@ async def test(request):
 @app.route("/quiz", methods=['GET', 'OPTIONS'])
 @parse_jwt
 async def get_quiz(payload):
+    """Returns quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
     quizes = await select_model_from_db(Quiz)
 
     return json(body=[q.to_dict() for q in quizes], status=200)
@@ -23,6 +33,11 @@ async def get_quiz(payload):
 @app.route("/quiz", methods=['POST'])
 @parse_jwt
 async def add_quiz(payload):
+    """Adds a new quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
     quiz = Quiz.from_dict(payload)
     quiz_id = await insert_model_to_db(quiz)
 
@@ -31,6 +46,13 @@ async def add_quiz(payload):
 @app.route("/quiz/<id:int>", methods=['GET'])
 @parse_jwt
 async def get_quiz_by_id(payload, id: int):
+    """Returns quiz by id
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param id: id of quiz
+    :type id: int
+    """
     quizes = await select_model_from_db(Quiz, id)
     if quizes:
         return json(body=quizes[0].to_dict(), status=200)
@@ -40,6 +62,13 @@ async def get_quiz_by_id(payload, id: int):
 @app.route("/quiz/<id:int>", methods=['DELETE'])
 @parse_jwt
 async def delete_quiz(payload, id: int):
+    """Deletes specific quiz by id
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param id: id of quiz
+    :type id: int
+    """
     await DB.get_pool().execute(""" DELETE FROM quiz WHERE quiz_id = $1 """, id)
 
     return json(body={"message": "successful deletion"})
@@ -47,6 +76,11 @@ async def delete_quiz(payload, id: int):
 @app.route("/quiz", methods=['PUT'])
 @parse_jwt
 async def update_quiz(payload):
+    """Updates quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
     quiz = Quiz.from_dict(payload)
 
     await DB.get_pool().execute(""" DELETE FROM quiz WHERE quiz_id = $1 """, quiz.quiz_id)
@@ -57,6 +91,11 @@ async def update_quiz(payload):
 @app.route("/user/register", methods=['POST'])
 @parse_jwt
 async def create_user(payload):
+    """Creates a new user
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
     user = PostUser.from_dict(payload)
     user_id = await insert_model_to_db(user)
 
@@ -66,6 +105,11 @@ async def create_user(payload):
 @app.route("/user/login", methods=['POST'])
 @parse_jwt
 async def login_user(payload):
+    """Logs user
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
     user = PostUser.from_dict(payload)
     result = await DB.get_pool().fetchrow(""" SELECT user_id, is_admin FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
@@ -77,6 +121,12 @@ async def login_user(payload):
 @app.route("/user/logout", methods=['POST'])
 @parse_jwt
 async def logout_user(payload):
+    """Logs user
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
+
     user = PostUser.from_dict(payload)
     result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
@@ -87,6 +137,13 @@ async def logout_user(payload):
 @app.route("/quiz/<id:int>/answers", methods=['POST'])
 @parse_jwt
 async def insert_answers_for_quiz(payload, id: int):
+    """Insert user answers for quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param id: id of quiz
+    :type id: int
+    """
     quiz_answers = payload
     result = await DB.get_pool().fetchrow(""" SELECT 1 FROM quiz WHERE quiz_id=$1""", id)
 
@@ -100,6 +157,13 @@ async def insert_answers_for_quiz(payload, id: int):
 @app.route("/user/quiz_taken/<id:int>", methods=['POST'])
 @parse_jwt
 async def insert_quiz_taken(payload, id: int):
+    """Insert data that user has taken the quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param id: id of quiz
+    :type id: int
+    """
     user = PostUser.from_dict(payload)
     result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
@@ -112,6 +176,15 @@ async def insert_quiz_taken(payload, id: int):
 @app.route("/user/<user_nick:string>/quiz_taken/<id:int>", methods=['GET'])
 @parse_jwt
 async def get_quiz_taken(payload, user_nick: str, id: int):
+    """Insert data that user has taken the quiz
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param user_nick: nick of user
+    :type user_nick: str
+    :param id: id of quiz
+    :type id: int
+    """
     # user = PostUser.from_dict(payload)
     result = await DB.get_pool().fetchrow(""" SELECT 1 FROM users WHERE nick=$1""", user_nick)
 
@@ -126,6 +199,12 @@ async def get_quiz_taken(payload, user_nick: str, id: int):
 @app.route("/check_token", methods=['POST'])
 @parse_jwt
 async def get_answers_via_token(payload):
+    """Returns answers using token provided by the user
+
+    :param payload: payload from user
+    :type payload: Payload data
+    """
+
     token = payload["token"]
     print(token)
     row = await DB.get_pool().fetchrow(""" SELECT quiz_id, key_id FROM quiz_key WHERE key=$1""", token)
@@ -153,6 +232,13 @@ async def get_answers_via_token(payload):
 @app.route("/quiz/<id:int>/all_answers", methods=['POST'])
 @parse_jwt
 async def get_all_answers(payload, id):
+    """Returns all answers for quiz if user is an admin
+
+    :param payload: payload from user
+    :type payload: Payload data
+    :param id: id of quiz
+    :type id: int
+    """
     user = PostUser.from_dict(payload)
     result = await DB.get_pool().fetchrow(""" SELECT user_id, is_admin FROM users WHERE nick=$1 AND password=$2 """, user.nick, user.password)
 
@@ -190,6 +276,11 @@ async def get_all_answers(payload, id):
 
 
 def init_endpoints(app):
+    """Initializes endpoint for app
+
+    :param app: Sanic app
+    :type app: Sanic App
+    """
     app.add_route(test, '/', methods=['GET'])
     app.add_route(add_quiz, '/quiz', methods=['POST'])
     app.add_route(get_quiz, '/quiz', methods=['GET'])

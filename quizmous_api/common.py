@@ -9,6 +9,15 @@ from sanic.response import json, HTTPResponse
 from .db import UniqueModelConstraint
 
 def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bool, dict]:
+    """Extracts jwt tokens
+
+    :param token: token from request
+    :type token: Union[str, bytes]
+    :param serial: serial used to hash the token
+    :type serial: Union[str, bytes]
+    :return: Data saved in token
+    :rtype: Tuple[bool, dict]
+    """
     try:
         payload = jwt.decode(token, serial, algorithm='HS256')
         return (True, payload)
@@ -16,6 +25,8 @@ def extract_jwt(token: Union[str, bytes], serial: Union[str, bytes]) -> Tuple[bo
         return (False, None)
 
 def parse_jwt(f):
+    """Decorator that parses the token and returns it to decorated function
+    """
     async def wrapper(request: Request, *args, **kwargs) -> HTTPResponse:
         token = extract_token(request)
         ok, payload = extract_jwt(token, SERIAL)
@@ -32,6 +43,13 @@ def parse_jwt(f):
     return wrapper
 
 def extract_token(request: Request) -> Union[bytes, str]:
+    """Finds token in request based on it's type
+
+    :param request: request from user
+    :type request: Request
+    :return: token
+    :rtype: Union[bytes, str]
+    """
     token = None
     if request.method in ['POST', 'PUT']:
         token = request.body
