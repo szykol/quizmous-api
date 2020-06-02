@@ -1,287 +1,651 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>quizmous_api.api package &mdash; QuizmousAPI 0.0.1 documentation</title>
-  
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
 
-  
-  
-  
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <title>
+      quizmous_api.api package &mdash; QuizmousAPI 0.0.1 documentation
+    </title>
 
-    
+    <script type="text/javascript" src="static/js/modernizr.min.js"></script>
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script
+      type="text/javascript"
+      id="documentation_options"
+      data-url_root="./"
+      src="static/documentation_options.js"
+    ></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/language_data.js"></script>
+
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
-</head>
+    <link rel="search" title="Search" href="search.html" />
+  </head>
 
-<body class="wy-body-for-nav">
+  <body class="wy-body-for-nav">
+    <div class="wy-grid-for-nav">
+      <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+          <div class="wy-side-nav-search">
+            <a href="index.html" class="icon icon-home"> QuizmousAPI </a>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+            <div role="search">
+              <form
+                id="rtd-search-form"
+                class="wy-form"
+                action="search.html"
+                method="get"
+              >
+                <input type="text" name="q" placeholder="Search docs" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </div>
+          </div>
 
-          
-            <a href="index.html" class="icon icon-home"> QuizmousAPI
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
+          <div
+            class="wy-menu wy-menu-vertical"
+            data-spy="affix"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <!-- Local TOC -->
+            <div class="local-toc">
+              <ul>
+                <li>
+                  <a class="reference internal" href="#"
+                    >quizmous_api.api package</a
+                  >
+                  <ul>
+                    <li>
+                      <a class="reference internal" href="#subpackages"
+                        >Subpackages</a
+                      >
+                    </li>
+                    <li>
+                      <a class="reference internal" href="#submodules"
+                        >Submodules</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.endpoints"
+                        >quizmous_api.api.endpoints module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.models"
+                        >quizmous_api.api.models module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api"
+                        >Module contents</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">quizmous_api.api package</a><ul>
-<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.endpoints">quizmous_api.api.endpoints module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.models">quizmous_api.api.models module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">QuizmousAPI</a>
-        
       </nav>
 
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <nav class="wy-nav-top" aria-label="top navigation">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">QuizmousAPI</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div role="navigation" aria-label="breadcrumbs navigation">
+              <ul class="wy-breadcrumbs">
+                <li><a href="index.html">Docs</a> &raquo;</li>
 
+                <li>quizmous_api.api package</li>
 
+                <li class="wy-breadcrumbs-aside">
+                  <a href="_sources/quizmous_api.api.rst.txt" rel="nofollow">
+                    View page source</a
+                  >
+                </li>
+              </ul>
 
+              <hr />
+            </div>
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div itemprop="articleBody">
+                <div class="section" id="quizmous-api-api-package">
+                  <h1>
+                    quizmous_api.api package<a
+                      class="headerlink"
+                      href="#quizmous-api-api-package"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <div class="section" id="subpackages">
+                    <h2>
+                      Subpackages<a
+                        class="headerlink"
+                        href="#subpackages"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <div class="toctree-wrapper compound">
+                      <ul>
+                        <li class="toctree-l1">
+                          <a
+                            class="reference internal"
+                            href="quizmous_api.api.swagger.html"
+                            >quizmous_api.api.swagger package</a
+                          >
+                          <ul>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.swagger.html#subpackages"
+                                >Subpackages</a
+                              >
+                              <ul>
+                                <li class="toctree-l3">
+                                  <a
+                                    class="reference internal"
+                                    href="quizmous_api.api.swagger.models.html"
+                                    >quizmous_api.api.swagger.models package</a
+                                  >
+                                  <ul>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#submodules"
+                                        >Submodules</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.answer"
+                                        >quizmous_api.api.swagger.models.answer
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.base_model_"
+                                        >quizmous_api.api.swagger.models.base_model_
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.body"
+                                        >quizmous_api.api.swagger.models.body
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.get_user"
+                                        >quizmous_api.api.swagger.models.get_user
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.inline_response200"
+                                        >quizmous_api.api.swagger.models.inline_response200
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.post_user"
+                                        >quizmous_api.api.swagger.models.post_user
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.question"
+                                        >quizmous_api.api.swagger.models.question
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.question_type"
+                                        >quizmous_api.api.swagger.models.question_type
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.quiz"
+                                        >quizmous_api.api.swagger.models.quiz
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers"
+                                        >quizmous_api.api.swagger.models.user_answers
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers_inner"
+                                        >quizmous_api.api.swagger.models.user_answers_inner
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers_inner_question_id"
+                                        >quizmous_api.api.swagger.models.user_answers_inner_question_id
+                                        module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models"
+                                        >Module contents</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.swagger.html#submodules"
+                                >Submodules</a
+                              >
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger.util"
+                                >quizmous_api.api.swagger.util module</a
+                              >
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger"
+                                >Module contents</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="section" id="submodules">
+                    <h2>
+                      Submodules<a
+                        class="headerlink"
+                        href="#submodules"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                  <div class="section" id="module-quizmous_api.api.endpoints">
+                    <span id="quizmous-api-api-endpoints-module"></span>
+                    <h2>
+                      quizmous_api.api.endpoints module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.endpoints"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py function">
+                      <dt id="quizmous_api.api.endpoints.init_endpoints">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.api.endpoints.</code
+                        ><code class="sig-name descname">init_endpoints</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">app</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.endpoints.init_endpoints"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Initializes endpoint for app</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>app</strong> (<em>Sanic App</em>) – Sanic
+                              app
+                            </p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.api.endpoints.test">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.endpoints.</code
+                        ><code class="sig-name descname">test</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">request</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.endpoints.test"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Returns api version</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>request</strong> (<em>Request</em>) –
+                              request from user
+                            </p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.api.models">
+                    <span id="quizmous-api-api-models-module"></span>
+                    <h2>
+                      quizmous_api.api.models module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.models"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.models.Answer">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.models.</code
+                        ><code class="sig-name descname">Answer</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">answer_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">answer</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.models.Answer"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer"
+                            title="quizmous_api.api.swagger.models.answer.Answer"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.answer.Answer</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>Depracated</p>
+                      </dd>
+                    </dl>
 
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.models.Question">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.models.</code
+                        ><code class="sig-name descname">Question</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">question_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">question</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">type</span><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question_type.QuestionType"
+                              title="quizmous_api.api.swagger.models.question_type.QuestionType"
+                              >quizmous_api.api.swagger.models.question_type.QuestionType</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">required</span
+                          ><span class="p">:</span> <span class="n">bool</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">answers</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >List<span class="p">[</span
+                            ><a
+                              class="reference internal"
+                              href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer"
+                              title="quizmous_api.api.swagger.models.answer.Answer"
+                              >quizmous_api.api.swagger.models.answer.Answer</a
+                            ><span class="p">]</span></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.models.Question"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question.Question"
+                            title="quizmous_api.api.swagger.models.question.Question"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.question.Question</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>Depracated</p>
+                      </dd>
+                    </dl>
 
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.models.Quiz">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.models.</code
+                        ><code class="sig-name descname">Quiz</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">quiz_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">author</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.get_user.GetUser"
+                              title="quizmous_api.api.swagger.models.get_user.GetUser"
+                              >quizmous_api.api.swagger.models.get_user.GetUser</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">name</span><span class="p">:</span>
+                          <span class="n">str</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">description</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">questions</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >List<span class="p">[</span
+                            ><a
+                              class="reference internal"
+                              href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question.Question"
+                              title="quizmous_api.api.swagger.models.question.Question"
+                              >quizmous_api.api.swagger.models.question.Question</a
+                            ><span class="p">]</span></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.models.Quiz"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.quiz.Quiz"
+                            title="quizmous_api.api.swagger.models.quiz.Quiz"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.quiz.Quiz</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>Depracated</p>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.api">
+                    <span id="module-contents"></span>
+                    <h2>
+                      Module contents<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer>
+              <hr />
 
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>quizmous_api.api package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/quizmous_api.api.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="quizmous-api-api-package">
-<h1>quizmous_api.api package<a class="headerlink" href="#quizmous-api-api-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quizmous_api.api.swagger.html">quizmous_api.api.swagger package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.swagger.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="quizmous_api.api.swagger.models.html">quizmous_api.api.swagger.models package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.answer">quizmous_api.api.swagger.models.answer module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.base_model_">quizmous_api.api.swagger.models.base_model_ module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.body">quizmous_api.api.swagger.models.body module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.get_user">quizmous_api.api.swagger.models.get_user module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.inline_response200">quizmous_api.api.swagger.models.inline_response200 module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.post_user">quizmous_api.api.swagger.models.post_user module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.question">quizmous_api.api.swagger.models.question module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.question_type">quizmous_api.api.swagger.models.question_type module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.quiz">quizmous_api.api.swagger.models.quiz module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers">quizmous_api.api.swagger.models.user_answers module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers_inner">quizmous_api.api.swagger.models.user_answers_inner module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models.user_answers_inner_question_id">quizmous_api.api.swagger.models.user_answers_inner_question_id module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.models.html#module-quizmous_api.api.swagger.models">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.swagger.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger.util">quizmous_api.api.swagger.util module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-quizmous_api.api.endpoints">
-<span id="quizmous-api-api-endpoints-module"></span><h2>quizmous_api.api.endpoints module<a class="headerlink" href="#module-quizmous_api.api.endpoints" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="quizmous_api.api.endpoints.init_endpoints">
-<code class="sig-prename descclassname">quizmous_api.api.endpoints.</code><code class="sig-name descname">init_endpoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.endpoints.init_endpoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes endpoint for app</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>app</strong> (<em>Sanic App</em>) – Sanic app</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.api.endpoints.test">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.api.endpoints.</code><code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.endpoints.test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns api version</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>Request</em>) – request from user</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.models">
-<span id="quizmous-api-api-models-module"></span><h2>quizmous_api.api.models module<a class="headerlink" href="#module-quizmous_api.api.models" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.models.Answer">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.models.</code><code class="sig-name descname">Answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.models.Answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.answer.Answer</span></code></a></p>
-<p>Depracated</p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="quizmous_api.api.models.Question">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.models.</code><code class="sig-name descname">Question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question_type.QuestionType" title="quizmous_api.api.swagger.models.question_type.QuestionType">quizmous_api.api.swagger.models.question_type.QuestionType</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer">quizmous_api.api.swagger.models.answer.Answer</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.models.Question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.question.Question</span></code></a></p>
-<p>Depracated</p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="quizmous_api.api.models.Quiz">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.models.</code><code class="sig-name descname">Quiz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quiz_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">author</span><span class="p">:</span> <span class="n"><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.get_user.GetUser" title="quizmous_api.api.swagger.models.get_user.GetUser">quizmous_api.api.swagger.models.get_user.GetUser</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question">quizmous_api.api.swagger.models.question.Question</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.models.Quiz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.quiz.Quiz" title="quizmous_api.api.swagger.models.quiz.Quiz"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.quiz.Quiz</span></code></a></p>
-<p>Depracated</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-quizmous_api.api" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-
-
-           </div>
-           
+              <div role="contentinfo">
+                <p>
+                  &copy; Copyright 2020, szykol
+                </p>
+              </div>
+              Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+              <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+              provided by <a href="https://readthedocs.org">Read the Docs</a>.
+            </footer>
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, szykol
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
-      </div>
+      </section>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
+    <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+        SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+    </script>
+  </body>
 </html>

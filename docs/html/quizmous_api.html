@@ -1,696 +1,1594 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>quizmous_api package &mdash; QuizmousAPI 0.0.1 documentation</title>
-  
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
 
-  
-  
-  
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <title>quizmous_api package &mdash; QuizmousAPI 0.0.1 documentation</title>
 
-    
+    <script type="text/javascript" src="static/js/modernizr.min.js"></script>
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script
+      type="text/javascript"
+      id="documentation_options"
+      data-url_root="./"
+      src="static/documentation_options.js"
+    ></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/language_data.js"></script>
+
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
-</head>
+    <link rel="search" title="Search" href="search.html" />
+  </head>
 
-<body class="wy-body-for-nav">
+  <body class="wy-body-for-nav">
+    <div class="wy-grid-for-nav">
+      <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+          <div class="wy-side-nav-search">
+            <a href="index.html" class="icon icon-home"> QuizmousAPI </a>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+            <div role="search">
+              <form
+                id="rtd-search-form"
+                class="wy-form"
+                action="search.html"
+                method="get"
+              >
+                <input type="text" name="q" placeholder="Search docs" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </div>
+          </div>
 
-          
-            <a href="index.html" class="icon icon-home"> QuizmousAPI
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
+          <div
+            class="wy-menu wy-menu-vertical"
+            data-spy="affix"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <!-- Local TOC -->
+            <div class="local-toc">
+              <ul>
+                <li>
+                  <a class="reference internal" href="#"
+                    >quizmous_api package</a
+                  >
+                  <ul>
+                    <li>
+                      <a class="reference internal" href="#subpackages"
+                        >Subpackages</a
+                      >
+                    </li>
+                    <li>
+                      <a class="reference internal" href="#submodules"
+                        >Submodules</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.common"
+                        >quizmous_api.common module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.db"
+                        >quizmous_api.db module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.response"
+                        >quizmous_api.response module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.server"
+                        >quizmous_api.server module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.version"
+                        >quizmous_api.version module</a
+                      >
+                    </li>
+                    <li>
+                      <a class="reference internal" href="#module-quizmous_api"
+                        >Module contents</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">quizmous_api package</a><ul>
-<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.common">quizmous_api.common module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.db">quizmous_api.db module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.response">quizmous_api.response module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.server">quizmous_api.server module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.version">quizmous_api.version module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">QuizmousAPI</a>
-        
       </nav>
 
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <nav class="wy-nav-top" aria-label="top navigation">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">QuizmousAPI</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div role="navigation" aria-label="breadcrumbs navigation">
+              <ul class="wy-breadcrumbs">
+                <li><a href="index.html">Docs</a> &raquo;</li>
 
+                <li>quizmous_api package</li>
 
+                <li class="wy-breadcrumbs-aside">
+                  <a href="_sources/quizmous_api.rst.txt" rel="nofollow">
+                    View page source</a
+                  >
+                </li>
+              </ul>
 
+              <hr />
+            </div>
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div itemprop="articleBody">
+                <div class="section" id="quizmous-api-package">
+                  <h1>
+                    quizmous_api package<a
+                      class="headerlink"
+                      href="#quizmous-api-package"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <div class="section" id="subpackages">
+                    <h2>
+                      Subpackages<a
+                        class="headerlink"
+                        href="#subpackages"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <div class="toctree-wrapper compound">
+                      <ul>
+                        <li class="toctree-l1">
+                          <a
+                            class="reference internal"
+                            href="quizmous_api.api.html"
+                            >quizmous_api.api package</a
+                          >
+                          <ul>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.html#subpackages"
+                                >Subpackages</a
+                              >
+                              <ul>
+                                <li class="toctree-l3">
+                                  <a
+                                    class="reference internal"
+                                    href="quizmous_api.api.swagger.html"
+                                    >quizmous_api.api.swagger package</a
+                                  >
+                                  <ul>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.html#subpackages"
+                                        >Subpackages</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.html#submodules"
+                                        >Submodules</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger.util"
+                                        >quizmous_api.api.swagger.util module</a
+                                      >
+                                    </li>
+                                    <li class="toctree-l4">
+                                      <a
+                                        class="reference internal"
+                                        href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger"
+                                        >Module contents</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.html#submodules"
+                                >Submodules</a
+                              >
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.html#module-quizmous_api.api.endpoints"
+                                >quizmous_api.api.endpoints module</a
+                              >
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.html#module-quizmous_api.api.models"
+                                >quizmous_api.api.models module</a
+                              >
+                            </li>
+                            <li class="toctree-l2">
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.html#module-quizmous_api.api"
+                                >Module contents</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="section" id="submodules">
+                    <h2>
+                      Submodules<a
+                        class="headerlink"
+                        href="#submodules"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                  <div class="section" id="module-quizmous_api.common">
+                    <span id="quizmous-api-common-module"></span>
+                    <h2>
+                      quizmous_api.common module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.common"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py function">
+                      <dt id="quizmous_api.common.extract_jwt">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.common.</code
+                        ><code class="sig-name descname">extract_jwt</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">token</span><span class="p">:</span>
+                          <span class="n"
+                            >Union<span class="p">[</span>str<span class="p"
+                              >, </span
+                            >bytes<span class="p">]</span></span
+                          ></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">serial</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >Union<span class="p">[</span>str<span class="p"
+                              >, </span
+                            >bytes<span class="p">]</span></span
+                          ></em
+                        ><span class="sig-paren">)</span> &#x2192; Tuple<span
+                          class="p"
+                          >[</span
+                        >bool<span class="p">, </span>dict<span class="p"
+                          >]</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.common.extract_jwt"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Extracts jwt tokens</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>token</strong> (<em>Union</em
+                                  ><em>[</em><em>str</em><em>, </em
+                                  ><em>bytes</em><em>]</em>) – token from
+                                  request
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>serial</strong> (<em>Union</em
+                                  ><em>[</em><em>str</em><em>, </em
+                                  ><em>bytes</em><em>]</em>) – serial used to
+                                  hash the token
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>Data saved in token</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Tuple[bool, dict]</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.common.extract_token">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.common.</code
+                        ><code class="sig-name descname">extract_token</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">request</span
+                          ><span class="p">:</span>
+                          <span class="n">sanic.request.Request</span></em
+                        ><span class="sig-paren">)</span> &#x2192; Union<span
+                          class="p"
+                          >[</span
+                        >bytes<span class="p">, </span>str<span class="p"
+                          >]</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.common.extract_token"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Finds token in request based on it’s type</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>request</strong> (<em>Request</em>) –
+                              request from user
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>token</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Union[bytes, str]</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.common.parse_jwt">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.common.</code
+                        ><code class="sig-name descname">parse_jwt</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">f</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.common.parse_jwt"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Decorator that parses the token and returns it to
+                          decorated function
+                        </p>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.db">
+                    <span id="quizmous-api-db-module"></span>
+                    <h2>
+                      quizmous_api.db module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.db"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.db.DB">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname">DB</code
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.DB"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <code
+                            class="xref py py-class docutils literal notranslate"
+                            ><span class="pre">object</span></code
+                          >
+                        </p>
+                        <p>DB - PostgreSQL database wrapper</p>
+                        <dl class="py method">
+                          <dt id="quizmous_api.db.DB.get_pool">
+                            <em class="property">static </em
+                            ><code class="sig-name descname">get_pool</code
+                            ><span class="sig-paren">(</span
+                            ><span class="sig-paren">)</span> &#x2192;
+                            asyncpg.pool.Pool<a
+                              class="headerlink"
+                              href="#quizmous_api.db.DB.get_pool"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the database connection pool</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>database connection pool</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>asyncpg.pool.Pool</p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
 
+                        <dl class="py method">
+                          <dt id="quizmous_api.db.DB.init">
+                            <em class="property">async static </em
+                            ><code class="sig-name descname">init</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dsn</span></em
+                            >,
+                            <em class="sig-param"
+                              ><span class="o">*</span
+                              ><span class="n">args</span></em
+                            >,
+                            <em class="sig-param"
+                              ><span class="o">**</span
+                              ><span class="n">kwargs</span></em
+                            ><span class="sig-paren">)</span
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.db.DB.init"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Initializes the database connection pool</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  <strong>dsn</strong> (<em>str</em>) – dsn
+                                  connection string
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py exception">
+                      <dt id="quizmous_api.db.UniqueModelConstraint">
+                        <em class="property">exception </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >UniqueModelConstraint</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">msg</span><span class="p">:</span>
+                          <span class="n">str</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.UniqueModelConstraint"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <code
+                            class="xref py py-class docutils literal notranslate"
+                            ><span class="pre">Exception</span></code
+                          >
+                        </p>
+                        <p>
+                          Exception that gets raised when model that is inserted
+                          and should be unique to the DB is already there
+                        </p>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.get_data_for_query">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >get_data_for_query</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">model_cls</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.get_data_for_query"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Returns data needed to build db query</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>model_cls</strong> (<em
+                                >model class literal</em
+                              >) – Model used in query
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even">
+                            <p>data needed to build db query</p>
+                          </dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>dict</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_answer_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >insert_answer_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">answer</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">question_id</span
+                          ><span class="p">:</span>
+                          <span class="n">int</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_answer_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Inserts answer to db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>question_id</strong> (<em>int</em>) – id
+                              of parent question model
+                            </p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_model_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >insert_model_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">model</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_model_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Inserts model to database</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>model</strong> – Model object to
+                                  insert
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em>) – optional
+                                  id of inserted model, defaults to None
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Raises</dt>
+                          <dd class="field-even">
+                            <p>
+                              <strong>ValueError</strong> – Gets raised when
+                              model is not supported by that function
+                            </p>
+                          </dd>
+                          <dt class="field-odd">Returns</dt>
+                          <dd class="field-odd"><p>id of inserted model</p></dd>
+                          <dt class="field-even">Return type</dt>
+                          <dd class="field-even"><p>int</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_question_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >insert_question_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">question</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">quiz_id</span
+                          ><span class="p">:</span>
+                          <span class="n">int</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_question_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Inserts question to db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>quiz_id</strong> (<em>int</em>) – id of
+                              parent quiz model
+                            </p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_quiz_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname">insert_quiz_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">quiz</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_quiz_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd><p>Inserts quiz to db</p></dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_user_answers_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >insert_user_answers_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">answers</span></em
+                        >,
+                        <em class="sig-param"><span class="n">quiz_id</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_user_answers_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Inserts user answers to db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>answers</strong> (<em>List</em
+                                  ><em>[</em
+                                  ><a
+                                    class="reference internal"
+                                    href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer"
+                                    title="quizmous_api.api.swagger.models.answer.Answer"
+                                    ><em>Answer</em></a
+                                  ><em>]</em>) – List of answers from user
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>quiz_id</strong> (<em>int</em>) – Id
+                                  of quiz
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_user_quiz_taken">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >insert_user_quiz_taken</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">user</span></em
+                        >, <em class="sig-param"><span class="n">id</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_user_quiz_taken"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Sets the flag that user has taken the quiz</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>user</strong> (<em>User model</em>) –
+                                  which user taken the quiz
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em>) – Id of
+                                  user
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<div role="navigation" aria-label="breadcrumbs navigation">
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.insert_user_to_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname">insert_user_to_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">user</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.insert_user_to_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Inserts user to db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>user</strong> (<em>User model</em>) – user
+                              to insert
+                            </p>
+                          </dd>
+                          <dt class="field-even">Raises</dt>
+                          <dd class="field-even">
+                            <p>
+                              <a
+                                class="reference internal"
+                                href="#quizmous_api.db.UniqueModelConstraint"
+                                title="quizmous_api.db.UniqueModelConstraint"
+                                ><strong>UniqueModelConstraint</strong></a
+                              >
+                              – Gets raised when user already exists
+                            </p>
+                          </dd>
+                          <dt class="field-odd">Returns</dt>
+                          <dd class="field-odd"><p>id of user</p></dd>
+                          <dt class="field-even">Return type</dt>
+                          <dd class="field-even"><p>int</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>quizmous_api package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/quizmous_api.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.perform_select_sql">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >perform_select_sql</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">model_cls</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.perform_select_sql"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Performs select query</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>model_cls</strong> (<em
+                                    >model class literal</em
+                                  >) – model to select
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em><em>, </em
+                                  ><em>optional</em>) – id of selected model,
+                                  defaults to None
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>rows of data</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Row</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="quizmous-api-package">
-<h1>quizmous_api package<a class="headerlink" href="#quizmous-api-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quizmous_api.api.html">quizmous_api.api package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="quizmous_api.api.swagger.html">quizmous_api.api.swagger package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger.util">quizmous_api.api.swagger.util module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="quizmous_api.api.swagger.html#module-quizmous_api.api.swagger">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.html#module-quizmous_api.api.endpoints">quizmous_api.api.endpoints module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.html#module-quizmous_api.api.models">quizmous_api.api.models module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quizmous_api.api.html#module-quizmous_api.api">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-quizmous_api.common">
-<span id="quizmous-api-common-module"></span><h2>quizmous_api.common module<a class="headerlink" href="#module-quizmous_api.common" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="quizmous_api.common.extract_jwt">
-<code class="sig-prename descclassname">quizmous_api.common.</code><code class="sig-name descname">extract_jwt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>bytes<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">serial</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>bytes<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>bool<span class="p">, </span>dict<span class="p">]</span><a class="headerlink" href="#quizmous_api.common.extract_jwt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extracts jwt tokens</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>token</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>bytes</em><em>]</em>) – token from request</p></li>
-<li><p><strong>serial</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>bytes</em><em>]</em>) – serial used to hash the token</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Data saved in token</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[bool, dict]</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.prepare_insert_sql">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >prepare_insert_sql</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"><span class="n">model</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.prepare_insert_sql"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Returns insert sql query for specific model</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p><strong>model</strong> – Model used in query</p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>insert sql query</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>str</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.common.extract_token">
-<code class="sig-prename descclassname">quizmous_api.common.</code><code class="sig-name descname">extract_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">sanic.request.Request</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>bytes<span class="p">, </span>str<span class="p">]</span><a class="headerlink" href="#quizmous_api.common.extract_token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds token in request based on it’s type</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>Request</em>) – request from user</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>token</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[bytes, str]</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.prepare_select_sql">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >prepare_select_sql</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">model_cls</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.prepare_select_sql"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Returns select sql query for specific model</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>model_cls</strong> (<em
+                                    >model class literal</em
+                                  >) – Model used in query
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em>) – optional
+                                  id of inserted model, defaults to None
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>select sql query</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>str</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.common.parse_jwt">
-<code class="sig-prename descclassname">quizmous_api.common.</code><code class="sig-name descname">parse_jwt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.common.parse_jwt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decorator that parses the token and returns it to decorated function</p>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_answer_from_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_answer_from_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">question_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_answer_from_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Performs select answer from db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>id</strong> (<em>int</em><em>, </em
+                              ><em>optional</em>) – id of selected model,
+                              defaults to None
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>rows of data</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Row</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-</div>
-<div class="section" id="module-quizmous_api.db">
-<span id="quizmous-api-db-module"></span><h2>quizmous_api.db module<a class="headerlink" href="#module-quizmous_api.db" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.db.DB">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">DB</code><a class="headerlink" href="#quizmous_api.db.DB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>DB - PostgreSQL database wrapper</p>
-<dl class="py method">
-<dt id="quizmous_api.db.DB.get_pool">
-<em class="property">static </em><code class="sig-name descname">get_pool</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; asyncpg.pool.Pool<a class="headerlink" href="#quizmous_api.db.DB.get_pool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the database connection pool</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>database connection pool</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>asyncpg.pool.Pool</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_model_from_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_model_from_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">model_cls</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_model_from_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Selects model from the database</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>model_cls</strong> (<em
+                                    >class literal</em
+                                  >) – class literal of model
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em>) – optional
+                                  id of selected model, defaults to None
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Raises</dt>
+                          <dd class="field-even">
+                            <p>
+                              <strong>ValueError</strong> – Gets raised when
+                              model is not supported by that function
+                            </p>
+                          </dd>
+                          <dt class="field-odd">Returns</dt>
+                          <dd class="field-odd">
+                            <p>
+                              model object created using model_cls class literal
+                            </p>
+                          </dd>
+                          <dt class="field-even">Return type</dt>
+                          <dd class="field-even">
+                            <p>
+                              <a
+                                class="reference internal"
+                                href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.base_model_.Model"
+                                title="quizmous_api.api.swagger.models.base_model_.Model"
+                                >Model</a
+                              >
+                            </p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py method">
-<dt id="quizmous_api.db.DB.init">
-<em class="property">async static </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dsn</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.DB.init" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes the database connection pool</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dsn</strong> (<em>str</em>) – dsn connection string</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_question_from_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_question_from_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">quiz_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_question_from_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Performs select question from db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>id</strong> (<em>int</em><em>, </em
+                              ><em>optional</em>) – id of selected model,
+                              defaults to None
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>rows of data</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Row</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_quiz_from_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_quiz_from_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_quiz_from_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Performs select quiz from db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>id</strong> (<em>int</em><em>, </em
+                              ><em>optional</em>) – id of selected model,
+                              defaults to None
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>rows of data</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>Row</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py exception">
-<dt id="quizmous_api.db.UniqueModelConstraint">
-<em class="property">exception </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">UniqueModelConstraint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.UniqueModelConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Exception that gets raised when model that is inserted and should be unique to the DB is already there</p>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_user_from_db">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_user_from_db</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">id</span><span class="p">:</span>
+                          <span class="n">int</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_user_from_db"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Selects user from db</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <p>
+                              <strong>id</strong> (<em>int</em>) – Id of user
+                            </p>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>User model</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>User object</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.get_data_for_query">
-<code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">get_data_for_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_cls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.get_data_for_query" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns data needed to build db query</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>model_cls</strong> (<em>model class literal</em>) – Model used in query</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>data needed to build db query</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.db.select_user_quiz_taken">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.db.</code
+                        ><code class="sig-name descname"
+                          >select_user_quiz_taken</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">user_nick</span></em
+                        >, <em class="sig-param"><span class="n">id</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.db.select_user_quiz_taken"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Selects data is user has taken a quiz</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>user_nick</strong> (<em>str</em>) –
+                                  Nick of user
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>id</strong> (<em>int</em>) – Id of
+                                  quiz
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even">
+                            <p>None if quiz has not been taken</p>
+                          </dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd"><p>None or Row</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.response">
+                    <span id="quizmous-api-response-module"></span>
+                    <h2>
+                      quizmous_api.response module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.response"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.response.Responses">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.response.</code
+                        ><code class="sig-name descname">Responses</code
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.response.Responses"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <code
+                            class="xref py py-class docutils literal notranslate"
+                            ><span class="pre">enum.Enum</span></code
+                          >
+                        </p>
+                        <p>An enumeration.</p>
+                        <dl class="py attribute">
+                          <dt id="quizmous_api.response.Responses.BAD_REQUEST">
+                            <code class="sig-name descname">BAD_REQUEST</code
+                            ><em class="property">
+                              = {'message': 'bad request', 'status': 400}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.BAD_REQUEST"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_answer_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_answer_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer</span></em>, <em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_answer_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts answer to db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>question_id</strong> (<em>int</em>) – id of parent question model</p>
-</dd>
-</dl>
-</dd></dl>
+                        <dl class="py attribute">
+                          <dt id="quizmous_api.response.Responses.CREATED">
+                            <code class="sig-name descname">CREATED</code
+                            ><em class="property">
+                              = {'message': 'created', 'status': 201}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.CREATED"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_model_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_model_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_model_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts model to database</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> – Model object to insert</p></li>
-<li><p><strong>id</strong> (<em>int</em>) – optional id of inserted model, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Gets raised when model is not supported by that function</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>id of inserted model</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
+                        <dl class="py attribute">
+                          <dt id="quizmous_api.response.Responses.INTERNAL">
+                            <code class="sig-name descname">INTERNAL</code
+                            ><em class="property">
+                              = {'message': 'internal server error', 'status':
+                              500}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.INTERNAL"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_question_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_question_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span></em>, <em class="sig-param"><span class="n">quiz_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_question_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts question to db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>quiz_id</strong> (<em>int</em>) – id of parent quiz model</p>
-</dd>
-</dl>
-</dd></dl>
+                        <dl class="py attribute">
+                          <dt id="quizmous_api.response.Responses.OK">
+                            <code class="sig-name descname">OK</code
+                            ><em class="property">
+                              = {'message': 'success', 'status': 200}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.OK"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_quiz_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_quiz_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quiz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_quiz_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts quiz to db</p>
-</dd></dl>
+                        <dl class="py attribute">
+                          <dt id="quizmous_api.response.Responses.UNAUTHORIZED">
+                            <code class="sig-name descname">UNAUTHORIZED</code
+                            ><em class="property">
+                              = {'message': 'user not authorized', 'status':
+                              401}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.UNAUTHORIZED"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_user_answers_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_user_answers_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span></em>, <em class="sig-param"><span class="n">quiz_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_user_answers_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts user answers to db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>answers</strong> (<em>List</em><em>[</em><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer"><em>Answer</em></a><em>]</em>) – List of answers from user</p></li>
-<li><p><strong>quiz_id</strong> (<em>int</em>) – Id of quiz</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.response.Responses.UNIQUE_VIOLATED"
+                          >
+                            <code class="sig-name descname"
+                              >UNIQUE_VIOLATED</code
+                            ><em class="property">
+                              = {'message': 'the data provided to endpoint
+                              already exists in the system', 'status': 409}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.response.Responses.UNIQUE_VIOLATED"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+                      </dd>
+                    </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_user_quiz_taken">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_user_quiz_taken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_user_quiz_taken" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the flag that user has taken the quiz</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<em>User model</em>) – which user taken the quiz</p></li>
-<li><p><strong>id</strong> (<em>int</em>) – Id of user</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.response.create_response">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.response.</code
+                        ><code class="sig-name descname">create_response</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">resp</span><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.response.Responses"
+                              title="quizmous_api.response.Responses"
+                              >quizmous_api.response.Responses</a
+                            ></span
+                          ></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">add</span><span class="p">:</span>
+                          <span class="n">dict</span> <span class="o">=</span>
+                          <span class="default_value">{}</span></em
+                        ><span class="sig-paren">)</span> &#x2192;
+                        sanic.response.HTTPResponse<a
+                          class="headerlink"
+                          href="#quizmous_api.response.create_response"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Generates response</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Parameters</dt>
+                          <dd class="field-odd">
+                            <ul class="simple">
+                              <li>
+                                <p>
+                                  <strong>resp</strong> (<a
+                                    class="reference internal"
+                                    href="#quizmous_api.response.Responses"
+                                    title="quizmous_api.response.Responses"
+                                    ><em>Responses</em></a
+                                  >) – Response enum
+                                </p>
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>add</strong> (<em>dict</em><em>, </em
+                                  ><em>optional</em>) – additional response
+                                  data, defaults to {}
+                                </p>
+                              </li>
+                            </ul>
+                          </dd>
+                          <dt class="field-even">Returns</dt>
+                          <dd class="field-even"><p>Sanic HTTPResponse</p></dd>
+                          <dt class="field-odd">Return type</dt>
+                          <dd class="field-odd">
+                            <p>response.HTTPResponse</p>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.server">
+                    <span id="quizmous-api-server-module"></span>
+                    <h2>
+                      quizmous_api.server module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.server"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py function">
+                      <dt id="quizmous_api.server.main">
+                        <em class="property">async </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.server.</code
+                        ><code class="sig-name descname">main</code
+                        ><span class="sig-paren">(</span
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.server.main"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd><p>Main program</p></dd>
+                    </dl>
 
-<dl class="py function">
-<dt id="quizmous_api.db.insert_user_to_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">insert_user_to_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.insert_user_to_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts user to db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>user</strong> (<em>User model</em>) – user to insert</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.db.UniqueModelConstraint" title="quizmous_api.db.UniqueModelConstraint"><strong>UniqueModelConstraint</strong></a> – Gets raised when user already exists</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>id of user</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
+                    <dl class="py function">
+                      <dt id="quizmous_api.server.run">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.server.</code
+                        ><code class="sig-name descname">run</code
+                        ><span class="sig-paren">(</span
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.server.run"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd><p>Runs main using asyncio</p></dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api.version">
+                    <span id="quizmous-api-version-module"></span>
+                    <h2>
+                      quizmous_api.version module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.version"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py function">
+                      <dt id="quizmous_api.version.get_api_version">
+                        <code class="sig-prename descclassname"
+                          >quizmous_api.version.</code
+                        ><code class="sig-name descname">get_api_version</code
+                        ><span class="sig-paren">(</span
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.version.get_api_version"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>Returns api version</p>
+                        <dl class="field-list simple">
+                          <dt class="field-odd">Returns</dt>
+                          <dd class="field-odd">
+                            <p>Api version and build number</p>
+                          </dd>
+                          <dt class="field-even">Return type</dt>
+                          <dd class="field-even"><p>json</p></dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="section" id="module-quizmous_api">
+                    <span id="module-contents"></span>
+                    <h2>
+                      Module contents<a
+                        class="headerlink"
+                        href="#module-quizmous_api"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer>
+              <hr />
 
-<dl class="py function">
-<dt id="quizmous_api.db.perform_select_sql">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">perform_select_sql</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_cls</span></em>, <em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.perform_select_sql" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs select query</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_cls</strong> (<em>model class literal</em>) – model to select</p></li>
-<li><p><strong>id</strong> (<em>int</em><em>, </em><em>optional</em>) – id of selected model, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>rows of data</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Row</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.prepare_insert_sql">
-<code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">prepare_insert_sql</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.prepare_insert_sql" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns insert sql query for specific model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>model</strong> – Model used in query</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>insert sql query</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.prepare_select_sql">
-<code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">prepare_select_sql</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_cls</span></em>, <em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.prepare_select_sql" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns select sql query for specific model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_cls</strong> (<em>model class literal</em>) – Model used in query</p></li>
-<li><p><strong>id</strong> (<em>int</em>) – optional id of inserted model, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>select sql query</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_answer_from_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_answer_from_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_answer_from_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs select answer from db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>optional</em>) – id of selected model, defaults to None</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>rows of data</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Row</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_model_from_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_model_from_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_cls</span></em>, <em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_model_from_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects model from the database</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_cls</strong> (<em>class literal</em>) – class literal of model</p></li>
-<li><p><strong>id</strong> (<em>int</em>) – optional id of selected model, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Gets raised when model is not supported by that function</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>model object created using model_cls class literal</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="quizmous_api.api.swagger.models.html#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model">Model</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_question_from_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_question_from_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quiz_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_question_from_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs select question from db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>optional</em>) – id of selected model, defaults to None</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>rows of data</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Row</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_quiz_from_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_quiz_from_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_quiz_from_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs select quiz from db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em>, </em><em>optional</em>) – id of selected model, defaults to None</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>rows of data</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Row</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_user_from_db">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_user_from_db</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_user_from_db" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects user from db</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – Id of user</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>User model</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>User object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.db.select_user_quiz_taken">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.db.</code><code class="sig-name descname">select_user_quiz_taken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_nick</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.db.select_user_quiz_taken" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects data is user has taken a quiz</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>user_nick</strong> (<em>str</em>) – Nick of user</p></li>
-<li><p><strong>id</strong> (<em>int</em>) – Id of quiz</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None if quiz has not been taken</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>None or Row</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.response">
-<span id="quizmous-api-response-module"></span><h2>quizmous_api.response module<a class="headerlink" href="#module-quizmous_api.response" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.response.Responses">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.response.</code><code class="sig-name descname">Responses</code><a class="headerlink" href="#quizmous_api.response.Responses" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>An enumeration.</p>
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.BAD_REQUEST">
-<code class="sig-name descname">BAD_REQUEST</code><em class="property"> = {'message': 'bad request', 'status': 400}</em><a class="headerlink" href="#quizmous_api.response.Responses.BAD_REQUEST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.CREATED">
-<code class="sig-name descname">CREATED</code><em class="property"> = {'message': 'created', 'status': 201}</em><a class="headerlink" href="#quizmous_api.response.Responses.CREATED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.INTERNAL">
-<code class="sig-name descname">INTERNAL</code><em class="property"> = {'message': 'internal server error', 'status': 500}</em><a class="headerlink" href="#quizmous_api.response.Responses.INTERNAL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.OK">
-<code class="sig-name descname">OK</code><em class="property"> = {'message': 'success', 'status': 200}</em><a class="headerlink" href="#quizmous_api.response.Responses.OK" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.UNAUTHORIZED">
-<code class="sig-name descname">UNAUTHORIZED</code><em class="property"> = {'message': 'user not authorized', 'status': 401}</em><a class="headerlink" href="#quizmous_api.response.Responses.UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.response.Responses.UNIQUE_VIOLATED">
-<code class="sig-name descname">UNIQUE_VIOLATED</code><em class="property"> = {'message': 'the data provided to endpoint already exists in the system', 'status': 409}</em><a class="headerlink" href="#quizmous_api.response.Responses.UNIQUE_VIOLATED" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.response.create_response">
-<code class="sig-prename descclassname">quizmous_api.response.</code><code class="sig-name descname">create_response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resp</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.response.Responses" title="quizmous_api.response.Responses">quizmous_api.response.Responses</a></span></em>, <em class="sig-param"><span class="n">add</span><span class="p">:</span> <span class="n">dict</span> <span class="o">=</span> <span class="default_value">{}</span></em><span class="sig-paren">)</span> &#x2192; sanic.response.HTTPResponse<a class="headerlink" href="#quizmous_api.response.create_response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates response</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>resp</strong> (<a class="reference internal" href="#quizmous_api.response.Responses" title="quizmous_api.response.Responses"><em>Responses</em></a>) – Response enum</p></li>
-<li><p><strong>add</strong> (<em>dict</em><em>, </em><em>optional</em>) – additional response data, defaults to {}</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Sanic HTTPResponse</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>response.HTTPResponse</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.server">
-<span id="quizmous-api-server-module"></span><h2>quizmous_api.server module<a class="headerlink" href="#module-quizmous_api.server" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="quizmous_api.server.main">
-<em class="property">async </em><code class="sig-prename descclassname">quizmous_api.server.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.server.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>Main program</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="quizmous_api.server.run">
-<code class="sig-prename descclassname">quizmous_api.server.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.server.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Runs main using asyncio</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.version">
-<span id="quizmous-api-version-module"></span><h2>quizmous_api.version module<a class="headerlink" href="#module-quizmous_api.version" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="quizmous_api.version.get_api_version">
-<code class="sig-prename descclassname">quizmous_api.version.</code><code class="sig-name descname">get_api_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.version.get_api_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns api version</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Api version and build number</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>json</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-quizmous_api" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-
-
-           </div>
-           
+              <div role="contentinfo">
+                <p>
+                  &copy; Copyright 2020, szykol
+                </p>
+              </div>
+              Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+              <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+              provided by <a href="https://readthedocs.org">Read the Docs</a>.
+            </footer>
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, szykol
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
-      </div>
+      </section>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
+    <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+        SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+    </script>
+  </body>
 </html>

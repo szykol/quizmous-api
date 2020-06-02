@@ -1,931 +1,2459 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>quizmous_api.api.swagger.models package &mdash; QuizmousAPI 0.0.1 documentation</title>
-  
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
 
-  
-  
-  
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <title>
+      quizmous_api.api.swagger.models package &mdash; QuizmousAPI 0.0.1
+      documentation
+    </title>
 
-    
+    <script type="text/javascript" src="static/js/modernizr.min.js"></script>
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script
+      type="text/javascript"
+      id="documentation_options"
+      data-url_root="./"
+      src="static/documentation_options.js"
+    ></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/language_data.js"></script>
+
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
-</head>
+    <link rel="search" title="Search" href="search.html" />
+  </head>
 
-<body class="wy-body-for-nav">
+  <body class="wy-body-for-nav">
+    <div class="wy-grid-for-nav">
+      <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+          <div class="wy-side-nav-search">
+            <a href="index.html" class="icon icon-home"> QuizmousAPI </a>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+            <div role="search">
+              <form
+                id="rtd-search-form"
+                class="wy-form"
+                action="search.html"
+                method="get"
+              >
+                <input type="text" name="q" placeholder="Search docs" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </div>
+          </div>
 
-          
-            <a href="index.html" class="icon icon-home"> QuizmousAPI
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
+          <div
+            class="wy-menu wy-menu-vertical"
+            data-spy="affix"
+            role="navigation"
+            aria-label="main navigation"
+          >
+            <!-- Local TOC -->
+            <div class="local-toc">
+              <ul>
+                <li>
+                  <a class="reference internal" href="#"
+                    >quizmous_api.api.swagger.models package</a
+                  >
+                  <ul>
+                    <li>
+                      <a class="reference internal" href="#submodules"
+                        >Submodules</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.answer"
+                        >quizmous_api.api.swagger.models.answer module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.base_model_"
+                        >quizmous_api.api.swagger.models.base_model_ module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.body"
+                        >quizmous_api.api.swagger.models.body module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.get_user"
+                        >quizmous_api.api.swagger.models.get_user module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.inline_response200"
+                        >quizmous_api.api.swagger.models.inline_response200
+                        module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.post_user"
+                        >quizmous_api.api.swagger.models.post_user module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.question"
+                        >quizmous_api.api.swagger.models.question module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.question_type"
+                        >quizmous_api.api.swagger.models.question_type module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.quiz"
+                        >quizmous_api.api.swagger.models.quiz module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.user_answers"
+                        >quizmous_api.api.swagger.models.user_answers module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.user_answers_inner"
+                        >quizmous_api.api.swagger.models.user_answers_inner
+                        module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models.user_answers_inner_question_id"
+                        >quizmous_api.api.swagger.models.user_answers_inner_question_id
+                        module</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="reference internal"
+                        href="#module-quizmous_api.api.swagger.models"
+                        >Module contents</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">quizmous_api.api.swagger.models package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.answer">quizmous_api.api.swagger.models.answer module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.base_model_">quizmous_api.api.swagger.models.base_model_ module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.body">quizmous_api.api.swagger.models.body module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.get_user">quizmous_api.api.swagger.models.get_user module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.inline_response200">quizmous_api.api.swagger.models.inline_response200 module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.post_user">quizmous_api.api.swagger.models.post_user module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.question">quizmous_api.api.swagger.models.question module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.question_type">quizmous_api.api.swagger.models.question_type module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.quiz">quizmous_api.api.swagger.models.quiz module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.user_answers">quizmous_api.api.swagger.models.user_answers module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.user_answers_inner">quizmous_api.api.swagger.models.user_answers_inner module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models.user_answers_inner_question_id">quizmous_api.api.swagger.models.user_answers_inner_question_id module</a></li>
-<li><a class="reference internal" href="#module-quizmous_api.api.swagger.models">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">QuizmousAPI</a>
-        
       </nav>
 
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>quizmous_api.api.swagger.models package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/quizmous_api.api.swagger.models.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="quizmous-api-api-swagger-models-package">
-<h1>quizmous_api.api.swagger.models package<a class="headerlink" href="#quizmous-api-api-swagger-models-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.answer">
-<span id="quizmous-api-api-swagger-models-answer-module"></span><h2>quizmous_api.api.swagger.models.answer module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.answer" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.answer.Answer">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.answer.</code><code class="sig-name descname">Answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.answer.Answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.answer.Answer.answer">
-<em class="property">property </em><code class="sig-name descname">answer</code><a class="headerlink" href="#quizmous_api.api.swagger.models.answer.Answer.answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the answer of this Answer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The answer of this Answer.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.answer.Answer.answer_id">
-<em class="property">property </em><code class="sig-name descname">answer_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.answer.Answer.answer_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the answer_id of this Answer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The answer_id of this Answer.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.answer.Answer.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer">quizmous_api.api.swagger.models.answer.Answer</a><a class="headerlink" href="#quizmous_api.api.swagger.models.answer.Answer.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The Answer of this Answer.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer">Answer</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.base_model_">
-<span id="quizmous-api-api-swagger-models-base-model-module"></span><h2>quizmous_api.api.swagger.models.base_model_ module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.base_model_" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.base_model_.</code><code class="sig-name descname">Model</code><a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model.attribute_map">
-<code class="sig-name descname">attribute_map</code><em class="property"> = {}</em><a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model.attribute_map" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model.swagger_types">
-<code class="sig-name descname">swagger_types</code><em class="property"> = {}</em><a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model.swagger_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model.to_dict">
-<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model.to_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the model properties as a dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.base_model_.Model.to_str">
-<code class="sig-name descname">to_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.base_model_.Model.to_str" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the string representation of the model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.body">
-<span id="quizmous-api-api-swagger-models-body-module"></span><h2>quizmous_api.api.swagger.models.body module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.body" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.body.Body">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.body.</code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.api.swagger.models.post_user.PostUser" title="quizmous_api.api.swagger.models.post_user.PostUser">quizmous_api.api.swagger.models.post_user.PostUser</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers" title="quizmous_api.api.swagger.models.user_answers.UserAnswers">quizmous_api.api.swagger.models.user_answers.UserAnswers</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.body.Body" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.body.Body.answers">
-<em class="property">property </em><code class="sig-name descname">answers</code><a class="headerlink" href="#quizmous_api.api.swagger.models.body.Body.answers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the answers of this Body.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The answers of this Body.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers" title="quizmous_api.api.swagger.models.user_answers.UserAnswers">UserAnswers</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.body.Body.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.body.Body" title="quizmous_api.api.swagger.models.body.Body">quizmous_api.api.swagger.models.body.Body</a><a class="headerlink" href="#quizmous_api.api.swagger.models.body.Body.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The body of this Body.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.body.Body" title="quizmous_api.api.swagger.models.body.Body">Body</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.body.Body.user">
-<em class="property">property </em><code class="sig-name descname">user</code><a class="headerlink" href="#quizmous_api.api.swagger.models.body.Body.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the user of this Body.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The user of this Body.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.post_user.PostUser" title="quizmous_api.api.swagger.models.post_user.PostUser">PostUser</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.get_user">
-<span id="quizmous-api-api-swagger-models-get-user-module"></span><h2>quizmous_api.api.swagger.models.get_user module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.get_user" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.get_user.GetUser">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.get_user.</code><code class="sig-name descname">GetUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nick</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.get_user.GetUser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.get_user.GetUser.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.get_user.GetUser" title="quizmous_api.api.swagger.models.get_user.GetUser">quizmous_api.api.swagger.models.get_user.GetUser</a><a class="headerlink" href="#quizmous_api.api.swagger.models.get_user.GetUser.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The GetUser of this GetUser.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.get_user.GetUser" title="quizmous_api.api.swagger.models.get_user.GetUser">GetUser</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.get_user.GetUser.nick">
-<em class="property">property </em><code class="sig-name descname">nick</code><a class="headerlink" href="#quizmous_api.api.swagger.models.get_user.GetUser.nick" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the nick of this GetUser.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The nick of this GetUser.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.get_user.GetUser.user_id">
-<em class="property">property </em><code class="sig-name descname">user_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.get_user.GetUser.user_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the user_id of this GetUser.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The user_id of this GetUser.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.inline_response200">
-<span id="quizmous-api-api-swagger-models-inline-response200-module"></span><h2>quizmous_api.api.swagger.models.inline_response200 module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.inline_response200" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.inline_response200.</code><code class="sig-name descname">InlineResponse200</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">taken</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200" title="quizmous_api.api.swagger.models.inline_response200.InlineResponse200">quizmous_api.api.swagger.models.inline_response200.InlineResponse200</a><a class="headerlink" href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The inline_response_200 of this InlineResponse200.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200" title="quizmous_api.api.swagger.models.inline_response200.InlineResponse200">InlineResponse200</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200.taken">
-<em class="property">property </em><code class="sig-name descname">taken</code><a class="headerlink" href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200.taken" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the taken of this InlineResponse200.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The taken of this InlineResponse200.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.post_user">
-<span id="quizmous-api-api-swagger-models-post-user-module"></span><h2>quizmous_api.api.swagger.models.post_user module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.post_user" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.post_user.PostUser">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.post_user.</code><code class="sig-name descname">PostUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nick</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">password</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.post_user.PostUser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.post_user.PostUser.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.post_user.PostUser" title="quizmous_api.api.swagger.models.post_user.PostUser">quizmous_api.api.swagger.models.post_user.PostUser</a><a class="headerlink" href="#quizmous_api.api.swagger.models.post_user.PostUser.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The PostUser of this PostUser.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.post_user.PostUser" title="quizmous_api.api.swagger.models.post_user.PostUser">PostUser</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.post_user.PostUser.nick">
-<em class="property">property </em><code class="sig-name descname">nick</code><a class="headerlink" href="#quizmous_api.api.swagger.models.post_user.PostUser.nick" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the nick of this PostUser.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The nick of this PostUser.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.post_user.PostUser.password">
-<em class="property">property </em><code class="sig-name descname">password</code><a class="headerlink" href="#quizmous_api.api.swagger.models.post_user.PostUser.password" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the password of this PostUser.</p>
-<p>This has to be hashed  # noqa: E501</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The password of this PostUser.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.question">
-<span id="quizmous-api-api-swagger-models-question-module"></span><h2>quizmous_api.api.swagger.models.question module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.question" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.question.Question">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.question.</code><code class="sig-name descname">Question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.api.swagger.models.question_type.QuestionType" title="quizmous_api.api.swagger.models.question_type.QuestionType">quizmous_api.api.swagger.models.question_type.QuestionType</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer">quizmous_api.api.swagger.models.answer.Answer</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.answers">
-<em class="property">property </em><code class="sig-name descname">answers</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.answers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the answers of this Question.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The answers of this Question.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[<a class="reference internal" href="#quizmous_api.api.swagger.models.answer.Answer" title="quizmous_api.api.swagger.models.answer.Answer">Answer</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question">quizmous_api.api.swagger.models.question.Question</a><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The Question of this Question.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question">Question</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.question">
-<em class="property">property </em><code class="sig-name descname">question</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the question of this Question.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The question of this Question.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.question_id">
-<em class="property">property </em><code class="sig-name descname">question_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.question_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the question_id of this Question.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The question_id of this Question.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.required">
-<em class="property">property </em><code class="sig-name descname">required</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the required of this Question.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The required of this Question.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question.Question.type">
-<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question.Question.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the type of this Question.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The type of this Question.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.question_type.QuestionType" title="quizmous_api.api.swagger.models.question_type.QuestionType">QuestionType</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.question_type">
-<span id="quizmous-api-api-swagger-models-question-type-module"></span><h2>quizmous_api.api.swagger.models.question_type module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.question_type" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.question_type.</code><code class="sig-name descname">QuestionType</code><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType.CHOICE">
-<code class="sig-name descname">CHOICE</code><em class="property"> = 'CHOICE'</em><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType.CHOICE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType.OPEN">
-<code class="sig-name descname">OPEN</code><em class="property"> = 'OPEN'</em><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType.OPEN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType.RADIO">
-<code class="sig-name descname">RADIO</code><em class="property"> = 'RADIO'</em><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType.RADIO" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType.YES_NO">
-<code class="sig-name descname">YES_NO</code><em class="property"> = 'YES_NO'</em><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType.YES_NO" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.question_type.QuestionType.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.question_type.QuestionType" title="quizmous_api.api.swagger.models.question_type.QuestionType">quizmous_api.api.swagger.models.question_type.QuestionType</a><a class="headerlink" href="#quizmous_api.api.swagger.models.question_type.QuestionType.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The QuestionType of this QuestionType.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.question_type.QuestionType" title="quizmous_api.api.swagger.models.question_type.QuestionType">QuestionType</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.quiz">
-<span id="quizmous-api-api-swagger-models-quiz-module"></span><h2>quizmous_api.api.swagger.models.quiz module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.quiz" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.quiz.</code><code class="sig-name descname">Quiz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quiz_id</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">author</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.api.swagger.models.get_user.GetUser" title="quizmous_api.api.swagger.models.get_user.GetUser">quizmous_api.api.swagger.models.get_user.GetUser</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question">quizmous_api.api.swagger.models.question.Question</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.author">
-<em class="property">property </em><code class="sig-name descname">author</code><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.author" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the author of this Quiz.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The author of this Quiz.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.get_user.GetUser" title="quizmous_api.api.swagger.models.get_user.GetUser">GetUser</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.description">
-<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the description of this Quiz.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The description of this Quiz.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.quiz.Quiz" title="quizmous_api.api.swagger.models.quiz.Quiz">quizmous_api.api.swagger.models.quiz.Quiz</a><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The Quiz of this Quiz.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.quiz.Quiz" title="quizmous_api.api.swagger.models.quiz.Quiz">Quiz</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.name">
-<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the name of this Quiz.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The name of this Quiz.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.questions">
-<em class="property">property </em><code class="sig-name descname">questions</code><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.questions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the questions of this Quiz.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The questions of this Quiz.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[<a class="reference internal" href="#quizmous_api.api.swagger.models.question.Question" title="quizmous_api.api.swagger.models.question.Question">Question</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.quiz.Quiz.quiz_id">
-<em class="property">property </em><code class="sig-name descname">quiz_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.quiz.Quiz.quiz_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the quiz_id of this Quiz.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The quiz_id of this Quiz.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.user_answers">
-<span id="quizmous-api-api-swagger-models-user-answers-module"></span><h2>quizmous_api.api.swagger.models.user_answers module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.user_answers" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.user_answers.UserAnswers">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.user_answers.</code><code class="sig-name descname">UserAnswers</code><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers.UserAnswers.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers" title="quizmous_api.api.swagger.models.user_answers.UserAnswers">quizmous_api.api.swagger.models.user_answers.UserAnswers</a><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The UserAnswers of this UserAnswers.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers.UserAnswers" title="quizmous_api.api.swagger.models.user_answers.UserAnswers">UserAnswers</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.user_answers_inner">
-<span id="quizmous-api-api-swagger-models-user-answers-inner-module"></span><h2>quizmous_api.api.swagger.models.user_answers_inner module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.user_answers_inner" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.user_answers_inner.</code><code class="sig-name descname">UserAnswersInner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId" title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId">quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner" title="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner">quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner</a><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The UserAnswers_inner of this UserAnswersInner.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner" title="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner">UserAnswersInner</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.question_id">
-<em class="property">property </em><code class="sig-name descname">question_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.question_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the question_id of this UserAnswersInner.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The question_id of this UserAnswersInner.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId" title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId">UserAnswersInnerQuestionId</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models.user_answers_inner_question_id">
-<span id="quizmous-api-api-swagger-models-user-answers-inner-question-id-module"></span><h2>quizmous_api.api.swagger.models.user_answers_inner_question_id module<a class="headerlink" href="#module-quizmous_api.api.swagger.models.user_answers_inner_question_id" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId">
-<em class="property">class </em><code class="sig-prename descclassname">quizmous_api.api.swagger.models.user_answers_inner_question_id.</code><code class="sig-name descname">UserAnswersInnerQuestionId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer_id</span><span class="p">:</span> <span class="n">List<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#quizmous_api.api.swagger.models.base_model_.Model" title="quizmous_api.api.swagger.models.base_model_.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">quizmous_api.api.swagger.models.base_model_.Model</span></code></a></p>
-<p>NOTE: This class is auto generated by the swagger code generator program.</p>
-<p>Do not edit the class manually.</p>
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.answer_id">
-<em class="property">property </em><code class="sig-name descname">answer_id</code><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.answer_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the answer_id of this UserAnswersInnerQuestionId.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The answer_id of this UserAnswersInnerQuestionId.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[int]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dikt</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId" title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId">quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId</a><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the dict as a model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dikt</strong> – A dict.</p>
-</dd>
-<dt class="field-even">Type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The UserAnswers_inner_question_id of this UserAnswersInnerQuestionId.  # noqa: E501</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId" title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId">UserAnswersInnerQuestionId</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.value">
-<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the value of this UserAnswersInnerQuestionId.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The value of this UserAnswersInnerQuestionId.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-quizmous_api.api.swagger.models">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-quizmous_api.api.swagger.models" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-
-
-           </div>
-           
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <nav class="wy-nav-top" aria-label="top navigation">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">QuizmousAPI</a>
+        </nav>
+
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div role="navigation" aria-label="breadcrumbs navigation">
+              <ul class="wy-breadcrumbs">
+                <li><a href="index.html">Docs</a> &raquo;</li>
+
+                <li>quizmous_api.api.swagger.models package</li>
+
+                <li class="wy-breadcrumbs-aside">
+                  <a
+                    href="_sources/quizmous_api.api.swagger.models.rst.txt"
+                    rel="nofollow"
+                  >
+                    View page source</a
+                  >
+                </li>
+              </ul>
+
+              <hr />
+            </div>
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div itemprop="articleBody">
+                <div
+                  class="section"
+                  id="quizmous-api-api-swagger-models-package"
+                >
+                  <h1>
+                    quizmous_api.api.swagger.models package<a
+                      class="headerlink"
+                      href="#quizmous-api-api-swagger-models-package"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <div class="section" id="submodules">
+                    <h2>
+                      Submodules<a
+                        class="headerlink"
+                        href="#submodules"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.answer"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-answer-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.answer module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.answer"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.swagger.models.answer.Answer">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.answer.</code
+                        ><code class="sig-name descname">Answer</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">answer_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">answer</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.answer.Answer"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.answer.Answer.answer"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">answer</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.answer.Answer.answer"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the answer of this Answer.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The answer of this Answer.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.answer.Answer.answer_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">answer_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.answer.Answer.answer_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the answer_id of this Answer.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The answer_id of this Answer.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>int</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.answer.Answer.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.answer.Answer"
+                              title="quizmous_api.api.swagger.models.answer.Answer"
+                              >quizmous_api.api.swagger.models.answer.Answer</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.answer.Answer.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The Answer of this Answer. # noqa: E501</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.answer.Answer"
+                                    title="quizmous_api.api.swagger.models.answer.Answer"
+                                    >Answer</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.base_model_"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-base-model-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.base_model_ module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.base_model_"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.base_model_.Model"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.base_model_.</code
+                        ><code class="sig-name descname">Model</code
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.base_model_.Model"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <code
+                            class="xref py py-class docutils literal notranslate"
+                            ><span class="pre">object</span></code
+                          >
+                        </p>
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.base_model_.Model.attribute_map"
+                          >
+                            <code class="sig-name descname">attribute_map</code
+                            ><em class="property"> = {}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.base_model_.Model.attribute_map"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.base_model_.Model.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192; T<a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.base_model_.Model.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd><p>Returns the dict as a model</p></dd>
+                        </dl>
+
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.base_model_.Model.swagger_types"
+                          >
+                            <code class="sig-name descname">swagger_types</code
+                            ><em class="property"> = {}</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.base_model_.Model.swagger_types"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.base_model_.Model.to_dict"
+                          >
+                            <code class="sig-name descname">to_dict</code
+                            ><span class="sig-paren">(</span
+                            ><span class="sig-paren">)</span
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.base_model_.Model.to_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the model properties as a dict</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Return type</dt>
+                              <dd class="field-odd"><p>dict</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.base_model_.Model.to_str"
+                          >
+                            <code class="sig-name descname">to_str</code
+                            ><span class="sig-paren">(</span
+                            ><span class="sig-paren">)</span
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.base_model_.Model.to_str"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>
+                              Returns the string representation of the model
+                            </p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Return type</dt>
+                              <dd class="field-odd"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.body"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-body-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.body module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.body"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.swagger.models.body.Body">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.body.</code
+                        ><code class="sig-name descname">Body</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">user</span><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.post_user.PostUser"
+                              title="quizmous_api.api.swagger.models.post_user.PostUser"
+                              >quizmous_api.api.swagger.models.post_user.PostUser</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">answers</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                              title="quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                              >quizmous_api.api.swagger.models.user_answers.UserAnswers</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.body.Body"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.body.Body.answers"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">answers</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.body.Body.answers"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the answers of this Body.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The answers of this Body.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                                    title="quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                                    >UserAnswers</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.body.Body.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.body.Body"
+                              title="quizmous_api.api.swagger.models.body.Body"
+                              >quizmous_api.api.swagger.models.body.Body</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.body.Body.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The body of this Body. # noqa: E501</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.body.Body"
+                                    title="quizmous_api.api.swagger.models.body.Body"
+                                    >Body</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.body.Body.user"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">user</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.body.Body.user"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the user of this Body.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The user of this Body.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.post_user.PostUser"
+                                    title="quizmous_api.api.swagger.models.post_user.PostUser"
+                                    >PostUser</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.get_user"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-get-user-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.get_user module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.get_user"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.swagger.models.get_user.GetUser">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.get_user.</code
+                        ><code class="sig-name descname">GetUser</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">user_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">nick</span><span class="p">:</span>
+                          <span class="n">str</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.get_user.GetUser"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.get_user.GetUser.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.get_user.GetUser"
+                              title="quizmous_api.api.swagger.models.get_user.GetUser"
+                              >quizmous_api.api.swagger.models.get_user.GetUser</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.get_user.GetUser.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The GetUser of this GetUser. # noqa: E501</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.get_user.GetUser"
+                                    title="quizmous_api.api.swagger.models.get_user.GetUser"
+                                    >GetUser</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.get_user.GetUser.nick"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">nick</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.get_user.GetUser.nick"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the nick of this GetUser.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The nick of this GetUser.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.get_user.GetUser.user_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">user_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.get_user.GetUser.user_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the user_id of this GetUser.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The user_id of this GetUser.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>int</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.inline_response200"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-inline-response200-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.inline_response200
+                      module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.inline_response200"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.inline_response200.</code
+                        ><code class="sig-name descname">InlineResponse200</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">taken</span><span class="p">:</span>
+                          <span class="n">bool</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                              title="quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                              >quizmous_api.api.swagger.models.inline_response200.InlineResponse200</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The inline_response_200 of this
+                                  InlineResponse200. # noqa: E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                                    title="quizmous_api.api.swagger.models.inline_response200.InlineResponse200"
+                                    >InlineResponse200</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.inline_response200.InlineResponse200.taken"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">taken</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.inline_response200.InlineResponse200.taken"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the taken of this InlineResponse200.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The taken of this InlineResponse200.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>bool</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.post_user"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-post-user-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.post_user module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.post_user"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.post_user.PostUser"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.post_user.</code
+                        ><code class="sig-name descname">PostUser</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">nick</span><span class="p">:</span>
+                          <span class="n">str</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">password</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.post_user.PostUser"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.post_user.PostUser.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.post_user.PostUser"
+                              title="quizmous_api.api.swagger.models.post_user.PostUser"
+                              >quizmous_api.api.swagger.models.post_user.PostUser</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.post_user.PostUser.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The PostUser of this PostUser. # noqa: E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.post_user.PostUser"
+                                    title="quizmous_api.api.swagger.models.post_user.PostUser"
+                                    >PostUser</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.post_user.PostUser.nick"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">nick</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.post_user.PostUser.nick"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the nick of this PostUser.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The nick of this PostUser.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.post_user.PostUser.password"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">password</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.post_user.PostUser.password"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the password of this PostUser.</p>
+                            <p>This has to be hashed # noqa: E501</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The password of this PostUser.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.question"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-question-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.question module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.question"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.question.Question"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.question.</code
+                        ><code class="sig-name descname">Question</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">question_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">question</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">type</span><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType"
+                              title="quizmous_api.api.swagger.models.question_type.QuestionType"
+                              >quizmous_api.api.swagger.models.question_type.QuestionType</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">required</span
+                          ><span class="p">:</span> <span class="n">bool</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">answers</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >List<span class="p">[</span
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.answer.Answer"
+                              title="quizmous_api.api.swagger.models.answer.Answer"
+                              >quizmous_api.api.swagger.models.answer.Answer</a
+                            ><span class="p">]</span></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.question.Question"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.answers"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">answers</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.answers"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the answers of this Question.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The answers of this Question.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  List[<a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.answer.Answer"
+                                    title="quizmous_api.api.swagger.models.answer.Answer"
+                                    >Answer</a
+                                  >]
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.question.Question"
+                              title="quizmous_api.api.swagger.models.question.Question"
+                              >quizmous_api.api.swagger.models.question.Question</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The Question of this Question. # noqa: E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.question.Question"
+                                    title="quizmous_api.api.swagger.models.question.Question"
+                                    >Question</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.question"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">question</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.question"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the question of this Question.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The question of this Question.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.question_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">question_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.question_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the question_id of this Question.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The question_id of this Question.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>int</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.required"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">required</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.required"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the required of this Question.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The required of this Question.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>bool</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question.Question.type"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">type</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question.Question.type"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the type of this Question.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The type of this Question.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.question_type.QuestionType"
+                                    title="quizmous_api.api.swagger.models.question_type.QuestionType"
+                                    >QuestionType</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.question_type"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-question-type-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.question_type module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.question_type"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.question_type.QuestionType"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.question_type.</code
+                        ><code class="sig-name descname">QuestionType</code
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.question_type.QuestionType"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question_type.QuestionType.CHOICE"
+                          >
+                            <code class="sig-name descname">CHOICE</code
+                            ><em class="property"> = 'CHOICE'</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType.CHOICE"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question_type.QuestionType.OPEN"
+                          >
+                            <code class="sig-name descname">OPEN</code
+                            ><em class="property"> = 'OPEN'</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType.OPEN"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question_type.QuestionType.RADIO"
+                          >
+                            <code class="sig-name descname">RADIO</code
+                            ><em class="property"> = 'RADIO'</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType.RADIO"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py attribute">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question_type.QuestionType.YES_NO"
+                          >
+                            <code class="sig-name descname">YES_NO</code
+                            ><em class="property"> = 'YES_NO'</em
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType.YES_NO"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd></dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.question_type.QuestionType.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType"
+                              title="quizmous_api.api.swagger.models.question_type.QuestionType"
+                              >quizmous_api.api.swagger.models.question_type.QuestionType</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.question_type.QuestionType.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The QuestionType of this QuestionType. # noqa:
+                                  E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.question_type.QuestionType"
+                                    title="quizmous_api.api.swagger.models.question_type.QuestionType"
+                                    >QuestionType</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.quiz"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-quiz-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.quiz module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.quiz"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt id="quizmous_api.api.swagger.models.quiz.Quiz">
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.quiz.</code
+                        ><code class="sig-name descname">Quiz</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">quiz_id</span
+                          ><span class="p">:</span> <span class="n">int</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">author</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.get_user.GetUser"
+                              title="quizmous_api.api.swagger.models.get_user.GetUser"
+                              >quizmous_api.api.swagger.models.get_user.GetUser</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">name</span><span class="p">:</span>
+                          <span class="n">str</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">description</span
+                          ><span class="p">:</span> <span class="n">str</span>
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">questions</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >List<span class="p">[</span
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.question.Question"
+                              title="quizmous_api.api.swagger.models.question.Question"
+                              >quizmous_api.api.swagger.models.question.Question</a
+                            ><span class="p">]</span></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.quiz.Quiz"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.author"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">author</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.author"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the author of this Quiz.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The author of this Quiz.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.get_user.GetUser"
+                                    title="quizmous_api.api.swagger.models.get_user.GetUser"
+                                    >GetUser</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.description"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">description</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.description"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the description of this Quiz.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The description of this Quiz.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz"
+                              title="quizmous_api.api.swagger.models.quiz.Quiz"
+                              >quizmous_api.api.swagger.models.quiz.Quiz</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The Quiz of this Quiz. # noqa: E501</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.quiz.Quiz"
+                                    title="quizmous_api.api.swagger.models.quiz.Quiz"
+                                    >Quiz</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.name"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">name</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.name"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the name of this Quiz.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The name of this Quiz.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.questions"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">questions</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.questions"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the questions of this Quiz.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The questions of this Quiz.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  List[<a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.question.Question"
+                                    title="quizmous_api.api.swagger.models.question.Question"
+                                    >Question</a
+                                  >]
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.quiz.Quiz.quiz_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">quiz_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.quiz.Quiz.quiz_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Gets the quiz_id of this Quiz.</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The quiz_id of this Quiz.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>int</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.user_answers"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-user-answers-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.user_answers module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.user_answers"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.user_answers.</code
+                        ><code class="sig-name descname">UserAnswers</code
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers.UserAnswers.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                              title="quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                              >quizmous_api.api.swagger.models.user_answers.UserAnswers</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers.UserAnswers.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The UserAnswers of this UserAnswers. # noqa:
+                                  E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                                    title="quizmous_api.api.swagger.models.user_answers.UserAnswers"
+                                    >UserAnswers</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.user_answers_inner"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-user-answers-inner-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.user_answers_inner
+                      module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.user_answers_inner"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.user_answers_inner.</code
+                        ><code class="sig-name descname">UserAnswersInner</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">question_id</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            ><a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                              title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                              >quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId</a
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                              title="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                              >quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The UserAnswers_inner of this
+                                  UserAnswersInner. # noqa: E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                                    title="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner"
+                                    >UserAnswersInner</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.question_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">question_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner.UserAnswersInner.question_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>
+                              Gets the question_id of this UserAnswersInner.
+                            </p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>The question_id of this UserAnswersInner.</p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                                    title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                                    >UserAnswersInnerQuestionId</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models.user_answers_inner_question_id"
+                  >
+                    <span
+                      id="quizmous-api-api-swagger-models-user-answers-inner-question-id-module"
+                    ></span>
+                    <h2>
+                      quizmous_api.api.swagger.models.user_answers_inner_question_id
+                      module<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models.user_answers_inner_question_id"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <dl class="py class">
+                      <dt
+                        id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                      >
+                        <em class="property">class </em
+                        ><code class="sig-prename descclassname"
+                          >quizmous_api.api.swagger.models.user_answers_inner_question_id.</code
+                        ><code class="sig-name descname"
+                          >UserAnswersInnerQuestionId</code
+                        ><span class="sig-paren">(</span
+                        ><em class="sig-param"
+                          ><span class="n">answer_id</span
+                          ><span class="p">:</span>
+                          <span class="n"
+                            >List<span class="p">[</span>int<span class="p"
+                              >]</span
+                            ></span
+                          >
+                          <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        >,
+                        <em class="sig-param"
+                          ><span class="n">value</span><span class="p">:</span>
+                          <span class="n">str</span> <span class="o">=</span>
+                          <span class="default_value">None</span></em
+                        ><span class="sig-paren">)</span
+                        ><a
+                          class="headerlink"
+                          href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                          title="Permalink to this definition"
+                          >¶</a
+                        >
+                      </dt>
+                      <dd>
+                        <p>
+                          Bases:
+                          <a
+                            class="reference internal"
+                            href="#quizmous_api.api.swagger.models.base_model_.Model"
+                            title="quizmous_api.api.swagger.models.base_model_.Model"
+                            ><code
+                              class="xref py py-class docutils literal notranslate"
+                              ><span class="pre"
+                                >quizmous_api.api.swagger.models.base_model_.Model</span
+                              ></code
+                            ></a
+                          >
+                        </p>
+                        <p>
+                          NOTE: This class is auto generated by the swagger code
+                          generator program.
+                        </p>
+                        <p>Do not edit the class manually.</p>
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.answer_id"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">answer_id</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.answer_id"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>
+                              Gets the answer_id of this
+                              UserAnswersInnerQuestionId.
+                            </p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The answer_id of this
+                                  UserAnswersInnerQuestionId.
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>List[int]</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.from_dict"
+                          >
+                            <em class="property">classmethod </em
+                            ><code class="sig-name descname">from_dict</code
+                            ><span class="sig-paren">(</span
+                            ><em class="sig-param"
+                              ><span class="n">dikt</span></em
+                            ><span class="sig-paren">)</span> &#x2192;
+                            <a
+                              class="reference internal"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                              title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                              >quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId</a
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.from_dict"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>Returns the dict as a model</p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Parameters</dt>
+                              <dd class="field-odd">
+                                <p><strong>dikt</strong> – A dict.</p>
+                              </dd>
+                              <dt class="field-even">Type</dt>
+                              <dd class="field-even"><p>dict</p></dd>
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The UserAnswers_inner_question_id of this
+                                  UserAnswersInnerQuestionId. # noqa: E501
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even">
+                                <p>
+                                  <a
+                                    class="reference internal"
+                                    href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                                    title="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId"
+                                    >UserAnswersInnerQuestionId</a
+                                  >
+                                </p>
+                              </dd>
+                            </dl>
+                          </dd>
+                        </dl>
+
+                        <dl class="py method">
+                          <dt
+                            id="quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.value"
+                          >
+                            <em class="property">property </em
+                            ><code class="sig-name descname">value</code
+                            ><a
+                              class="headerlink"
+                              href="#quizmous_api.api.swagger.models.user_answers_inner_question_id.UserAnswersInnerQuestionId.value"
+                              title="Permalink to this definition"
+                              >¶</a
+                            >
+                          </dt>
+                          <dd>
+                            <p>
+                              Gets the value of this UserAnswersInnerQuestionId.
+                            </p>
+                            <dl class="field-list simple">
+                              <dt class="field-odd">Returns</dt>
+                              <dd class="field-odd">
+                                <p>
+                                  The value of this UserAnswersInnerQuestionId.
+                                </p>
+                              </dd>
+                              <dt class="field-even">Return type</dt>
+                              <dd class="field-even"><p>str</p></dd>
+                            </dl>
+                          </dd>
+                        </dl>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div
+                    class="section"
+                    id="module-quizmous_api.api.swagger.models"
+                  >
+                    <span id="module-contents"></span>
+                    <h2>
+                      Module contents<a
+                        class="headerlink"
+                        href="#module-quizmous_api.api.swagger.models"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer>
+              <hr />
+
+              <div role="contentinfo">
+                <p>
+                  &copy; Copyright 2020, szykol
+                </p>
+              </div>
+              Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+              <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+              provided by <a href="https://readthedocs.org">Read the Docs</a>.
+            </footer>
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, szykol
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
-      </div>
+      </section>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-
-  <script type="text/javascript">
+    <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+        SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+    </script>
+  </body>
 </html>
